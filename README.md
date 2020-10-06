@@ -32,7 +32,7 @@ Once the category is clear, clients get interested in performance and specificat
 Clients will then focus on one or two models.
 
 Do not impose this hierarchy.
-A repeat-visitor could be specific about the model at the start itself.
+A repeat-visitor could be specific about the model at the start itself
 
 ### Configure
 
