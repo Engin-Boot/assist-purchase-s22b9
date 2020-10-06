@@ -7,7 +7,7 @@ It serves both the customer as well as Philips personnel.
 
 It has two segments:
 
-1. The API - Both GUI and non-GUI clients can consume this.
+1. The API - Both GUI and non-GUI clients can consume this
 1. The GUI, which is one client of the API
 
 About the clients:
