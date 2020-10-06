@@ -1,4 +1,4 @@
-# Assist a Purchase
+﻿# Assist a Purchase
 
 Philips offers monitoring solutions, as [seen here](https://www.philips.co.in/healthcare/solutions/patient-monitoring/continuous-patient-monitoring-systems).
 
@@ -90,5 +90,5 @@ Example: I receive an e-mail when a customer wants a human interface.
 
 Acceptance Criteria:
 
-- The e-mail must have sufficient detail to contact the correct person
+- The e-mail must have sufficient detail to contact the person
 on the customer-side.
