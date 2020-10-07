@@ -10,7 +10,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+     Solution_Name: AssistAPurchase.sln 
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
