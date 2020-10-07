@@ -26,8 +26,8 @@ namespace AssistAPurchase.Controllers
             return Products.GetAll();
         }
 
-        [HttpGet("{productNumber}", Name = "GetProdcuts")]
-        public IActionResult GetProductByProductNumber(int productNumber)
+        [HttpGet("{productNumber}")]
+        public IActionResult GetProductByProductNumber(string productNumber)
         {
             var product = Products.Find(productNumber);
             if (product == null)
@@ -37,8 +37,8 @@ namespace AssistAPurchase.Controllers
             return new ObjectResult(product);
         }
 
-        [HttpPost]
-        public IActionResult Create([FromBody] MonitoringItems product)
+        [HttpPost("{productNumber}")]
+        public IActionResult Create(string productNumber,[FromBody] MonitoringItems product)
         {
             if (product == null)
             {
@@ -49,7 +49,7 @@ namespace AssistAPurchase.Controllers
         }
 
         [HttpPut("{productNumber}")]
-        public IActionResult Update(int productNumber, [FromBody] MonitoringItems product)
+        public IActionResult Update(string productNumber, [FromBody] MonitoringItems product)
         {
             if (product == null || product.ProductNumber != productNumber)
             {
@@ -67,7 +67,7 @@ namespace AssistAPurchase.Controllers
         }
 
         [HttpDelete("{productNumber}")]
-        public void Delete(int productNumber)
+        public void Delete(string productNumber)
         {
             Products.Remove(productNumber);
         }

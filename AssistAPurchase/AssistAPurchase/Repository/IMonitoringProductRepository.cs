@@ -1,17 +1,15 @@
 ﻿using AssistAPurchase.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace AssistAPurchase.Repository
 {
     public interface IMonitoringProductRepository
     {
-        void Add(MonitoringItems monitoringProducts);
+        void Add(MonitoringItems monitoringItems);
         IEnumerable<MonitoringItems> GetAll();
-        MonitoringItems Find(int productNumber);
-        MonitoringItems Remove(int productNumber);
-        void Update(MonitoringItems monitoringItems);
+        MonitoringItems Find(string productNumber);
+        MonitoringItems Remove(string productNumber);
+        string Update(MonitoringItems monitoringItems);
     }
 }

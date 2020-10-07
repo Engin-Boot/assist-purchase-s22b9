@@ -30,9 +30,7 @@ namespace AssistAPurchase
             services.AddControllers();
             // Add framework services.
             services.AddMvc();
-
             services.AddLogging();
-
             // Add our repository type
             services.AddSingleton<IMonitoringProductRepository, MonitoringProductRepository>();
         }
