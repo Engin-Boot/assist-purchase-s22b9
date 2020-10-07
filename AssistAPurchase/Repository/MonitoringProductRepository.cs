@@ -8,8 +8,6 @@ namespace AssistAPurchase.Repository
 {
     public class MonitoringProductRepository : IMonitoringProductRepository
     {
-        //private static ConcurrentDictionary<string, MonitoringItems> items = new ConcurrentDictionary<string, MonitoringItems>();
-
         private static List<MonitoringItems> monitoringItems = new List<MonitoringItems>();
 
         public MonitoringProductRepository()
@@ -21,14 +19,12 @@ namespace AssistAPurchase.Repository
 
         public IEnumerable<MonitoringItems> GetAll()
         {
-            //return items.Values;
             return monitoringItems;
             
         }
 
         public void Add(MonitoringItems product)
         {
-            //items[product.ProductNumber] = product;
             monitoringItems.Add(product);
 
         }
@@ -40,14 +36,7 @@ namespace AssistAPurchase.Repository
                 if (monitoringItems[i].ProductNumber == productNumber)
                     return monitoringItems[i];
             }
-
-            MonitoringItems notAvailableItem = new MonitoringItems();
-            notAvailableItem.ProductName = "Available";
-            notAvailableItem.ProductNumber = "Not Available";
-            return notAvailableItem;
-            /*MonitoringItems product;
-            items.TryGetValue(productNumber, out product);
-            return product;*/
+            return null;
         }
 
         public MonitoringItems Remove(string productNumber)
@@ -62,14 +51,7 @@ namespace AssistAPurchase.Repository
                     return currentProduct;
                 }
             }
-            MonitoringItems notAvailableItem = new MonitoringItems();
-            notAvailableItem.ProductName = "Not Available";
-            notAvailableItem.ProductNumber = "Not Available";
-            return notAvailableItem;
-            /*MonitoringItems product;
-            items.TryGetValue(productNumber, out product);
-            items.TryRemove(productNumber, out product);
-            return product;*/
+            return null;
         }
 
         public string Update(MonitoringItems product)
@@ -88,7 +70,7 @@ namespace AssistAPurchase.Repository
             }
             message = "No Items Matches!!";
             return message;
-            //items[product.ProductNumber] = product;
+           
         }
     }
 }

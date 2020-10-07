@@ -21,11 +21,15 @@ namespace AssistAPurchase.Controllers
             Products = prodcuts;
         }
 
-        public IEnumerable<MonitoringItems> GetAll()
+        // GET api/ProductConfigure/getAllProducts
+        [HttpGet("getAllProducts")]
+        public ActionResult<IEnumerable<MonitoringItems>> GetAll()
         {
-            return Products.GetAll();
+            var allproducts = Products.GetAll();
+            return Ok(allproducts);
         }
 
+        // GET api/ProductConfigure/{productNumber}
         [HttpGet("{productNumber}")]
         public IActionResult GetProductByProductNumber(string productNumber)
         {
@@ -34,9 +38,11 @@ namespace AssistAPurchase.Controllers
             {
                 return NotFound();
             }
-            return new ObjectResult(product);
+            //return new ObjectResult(product);
+            return Ok(product);
         }
 
+        // POST api/ProductConfigure/{productNumber}
         [HttpPost("{productNumber}")]
         public IActionResult Create(string productNumber,[FromBody] MonitoringItems product)
         {
@@ -48,6 +54,7 @@ namespace AssistAPurchase.Controllers
             return CreatedAtRoute("GetMonitoringProduct", new { productNumber = product.ProductNumber }, product);
         }
 
+        // Put api/ProductConfigure/{productNumber}
         [HttpPut("{productNumber}")]
         public IActionResult Update(string productNumber, [FromBody] MonitoringItems product)
         {
@@ -55,21 +62,28 @@ namespace AssistAPurchase.Controllers
             {
                 return BadRequest();
             }
-
             var currentProduct = Products.Find(productNumber);
             if (currentProduct == null)
             {
                 return NotFound();
             }
-
             Products.Update(product);
             return new NoContentResult();
         }
 
+
+        // Delete api/ProductConfigure/{productNumber}
         [HttpDelete("{productNumber}")]
-        public void Delete(string productNumber)
+        public ActionResult Delete(string productNumber)
         {
+            var currentProduct = Products.Find(productNumber);
+            //Products.Remove(productNumber);
+            if (currentProduct == null)
+            {
+                return NotFound();
+            }
             Products.Remove(productNumber);
+            return Ok();
         }
     }
 }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\Assist-A_Purchase-Segment1\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj",
+      "projectUniqueName": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\assist-purchase-s22b9-main\\AssistAPurchase\\AssistAPurchase.csproj",
       "projectName": "AssistAPurchase",
-      "projectPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\Assist-A_Purchase-Segment1\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj",
+      "projectPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\assist-purchase-s22b9-main\\AssistAPurchase\\AssistAPurchase.csproj",
       "packagesPath": "C:\\Users\\320104085\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\Assist-A_Purchase-Segment1\\assist-purchase-s22b9\\AssistAPurchase\\obj\\",
+      "outputPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\assist-purchase-s22b9-main\\AssistAPurchase\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\320104085\\AppData\\Roaming\\NuGet\\NuGet.Config",
