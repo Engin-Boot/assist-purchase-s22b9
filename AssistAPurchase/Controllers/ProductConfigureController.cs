@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AssistAPurchase.Models;
 using AssistAPurchase.Repository;
+using AssistAPurchase.SupportingFunctions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -58,10 +59,12 @@ namespace AssistAPurchase.Controllers
         [HttpPut("{productNumber}")]
         public IActionResult Update(string productNumber, [FromBody] MonitoringItems product)
         {
-            if (product == null || product.ProductNumber != productNumber)
+            if (ProductConfigureSupporterFunctions.CheckForNullOrMisMatchProductNumber(product, productNumber))
+                return BadRequest();
+            /*if (product == null || product.ProductNumber != productNumber)
             {
                 return BadRequest();
-            }
+            }*/
             var currentProduct = Products.Find(productNumber);
             if (currentProduct == null)
             {
