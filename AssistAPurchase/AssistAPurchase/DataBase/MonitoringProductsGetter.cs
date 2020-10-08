@@ -11,7 +11,7 @@ namespace AssistAPurchase.DataBase
 
             this.getAllItems();
             Console.WriteLine(Products.Count);
-            
+
         }
         private void getAllItems()
         {
