@@ -32,7 +32,7 @@ namespace AssistAPurchase.Controllers
 
         // GET api/ProductConfigure/{productNumber}
         [HttpGet("{productNumber}")]
-        public IActionResult GetProductByProductNumber(string productNumber)
+        public ActionResult<IEnumerable<MonitoringItems>> GetProductByProductNumber(string productNumber)
         {
             var product = Products.Find(productNumber);
             if (product == null)

@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistAPurchase", "AssistAPurchase\AssistAPurchase.csproj", "{81D73356-C56C-4B4F-A3CB-54629125D618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssistAPurchase.Integration.Tests", "AssistAPurchase.Integration.Tests\AssistAPurchase.Integration.Tests.csproj", "{6E962439-C79C-4A72-B058-4EE1950F2998}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistAPurchase.Integration.Tests", "AssistAPurchase.Integration.Tests\AssistAPurchase.Integration.Tests.csproj", "{6E962439-C79C-4A72-B058-4EE1950F2998}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistAPurchaseWebApiTest", "AssistAPurchaseWebApiTest\AssistAPurchaseWebApiTest.csproj", "{1491A108-795B-48EC-B61B-C90791F2095F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{81D73356-C56C-4B4F-A3CB-54629125D618} = {81D73356-C56C-4B4F-A3CB-54629125D618}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{6E962439-C79C-4A72-B058-4EE1950F2998}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E962439-C79C-4A72-B058-4EE1950F2998}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E962439-C79C-4A72-B058-4EE1950F2998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1491A108-795B-48EC-B61B-C90791F2095F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1491A108-795B-48EC-B61B-C90791F2095F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1491A108-795B-48EC-B61B-C90791F2095F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1491A108-795B-48EC-B61B-C90791F2095F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aKuo74Q/a9E5FITLZSfKYqfPYMLpbcBcdRSd2oTLSnMGXLge+9gjWvgjTZCnQGEnHLHnHmFbWXNM2rUT8i9YWQ==",
+  "dgSpecHash": "2VY3UYs/QhDkE36rC5/kC/27XuxB7AurfCwdeBaKbYJNt1RGNK6wJvGEEOq/FWNN3SK7wMCDl5m36VT3TZ05GA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2\\assist-purchase-s22b9\\AssistAPurchaseWebApiTest\\AssistAPurchaseWebApiTest.csproj",
+  "projectFilePath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\Final-Assist-A-Purchase\\assist-purchase-s22b9\\AssistAPurchaseWebApiTest\\AssistAPurchaseWebApiTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\320104085\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\320104085\\.nuget\\packages\\coverlet.msbuild\\2.9.0\\coverlet.msbuild.2.9.0.nupkg.sha512",
