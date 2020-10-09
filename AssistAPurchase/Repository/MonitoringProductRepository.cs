@@ -27,6 +27,7 @@ namespace AssistAPurchase.Repository
         {
             monitoringItems.Add(product);
 
+
         }
 
         public MonitoringItems Find(string productNumber)
