@@ -33,6 +33,8 @@ namespace AssistAPurchase
             services.AddLogging();
             // Add our repository type
             services.AddSingleton<IMonitoringProductRepository, MonitoringProductRepository>();
+            services.AddSingleton<IRespondToQuestionRepository, RespondToQuestionRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

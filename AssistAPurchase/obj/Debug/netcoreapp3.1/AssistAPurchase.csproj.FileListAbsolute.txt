@@ -117,4 +117,3 @@ C:\viewer\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\staticwe
 C:\viewer\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.dll
 C:\viewer\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.pdb
 C:\viewer\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.genruntimeconfig.cache
-C:\Users\320104085\OneDrive - Philips\Bootcamp\Final-Assist-A-Purchase\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.csprojAssemblyReference.cache
