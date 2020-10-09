@@ -78,7 +78,48 @@ namespace AssistAPurchase.Controllers
             return Ok(Products.FindByPortabilityCategory(value));
         }
 
+        [HttpGet("MonitoringProductHomePage/BatterySupport/{value}")]
+        public ActionResult<IEnumerable<MonitoringItems>> GetValueByBatterySupportCategory(string value)
+        {
+            return Ok(Products.FindByBatterySupportCategory(value));
+        }
 
+        [HttpGet("MonitoringProductHomePage/ThirdPartyDeviceSupport/{value}")]
+        public ActionResult<IEnumerable<MonitoringItems>> GetValueByThirdPartyDeviceSupportCategory(string value)
+        {
+            return Ok(Products.FindByThirdPartyDeviceSupportCategory(value));
+        }
+        [HttpGet("MonitoringProductHomePage/SafeToFlyCertification/{value}")]
+        public ActionResult<IEnumerable<MonitoringItems>> GetValueBySafeToFlyCertificationCategory(string value)
+        {
+            return Ok(Products.FindBySafeToFlyCertificationCategory(value));
+        }
+
+
+        [HttpGet("MonitoringProductHomePage/TouchScreenSupport/{value}")]
+        public ActionResult<IEnumerable<MonitoringItems>> GetValueByTouchScreenSupportCategory(string value)
+        {
+            return Ok(Products.FindByTouchScreenSupportCategory(value));
+        }
+
+        [HttpGet("MonitoringProductHomePage/ScreenSize/{screenSize}/{belowOrAbove}")]
+        public ActionResult<IEnumerable<MonitoringItems>> GetValueByScreenSizeCategory(string screenSize,string belowOrAbove)
+        {
+            return Ok(Products.FindByScreenSizeCategory(screenSize,belowOrAbove));
+        }
+
+
+        [HttpGet("MonitoringProductHomePage/MultiPatientSupport/{value}")]
+        public ActionResult<IEnumerable<MonitoringItems>> GetValueByMultiPatientSupportCategory(string value)
+        {
+            return Ok(Products.FindByMultiPatientSupportCategory(value));
+        }
+
+        [HttpGet("MonitoringProductHomePage/CyberSecurity/{value}")]
+        public ActionResult<IEnumerable<MonitoringItems>> GetValueByCyberSecurityCategory(string value)
+        {
+            return Ok(Products.FindByCyberSecuritytCategory(value));
+        }
 
     }
 }
