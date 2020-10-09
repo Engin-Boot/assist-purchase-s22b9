@@ -6,7 +6,7 @@ namespace AssistAPurchaseWebApiTest
 {
     class MonitoringProductTestRepository:IMonitoringProductRepository
     {
-        private  List<MonitoringItems> monitoringItems = new List<MonitoringItems>();
+        private readonly List<MonitoringItems> monitoringItems = new List<MonitoringItems>();
 
         public MonitoringProductTestRepository()
         {
@@ -30,11 +30,17 @@ namespace AssistAPurchaseWebApiTest
 
         public MonitoringItems Find(string productNumber)
         {
+            foreach (MonitoringItems item in monitoringItems)
+            {
+                if (item.ProductNumber == productNumber)
+                    return item;
+            }
+            /*
             for (int i = 0; i < monitoringItems.Count; i++)
             {
                 if (monitoringItems[i].ProductNumber == productNumber)
                     return monitoringItems[i];
-            }
+            }*/
             return null;
         }
 

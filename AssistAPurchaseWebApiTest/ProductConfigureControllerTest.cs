@@ -9,13 +9,12 @@ namespace AssistAPurchaseWebApiTest
 {
     public class ProductConfigureControllerTest
     {
-        ProductConfigureController controller;
+        readonly ProductConfigureController controller;
         IMonitoringProductRepository service;
 
         public ProductConfigureControllerTest() {
             service = new MonitoringProductTestRepository();
             controller = new ProductConfigureController(service);
-
         }
 
         //Tests for GET getAll()- GET api/ProductConfigure/getAllProducts
