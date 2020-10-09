@@ -1,10 +1,6 @@
 ﻿using AssistAPurchase.Models;
 using AssistAPurchase.Repository;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using static AssistAPurchase.Models.MonitoringItems;
-
 
 namespace AssistAPurchaseWebApiTest
 {
@@ -20,19 +16,16 @@ namespace AssistAPurchaseWebApiTest
             Add(new MonitoringItems { ProductNumber = "MP2", ProductName = "IntelliVue" });
             Add(new MonitoringItems { ProductNumber = "CM", ProductName = "Efficia" });
             Add(new MonitoringItems { ProductNumber = "G40E", ProductName = "Goldway" });
-
         }
 
         public IEnumerable<MonitoringItems> GetAll()
         {
             return monitoringItems;
-
         }
 
         public void Add(MonitoringItems product)
         {
             monitoringItems.Add(product);
-
         }
 
         public MonitoringItems Find(string productNumber)
@@ -76,7 +69,6 @@ namespace AssistAPurchaseWebApiTest
             }
             message = "No Items Matches!!";
             return message;
-
         }
     }
 }

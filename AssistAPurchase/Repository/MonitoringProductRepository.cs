@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Concurrent;
-using AssistAPurchase.Models;
+﻿using System.Collections.Generic;
 using AssistAPurchase.DataBase;
+using AssistAPurchase.Models;
 
 namespace AssistAPurchase.Repository
 {
@@ -12,55 +10,48 @@ namespace AssistAPurchase.Repository
 
         public MonitoringProductRepository()
         {
-            List<MonitoringItems> products = new MonitoringProductsGetter().Products;
-            for (int index = 0; index < products.Count; index++)
+            var products = new MonitoringProductsGetter().Products;
+            for (var index = 0; index < products.Count; index++)
                 Add(products[index]);
         }
 
         public IEnumerable<MonitoringItems> GetAll()
         {
             return monitoringItems;
-            
         }
 
         public void Add(MonitoringItems product)
         {
             monitoringItems.Add(product);
-
-
         }
 
         public MonitoringItems Find(string productNumber)
         {
-            for (int i = 0; i < monitoringItems.Count; i++)
-            {
+            for (var i = 0; i < monitoringItems.Count; i++)
                 if (monitoringItems[i].ProductNumber == productNumber)
                     return monitoringItems[i];
-            }
             return null;
         }
 
         public MonitoringItems Remove(string productNumber)
         {
-            for (int i = 0; i < monitoringItems.Count; i++)
-            {
+            for (var i = 0; i < monitoringItems.Count; i++)
                 if (monitoringItems[i].ProductNumber == productNumber)
                 {
-                    MonitoringItems currentProduct = new MonitoringItems();
+                    var currentProduct = new MonitoringItems();
                     currentProduct = monitoringItems[i];
                     monitoringItems.RemoveAt(i);
                     return currentProduct;
                 }
-            }
+
             return null;
         }
 
         public string Update(MonitoringItems product)
         {
-            string currentProductNumber = product.ProductNumber;
-            string message = "";
-            for (int i = 0; i < monitoringItems.Count; i++)
-            {
+            var currentProductNumber = product.ProductNumber;
+            var message = "";
+            for (var i = 0; i < monitoringItems.Count; i++)
                 if (monitoringItems[i].ProductNumber == currentProductNumber)
                 {
                     monitoringItems.RemoveAt(i);
@@ -68,10 +59,9 @@ namespace AssistAPurchase.Repository
                     message = "Updated Sucessfully";
                     return message;
                 }
-            }
+
             message = "No Items Matches!!";
             return message;
-           
         }
     }
 }

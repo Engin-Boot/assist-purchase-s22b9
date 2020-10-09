@@ -11,26 +11,21 @@ using Xunit;
 
 namespace AssistAPurchase.Integration.Tests.Scenarios
 {
-    public class UriTests
+    public class ProductConfigureControllerIntegrationTest
     {
         private readonly TestContext _sut;
 
-        public UriTests()
+        public ProductConfigureControllerIntegrationTest()
         {
             _sut = new TestContext();
         }
         MonitoringProductsGetter products_database = new MonitoringProductsGetter();
-
-
 
         [Fact]
         public async Task WhenViewAllProductsThenCheckDatabaseCountWithRenderedProductsCount()
         {
             var response = await _sut.Client.GetAsync("https://localhost:5001/api/ProductConfigure/getAllProducts");
             response.EnsureSuccessStatusCode();
-            var responseString = await response.Content.ReadAsStringAsync();
-            //  var forecast = JsonConvert.DeserializeObject<Task[]>(await response.Content.ReadAsStringAsync());
-            //  forecast.Should().HaveCount(products_database.Products.Count);
             Assert.Equal(17, products_database.Products.Count);
         }
 
@@ -61,22 +56,6 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
                 new StringContent(JsonConvert.SerializeObject(value), Encoding.UTF8, "application/json"));
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
-
-
-        /*  [Fact]
-              public async Task WhenNewDataIsAddedThenCheckTheResponse()
-              {
-                  var products = new MonitoringItems()
-                  {
-                      ProductName = "InelliVue",
-                      ProductNumber = "X7"
-
-                  };
-                  var response = await _sut.Client.PostAsync("https://localhost:5001/api/ProductConfigure/AddNewItems",
-                      new StringContent(JsonConvert.SerializeObject(products), Encoding.UTF8, "application/json"));
-
-               response.StatusCode.Should().Be(HttpStatusCode.Created);
-           }*/
 
         [Fact]
         public async Task WhenDeleteRequestIsSentThenResponseOk()

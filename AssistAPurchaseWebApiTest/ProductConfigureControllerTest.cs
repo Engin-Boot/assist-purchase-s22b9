@@ -2,7 +2,6 @@ using AssistAPurchase.Controllers;
 using AssistAPurchase.Models;
 using AssistAPurchase.Repository;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -13,11 +12,9 @@ namespace AssistAPurchaseWebApiTest
         ProductConfigureController controller;
         IMonitoringProductRepository service;
 
-       
         public ProductConfigureControllerTest() {
-
             service = new MonitoringProductTestRepository();
-           controller = new ProductConfigureController(service);
+            controller = new ProductConfigureController(service);
 
         }
 

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Concurrent;
+﻿using System.Collections.Generic;
 using AssistAPurchase.Models;
-using AssistAPurchase.DataBase;
-using System.Runtime.CompilerServices;
-using Microsoft.AspNetCore.Mvc;
 using AssistAPurchase.SupportingFunctions;
 namespace AssistAPurchase.Repository
 {
@@ -32,8 +27,7 @@ namespace AssistAPurchase.Repository
             MonitoringItems monitoringItem= Find(productNumber);
             if (monitoringItem == null)
                 return null;
-            else
-                return monitoringItem.Description;
+            return monitoringItem.Description;
         }
 
         public IEnumerable<MonitoringItems> FindByProductSpecificTrainingCategory(string productSpecificTrainingvalue)
@@ -47,7 +41,6 @@ namespace AssistAPurchase.Repository
                 }
             }
             return finalItemWithProductSpecificTrainingCategory;
-
         }
 
         public IEnumerable<MonitoringItems> FindByPriceCategory(string amount, string belowOrAbove) 
@@ -93,7 +86,6 @@ namespace AssistAPurchase.Repository
                 }
             }
             return finalItemWithPortabilityCategory;
-
         }
         public IEnumerable<MonitoringItems> FindByBatterySupportCategory(string batterySupportCategoryValue)
         {
@@ -106,7 +98,6 @@ namespace AssistAPurchase.Repository
                 }
             }
             return finalItemWithBatterySupportCategory;
-
         }
 
         public IEnumerable<MonitoringItems> FindByThirdPartyDeviceSupportCategory(string thirdPartyDeviceSupportCategoryValue)
@@ -120,7 +111,6 @@ namespace AssistAPurchase.Repository
                 }
             }
             return finalItemWithThirdPartyDeviceSupportCategory;
-
         }
 
         public IEnumerable<MonitoringItems> FindBySafeToFlyCertificationCategory(string safeToFlyCertificationCategoryValue)
@@ -134,7 +124,6 @@ namespace AssistAPurchase.Repository
                 }
             }
             return finalItemWithSafeToFlyCertificationCategory;
-
         }
         public IEnumerable<MonitoringItems> FindByTouchScreenSupportCategory(string touchScreenSupportCategoryValue)
         {
@@ -147,15 +136,15 @@ namespace AssistAPurchase.Repository
                 }
             }
             return finalItemWithTouchScreenSupportCategory;
-
         }
+
         public IEnumerable<MonitoringItems> FindByScreenSizeCategory(string screenSize, string belowOrAbove)
         {
             if (belowOrAbove == "ABOVE")
                 return ProductConfigureSupporterFunctions.GetItemsAboveThanGivenScreenSize(screenSize,monitoringItems);
-
             return ProductConfigureSupporterFunctions.GetItemsBelowThanGivenScreenSize(screenSize, monitoringItems);
         }
+
         public IEnumerable<MonitoringItems> FindByMultiPatientSupportCategory(string multiPatientSupportCategoryValue)
         {
             List<MonitoringItems> finalItemWithMultiPatientSupportCategory = new List<MonitoringItems>();
@@ -167,7 +156,6 @@ namespace AssistAPurchase.Repository
                 }
             }
             return finalItemWithMultiPatientSupportCategory;
-
         }
 
         public IEnumerable<MonitoringItems> FindByCyberSecuritytCategory(string cyberSecurityCategoryValue)
@@ -181,7 +169,6 @@ namespace AssistAPurchase.Repository
                 }
             }
             return finalItemWithCyberSecurityCategory;
-
         }
 
     }

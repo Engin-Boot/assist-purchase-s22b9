@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
 using AssistAPurchase.Models;
-using AssistAPurchase.Repository;
-
 
 namespace AssistAPurchase.SupportingFunctions
 {
@@ -16,8 +9,7 @@ namespace AssistAPurchase.SupportingFunctions
         {
             if (product == null || product.ProductNumber != productNumber)
                 return true;
-            else
-                return false;
+            return false;
         }
 
         public static List<MonitoringItems> GetItemsAboveThanGivenPrice(string price, List<MonitoringItems> monitoringItems)
@@ -26,7 +18,6 @@ namespace AssistAPurchase.SupportingFunctions
             for (int i = 0; i < monitoringItems.Count; i++)
             {
                 if (float.Parse(monitoringItems[i].Price) > float.Parse(price))
-                   
                     finalItemWithPriceAboveCategory.Add(monitoringItems[i]);
             }
             return finalItemWithPriceAboveCategory;
@@ -37,7 +28,6 @@ namespace AssistAPurchase.SupportingFunctions
             for (int i = 0; i < monitoringItems.Count; i++)
             {
                 if (float.Parse(monitoringItems[i].Price) <= float.Parse(price))
-
                     finalItemWithPriceBelowCategory.Add(monitoringItems[i]);
             }
             return finalItemWithPriceBelowCategory;
@@ -49,7 +39,6 @@ namespace AssistAPurchase.SupportingFunctions
             for (int i = 0; i < monitoringItems.Count; i++)
             {
                 if (float.Parse(monitoringItems[i].ScreenSize) > float.Parse(screenSize))
-
                     finalItemWithScreenSizeAboveCategory.Add(monitoringItems[i]);
             }
             return finalItemWithScreenSizeAboveCategory;
@@ -60,7 +49,6 @@ namespace AssistAPurchase.SupportingFunctions
             for (int i = 0; i < monitoringItems.Count; i++)
             {
                 if (float.Parse(monitoringItems[i].ScreenSize) <= float.Parse(screenSize))
-
                     finalItemWithScreenSizeBelowCategory.Add(monitoringItems[i]);
             }
             return finalItemWithScreenSizeBelowCategory;

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using AssistAPurchase.Models;
 using System;
+
 namespace AssistAPurchase.DataBase
 {
     public class MonitoringProductsGetter
