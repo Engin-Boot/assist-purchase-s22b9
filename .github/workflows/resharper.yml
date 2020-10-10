@@ -18,9 +18,6 @@ jobs:
           
       - name: Install resharper
         run: dotnet tool install -g JetBrains.ReSharper.GlobalTools
-        
-      - name: Run resharper inspection
-        run: jb inspectcode AssistAPurchase.sln /output=insreport.xml
        
       - name: Run resharper duplicate code check
         run: jb dupfinder AssistAPurchase.sln /output=dupreport.xml
