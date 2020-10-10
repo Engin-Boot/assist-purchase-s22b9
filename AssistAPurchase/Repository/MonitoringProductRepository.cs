@@ -6,7 +6,7 @@ namespace AssistAPurchase.Repository
 {
     public class MonitoringProductRepository : IMonitoringProductRepository
     {
-        public static List<MonitoringItems> monitoringItems = new List<MonitoringItems>();
+        public List<MonitoringItems> monitoringItems = new List<MonitoringItems>();
 
         public MonitoringProductRepository()
         {

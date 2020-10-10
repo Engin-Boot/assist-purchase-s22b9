@@ -7,12 +7,12 @@ using Xunit;
 
 namespace AssistAPurchaseWebApiTest
 {
-    public class ProductConfigureControllerTest
+    public class ProductConfigureControllerUnitTests
     {
         readonly ProductConfigureController controller;
         IMonitoringProductRepository service;
 
-        public ProductConfigureControllerTest() {
+        public ProductConfigureControllerUnitTests() {
             service = new MonitoringProductTestRepository();
             controller = new ProductConfigureController(service);
         }
