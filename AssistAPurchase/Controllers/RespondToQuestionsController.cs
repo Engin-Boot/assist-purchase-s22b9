@@ -40,8 +40,8 @@ namespace AssistAPurchase.Controllers
             return Ok(Products.GetDescription(productNumber));
         }
         
-        [HttpGet("MonitoringProductHomePage/ProductSpecficTraining/{value}")]
-        public ActionResult<IEnumerable<MonitoringItems>> GetValueByProductSpecficTrainingCategory(string value)
+        [HttpGet("MonitoringProductHomePage/ProductSpecificTraining/{value}")]
+        public ActionResult<IEnumerable<MonitoringItems>> GetValueByProductSpecificTrainingCategory(string value)
         {
             return Ok(Products.FindByProductSpecificTrainingCategory(value));
         }

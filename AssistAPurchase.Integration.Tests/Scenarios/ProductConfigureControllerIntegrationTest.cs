@@ -14,7 +14,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
     public class ProductConfigureControllerIntegrationTest
     {
         private readonly TestContext _sut;
-
+        private static string url = "https://localhost:5001/api/ProductConfigure";
         public ProductConfigureControllerIntegrationTest()
         {
             _sut = new TestContext();
@@ -22,9 +22,9 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         MonitoringProductsGetter products_database = new MonitoringProductsGetter();
 
         [Fact]
-        public async Task WhenViewAllProductsThenCheckDatabaseCountWithRenderedProductsCount()
+        public async Task WhenViewProductsByThenCheckDatabaseCountWithRenderedProductsCount()
         {
-            var response = await _sut.Client.GetAsync("https://localhost:5001/api/ProductConfigure/getAllProducts");
+            var response = await _sut.Client.GetAsync(url + "/getAllProducts");
             response.EnsureSuccessStatusCode();
             Assert.Equal(17, products_database.Products.Count);
         }
@@ -34,7 +34,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         [Fact]
         public async Task WhenValidProductNumberIsGivenThenCheckTheProductName()
         {
-            var response = await _sut.Client.GetAsync("https://localhost:5001/api/ProductConfigure/X3");
+            var response = await _sut.Client.GetAsync(url + "/X3");
             var responseString = await response.Content.ReadAsStringAsync();
             Assert.Contains("IntelliVue", responseString);
         }
@@ -43,7 +43,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         [Fact]
         public async Task WhenInValidProductNumberIsGivenThenCheckTheResponseNotFound()
         {
-            var response = await _sut.Client.GetAsync("https://localhost:5001/api/ProductConfigure/X999");
+            var response = await _sut.Client.GetAsync(url + "/X999");
             response.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
         }
@@ -52,7 +52,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         public async Task WhenDataBodyIsPostedEmptyThenCheckResponseBadRequest()
         {
             MonitoringItems value = null;
-            var response = await _sut.Client.PostAsync("https://localhost:5001/api/ProductConfigure/X3",
+            var response = await _sut.Client.PostAsync(url + "/X3",
                 new StringContent(JsonConvert.SerializeObject(value), Encoding.UTF8, "application/json"));
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
@@ -60,14 +60,14 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         [Fact]
         public async Task WhenDeleteRequestIsSentThenResponseOk()
         {
-            var response = await _sut.Client.DeleteAsync($"https://localhost:5001/api/ProductConfigure/X3");
+            var response = await _sut.Client.DeleteAsync(url + "/X3");
             Assert.True(response.StatusCode == HttpStatusCode.OK);
         }
 
         [Fact]
         public async Task WhenDeleteRequestIsSentThenResponseNotFound()
         {
-            var response = await _sut.Client.DeleteAsync($"https://localhost:5001/api/ProductConfigure/X900");
+            var response = await _sut.Client.DeleteAsync(url + "/X900");
             Assert.True(response.StatusCode == HttpStatusCode.NotFound);
         }
 
@@ -81,7 +81,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
                 ProductNumber = "MX40"
 
             };
-            var response = await _sut.Client.PutAsync("https://localhost:5001/api/ProductConfigure/MX40",
+            var response = await _sut.Client.PutAsync(url + "/MX40",
                 new StringContent(JsonConvert.SerializeObject(updateProducts), Encoding.UTF8, "application/json"));
             Assert.True(response.StatusCode == HttpStatusCode.NoContent);
         }
@@ -96,7 +96,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
                 ProductNumber = "MX480"
 
             };
-            var response = await _sut.Client.PutAsync("https://localhost:5001/api/ProductConfigure/MX40",
+            var response = await _sut.Client.PutAsync(url + "/MX40",
                    new StringContent(JsonConvert.SerializeObject(products), Encoding.UTF8, "application/json"));
             Assert.True(response.StatusCode == HttpStatusCode.BadRequest);
         }
@@ -105,7 +105,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         public async Task WhenDataContainsEmptyBodyThenCheckTheResponseBadRequest()
         {
             MonitoringItems items = null;
-            var response = await _sut.Client.PutAsync("https://localhost:5001/api/ProductConfigure/MX40",
+            var response = await _sut.Client.PutAsync(url + "/MX40",
                 new StringContent(JsonConvert.SerializeObject(items), Encoding.UTF8, "application/json"));
             Assert.True(response.StatusCode == HttpStatusCode.BadRequest);
         }
@@ -119,7 +119,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
                 ProductNumber = "MX480"
 
             };
-            var response = await _sut.Client.PutAsync("https://localhost:5001/api/ProductConfigure/MX480",
+            var response = await _sut.Client.PutAsync(url + "/MX480",
                    new StringContent(JsonConvert.SerializeObject(modifyProducts), Encoding.UTF8, "application/json"));
             Assert.True(response.StatusCode == HttpStatusCode.NotFound);
         }
