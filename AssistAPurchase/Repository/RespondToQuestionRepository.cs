@@ -49,7 +49,7 @@ namespace AssistAPurchase.Repository
         {
             if (belowOrAbove == "ABOVE")
              return ProductConfigureSupporterFunctions.GetItemsAboveThanGivenPrice(amount, monitoringItems);
-         return ProductConfigureSupporterFunctions.GetItemsBelowThanGivenPrice(amount, monitoringItems);
+            return ProductConfigureSupporterFunctions.GetItemsBelowThanGivenPrice(amount, monitoringItems);
         }
         public IEnumerable<MonitoringItems> FindByWearableCategory(string wearableCategoryvalue){
 
