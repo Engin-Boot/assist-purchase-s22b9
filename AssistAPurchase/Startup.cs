@@ -26,6 +26,7 @@ namespace AssistAPurchase
             // Add our repository type
             services.AddSingleton<IMonitoringProductRepository, MonitoringProductRepository>();
             services.AddSingleton<IRespondToQuestionRepository, RespondToQuestionRepository>();
+            
 
         }
 

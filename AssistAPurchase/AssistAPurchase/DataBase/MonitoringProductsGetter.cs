@@ -6,7 +6,7 @@ namespace AssistAPurchase.DataBase
 {
     public class MonitoringProductsGetter
     {
-        public  List<MonitoringItems> Products { get; set; }
+        public List<MonitoringItems> Products { get; set; }
 
         public MonitoringProductsGetter() {
 

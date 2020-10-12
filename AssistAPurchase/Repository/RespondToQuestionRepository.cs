@@ -5,6 +5,8 @@ namespace AssistAPurchase.Repository
 {
     public class RespondToQuestionRepository :MonitoringProductRepository, IRespondToQuestionRepository
     {
+
+        
         public IEnumerable<MonitoringItems> GetAllProduct()
         {
             return GetAll();

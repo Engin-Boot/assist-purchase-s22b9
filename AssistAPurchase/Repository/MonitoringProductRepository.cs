@@ -7,14 +7,13 @@ namespace AssistAPurchase.Repository
     public class MonitoringProductRepository : IMonitoringProductRepository
     {
         public List<MonitoringItems> monitoringItems = new List<MonitoringItems>();
-
         public MonitoringProductRepository()
         {
             var products = new MonitoringProductsGetter().Products;
             for (var index = 0; index < products.Count; index++)
                 Add(products[index]);
         }
-
+        
         public IEnumerable<MonitoringItems> GetAll()
         {
             return monitoringItems;
