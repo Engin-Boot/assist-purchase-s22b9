@@ -22,7 +22,7 @@ namespace AssistAPurchase.Controllers
             if (body == null)
             {
                 message = "Unable to send alert!!.";
-                return NotFound(message);
+                return BadRequest(message);
             }
             message = body.CustomerName + " has booked following monitoring devices " + "\n" + body.ItemPurchased ;
             return Ok(message);
@@ -35,7 +35,7 @@ namespace AssistAPurchase.Controllers
             if (body==null)
             {
                 message = "Unable to send Message.";
-                return NotFound(message);
+                return BadRequest(message);
             }
             message = "Message Sent!!";
             Alerts.Add(body);
