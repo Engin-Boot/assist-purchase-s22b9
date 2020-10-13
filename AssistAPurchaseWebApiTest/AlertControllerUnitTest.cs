@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AssistAPurchase.Repository;
+﻿using AssistAPurchase.Repository;
 using AssistAPurchase.Controllers;
 using AssistAPurchase.Models;
 using Microsoft.AspNetCore.Mvc;

@@ -53,8 +53,9 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         {
             MonitoringItems value = null;
             var response = await _sut.Client.PostAsync(url + "/X3",
-                new StringContent(JsonConvert.SerializeObject(value), Encoding.UTF8, "application/json"));
-            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+                    new StringContent(JsonConvert.SerializeObject(value), Encoding.UTF8, "application/json"));
+                response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+            
         }
 
         [Fact]

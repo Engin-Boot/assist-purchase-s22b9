@@ -2,7 +2,6 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using AssistAPurchase.DataBase;
 using AssistAPurchase.Integration.Tests.Fixtures;
 using AssistAPurchase.Models;
 using FluentAssertions;
@@ -20,9 +19,6 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         {
             _sut = new TestContext();
         }
-        //MonitoringProductsGetter products_database = new MonitoringProductsGetter();
-        private AlertModel alert = new AlertModel();
-
 
         [Fact]
         public async Task WhenItemIsBookedThenSendConfirmationAlert()
