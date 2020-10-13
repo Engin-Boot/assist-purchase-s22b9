@@ -88,7 +88,7 @@ namespace AssistAPurchaseWebApiTest
             // Arrange
             MonitoringItems testMonitoringItem = new MonitoringItems()
             {
-                ProductNumber="QQQQ",
+                ProductNumber="XXXX",
                 ProductName="Printer"
             };
             var productNumber = "XXXX";
