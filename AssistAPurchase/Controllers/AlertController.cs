@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using AssistAPurchase.Models;
 using System.Collections.Generic;
 using System.Linq;
+using AssistAPurchase.Models;
+using AssistAPurchase.Repository;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,20 +15,17 @@ namespace AssistAPurchase.Controllers
     [ApiController]
     public class AlertController : ControllerBase
     {
-        //Dictionary<int, AlertModel> querys = new Dictionary<int, AlertModel>();
-        private static List<AlertModel> querys;
-        //static int queryNumber;
-        // POST api/Mailing
-
-        public AlertController()
-        { 
-            querys =new List<AlertModel>();
-            //queryNumber = 0;
+        public IAlertRepository Alerts { get; set; }
+        public AlertController(IAlertRepository alerts)
+        {
+            Alerts = alerts;
         }
+        
+        
         [HttpPost("ConfirmationAlert")]
         public IActionResult SendAlert([FromBody] AlertModel body)
         {
-            string message = "";
+            string message;
             if (body == null)
             {
                 message = "Unable to send alert!!.";
@@ -46,10 +45,8 @@ namespace AssistAPurchase.Controllers
                 return NotFound(message);
             }
             message = "Message Sent!!";
-            querys.Add(body);
-            querys.Append(body);
-            //++queryNumber;
-            return Ok(querys);
+            Alerts.Add(body);
+            return Ok(message);
         }
 
         [HttpPost("Query/{customerName}")]
@@ -57,16 +54,11 @@ namespace AssistAPurchase.Controllers
         {
 
             string message;
-            for (int i = 0; i < querys.Count; i++)
-            {
-                if (querys[i].CustomerName == customerName)
-                {
-                    message = "Question : " + querys[i].Question + "\n" + "Answer : " + answer.Answer;
-                    return Ok(message);
-                }
-            }
-            message = "Invalid Query Number";
-            return NotFound(querys);
+            AlertModel alert= Alerts.FindByCustomerName(customerName);
+            if (alert == null)
+                return NotFound("Query Not Registeded.");
+            message = "Question : " + alert.Question + "\n" + "Answer : " + answer.Answer;
+            return Ok(message);
         }
     }
 }

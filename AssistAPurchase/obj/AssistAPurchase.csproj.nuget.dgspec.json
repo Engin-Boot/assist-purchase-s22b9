@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\AssistAPurchaseNew\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj": {}
+    "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj": {}
   },
   "projects": {
-    "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\AssistAPurchaseNew\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj": {
+    "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\AssistAPurchaseNew\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj",
+        "projectUniqueName": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj",
         "projectName": "AssistAPurchase",
-        "projectPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\AssistAPurchaseNew\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj",
+        "projectPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj",
         "packagesPath": "C:\\Users\\320104085\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\AssistAPurchaseNew\\assist-purchase-s22b9\\AssistAPurchase\\obj\\",
+        "outputPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\320104085\\AppData\\Roaming\\NuGet\\NuGet.Config",

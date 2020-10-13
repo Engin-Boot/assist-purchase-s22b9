@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zvee/ai6tr8WWyGpswe9qENycOsE4ZLFsYQXDwqz4TkSI4QSgnKQHmy34OS5PVmR2G/jqlgqx3/8nH1snmYe3w==",
+  "dgSpecHash": "UuxZcbDVHAqtlKC0Q29xYDko6A6osDVtp3p1NUR+jSqtOim90kbfQZklq9M5ANRMdC06LtkKUZyjTw4uiBdj1w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\AssistAPurchaseNew\\assist-purchase-s22b9\\AssistAPurchase.Integration.Tests\\AssistAPurchase.Integration.Tests.csproj",
+  "projectFilePath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase.Integration.Tests\\AssistAPurchase.Integration.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\320104085\\.nuget\\packages\\fluentassertions\\5.10.3\\fluentassertions.5.10.3.nupkg.sha512",
     "C:\\Users\\320104085\\.nuget\\packages\\microsoft.aspnetcore.testhost\\3.1.8\\microsoft.aspnetcore.testhost.3.1.8.nupkg.sha512",
