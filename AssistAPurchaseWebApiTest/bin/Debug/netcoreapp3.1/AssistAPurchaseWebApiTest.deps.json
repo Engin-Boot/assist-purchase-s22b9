@@ -634,6 +634,14 @@
           "System.Xml.ReaderWriter": "4.0.11"
         }
       },
+      "XPlat.Core/1.7.20109.1": {
+        "runtime": {
+          "lib/netstandard2.0/XPlat.Core.dll": {
+            "assemblyVersion": "1.7.20109.1",
+            "fileVersion": "1.7.20109.1"
+          }
+        }
+      },
       "xunit/2.4.0": {
         "dependencies": {
           "xunit.analyzers": "0.10.0",
@@ -692,6 +700,9 @@
         }
       },
       "AssistAPurchase/1.0.0": {
+        "dependencies": {
+          "XPlat.Core": "1.7.20109.1"
+        },
         "runtime": {
           "AssistAPurchase.dll": {}
         }
@@ -1004,6 +1015,13 @@
       "sha512": "sha512-Mk2mKmPi0nWaoiYeotq1dgeNK1fqWh61+EK+w4Wu8SWuTYLzpUnschb59bJtGywaPq7SmTuPf44wrXRwbIrukg==",
       "path": "system.xml.xdocument/4.0.11",
       "hashPath": "system.xml.xdocument.4.0.11.nupkg.sha512"
+    },
+    "XPlat.Core/1.7.20109.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zLqWGPO6GmobKKO3no+tdchxgic/HC+qhdJiHUvOcFQnfSBX3ZFNxPf9wsT6dESc6qgG9I9rKNcnItduBtsuWw==",
+      "path": "xplat.core/1.7.20109.1",
+      "hashPath": "xplat.core.1.7.20109.1.nupkg.sha512"
     },
     "xunit/2.4.0": {
       "type": "package",

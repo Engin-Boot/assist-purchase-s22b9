@@ -10,6 +10,16 @@ namespace AssistAPurchaseWebApiTest
     {
         readonly AlertController controller;
         IAlertRepository service;
+
+        AlertModel alert = new AlertModel()
+        {
+            CustomerName = "Jerry",
+            CustonmerMailId = "jerry123@gmail.com",
+            ItemPurchased = "Item1 Item2 Item3",
+            CustomerphoneNumber = "098765432",
+            Question = "Which is the best according to budget?",
+            Answer = ""
+        };
         public AlertControllerUnitTest()
         {
             service = new AlertRepository();
@@ -29,7 +39,6 @@ namespace AssistAPurchaseWebApiTest
             // Assert
             Assert.IsType<OkObjectResult>(createdResponse);
         }
-
         [Fact]
         public void SendAlertWhenCustomerPurchedItemWithInvalidBodyReturnNotFound()
         {
@@ -40,7 +49,6 @@ namespace AssistAPurchaseWebApiTest
             // Assert
             Assert.IsType<BadRequestObjectResult>(createdResponse);
         }
-
         [Fact]
         public void SendAQueryToCustomerWhenQueryCalledAndReturnOk() {
 
@@ -61,7 +69,6 @@ namespace AssistAPurchaseWebApiTest
             Assert.IsType<OkObjectResult>(createdResponse);
 
         }
-
         [Fact]
         public void SendAQueryToCustomerWhenQueryCalledWithInvalidBodyAndReturnbadRequest()
         {
@@ -73,24 +80,11 @@ namespace AssistAPurchaseWebApiTest
             // Assert
             Assert.IsType<BadRequestObjectResult>(createdResponse);
         }
-
-
         [Fact]
         public void AnswerTheQueryAndReturnOk()
         {
             // Arrange
-            AlertModel curerentAlertBody= new AlertModel()
-            {
-                CustomerName = "Jerry",
-                CustonmerMailId = "jerry123@gmail.com",
-                ItemPurchased = "Item1 Item2 Item3",
-                CustomerphoneNumber = "098765432",
-                Question = "Which is the best according to budget?",
-                Answer = ""
-            };
-           
-            controller.QueryFromCustomer(curerentAlertBody);
-
+            controller.QueryFromCustomer(alert);
             //Act
             string validCustomerName = "Jerry";
             AlertModel answer = new AlertModel() { Answer = "Item3" };
@@ -98,23 +92,11 @@ namespace AssistAPurchaseWebApiTest
             // Assert
             Assert.IsType<OkObjectResult>(createdResponse);
         }
-
-
         [Fact]
         public void AnswerTheQueryWithInvalidInoutAndReturnNotFound()
         {
             // Arrange
-            AlertModel curerentAlertBody = new AlertModel()
-            {
-                CustomerName = "Avenger",
-                CustonmerMailId = "Avenger123@gmail.com",
-                ItemPurchased = "Item1 Item2",
-                CustomerphoneNumber = "098765432",
-                Question = "Which is the best according to portability?",
-                Answer = ""
-            };
-            controller.QueryFromCustomer(curerentAlertBody);
-
+            controller.QueryFromCustomer(alert);
             //Act
             string invalidCustomerName = "Tom";
             AlertModel answer = new AlertModel() { Answer = "" };
