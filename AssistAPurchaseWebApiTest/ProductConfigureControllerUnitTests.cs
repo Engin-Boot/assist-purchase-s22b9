@@ -13,7 +13,7 @@ namespace AssistAPurchaseWebApiTest
         IMonitoringProductRepository service;
 
         public ProductConfigureControllerUnitTests() {
-            service = new MonitoringProductTestRepository();
+            service = new MonitoringProductRepository();
             controller = new ProductConfigureController(service);
         }
 
@@ -34,7 +34,7 @@ namespace AssistAPurchaseWebApiTest
             var okResult = controller.GetAll().Result as OkObjectResult;
             // Assert
             var items = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(6, items.Count);
+            Assert.Equal(17, items.Count);
         }
 
         // Test for GET Find()- GET api/ProductConfigure/{productNumber}
@@ -88,7 +88,7 @@ namespace AssistAPurchaseWebApiTest
             // Arrange
             MonitoringItems testMonitoringItem = new MonitoringItems()
             {
-                ProductNumber="QQQQ",
+                ProductNumber="XXXX",
                 ProductName="Printer"
             };
             var productNumber = "XXXX";
@@ -129,7 +129,7 @@ namespace AssistAPurchaseWebApiTest
             var okResult = controller.GetAll().Result as OkObjectResult;
             // Assert
             var items = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(5, items.Count);
+            Assert.Equal(16, items.Count);
             
         }
 

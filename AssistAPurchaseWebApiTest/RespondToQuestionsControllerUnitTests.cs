@@ -57,10 +57,10 @@ namespace AssistAPurchaseWebApiTest
         public void GetProductWithProductSpecificTrainingCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueByCompactCategory("YES").Result as OkObjectResult;
+            var okResult = controller.GetValueByProductSpecificTrainingCategory("YES").Result as OkObjectResult;
             // Assert
             var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(12, products.Count);
+            Assert.Equal(9, products.Count);
         }
 
         [Fact]
@@ -163,7 +163,15 @@ namespace AssistAPurchaseWebApiTest
             Assert.Single(products);
         }
 
-
+        [Fact]
+        public void GetProductMultiPatientCategoryWhenCalledReturnsItemsCount()
+        {
+            // Act
+            var okResult = controller.GetValueByMultiPatientSupportCategory("YES").Result as OkObjectResult;
+            // Assert
+            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+            Assert.Equal(4,products.Count);
+        }
 
 
 

@@ -42,10 +42,12 @@ namespace AssistAPurchase.Controllers
         [HttpPost("{productNumber}")]
         public IActionResult Create(string productNumber,[FromBody] MonitoringItems product)
         {
-            if (product == null)
+            if (ProductConfigureSupporterFunctions.CheckForNullOrMisMatchProductNumber(product, productNumber))
+                return BadRequest();
+            /*if (product == null)
             {
                 return BadRequest();
-            }
+            }*/
             Products.Add(product);
             return CreatedAtRoute("GetMonitoringProduct", new { productNumber = product.ProductNumber }, product);
         }
@@ -56,10 +58,6 @@ namespace AssistAPurchase.Controllers
         {
             if (ProductConfigureSupporterFunctions.CheckForNullOrMisMatchProductNumber(product, productNumber))
                 return BadRequest();
-            /*if (product == null || product.ProductNumber != productNumber)
-            {
-                return BadRequest();
-            }*/
             var currentProduct = Products.Find(productNumber);
             if (currentProduct == null)
             {
