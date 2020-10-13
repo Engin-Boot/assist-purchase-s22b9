@@ -196,3 +196,23 @@ C:\Users\320104085\OneDrive - Philips\Bootcamp\CaseStudy2_AssistAPurchase\assist
 C:\Users\320104085\OneDrive - Philips\Bootcamp\CaseStudy2_AssistAPurchase\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.dll
 C:\Users\320104085\OneDrive - Philips\Bootcamp\CaseStudy2_AssistAPurchase\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.pdb
 C:\Users\320104085\OneDrive - Philips\Bootcamp\CaseStudy2_AssistAPurchase\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.genruntimeconfig.cache
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\bin\Debug\netcoreapp3.1\appsettings.json
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\bin\Debug\netcoreapp3.1\AssistAPurchase.exe
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\bin\Debug\netcoreapp3.1\AssistAPurchase.deps.json
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\bin\Debug\netcoreapp3.1\AssistAPurchase.runtimeconfig.json
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\bin\Debug\netcoreapp3.1\AssistAPurchase.runtimeconfig.dev.json
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\bin\Debug\netcoreapp3.1\AssistAPurchase.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\bin\Debug\netcoreapp3.1\AssistAPurchase.pdb
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.csprojAssemblyReference.cache
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.AssemblyInfoInputs.cache
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.AssemblyInfo.cs
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.csproj.CoreCompileInputs.cache
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.MvcApplicationPartsAssemblyInfo.cache
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.RazorTargetAssemblyInfo.cache
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\staticwebassets\AssistAPurchase.StaticWebAssets.Manifest.cache
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\staticwebassets\AssistAPurchase.StaticWebAssets.xml
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.pdb
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\obj\Debug\netcoreapp3.1\AssistAPurchase.genruntimeconfig.cache

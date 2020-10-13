@@ -5808,19 +5808,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\320104085\\.nuget\\packages\\": {}
+    "C:\\Users\\320088465\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase.Integration.Tests\\AssistAPurchase.Integration.Tests.csproj",
+      "projectUniqueName": "C:\\BootCamp\\Case\\assist-purchase-s22b9\\AssistAPurchase.Integration.Tests\\AssistAPurchase.Integration.Tests.csproj",
       "projectName": "AssistAPurchase.Integration.Tests",
-      "projectPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase.Integration.Tests\\AssistAPurchase.Integration.Tests.csproj",
-      "packagesPath": "C:\\Users\\320104085\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase.Integration.Tests\\obj\\",
+      "projectPath": "C:\\BootCamp\\Case\\assist-purchase-s22b9\\AssistAPurchase.Integration.Tests\\AssistAPurchase.Integration.Tests.csproj",
+      "packagesPath": "C:\\Users\\320088465\\.nuget\\packages\\",
+      "outputPath": "C:\\BootCamp\\Case\\assist-purchase-s22b9\\AssistAPurchase.Integration.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\320104085\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\320088465\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5833,8 +5833,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj": {
-              "projectPath": "C:\\Users\\320104085\\OneDrive - Philips\\Bootcamp\\CaseStudy2_AssistAPurchase\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj"
+            "C:\\BootCamp\\Case\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj": {
+              "projectPath": "C:\\BootCamp\\Case\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj"
             }
           }
         }
@@ -5889,7 +5889,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

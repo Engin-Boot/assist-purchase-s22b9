@@ -1,13 +1,6 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
-using AssistAPurchase.Models;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using AssistAPurchase.Models;
 using AssistAPurchase.Repository;
-
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AssistAPurchase.Controllers
 {
@@ -56,7 +49,7 @@ namespace AssistAPurchase.Controllers
             string message;
             AlertModel alert= Alerts.FindByCustomerName(customerName);
             if (alert == null)
-                return NotFound("Query Not Registeded.");
+                return NotFound("Query Not Registered.");
             message = "Question : " + alert.Question + "\n" + "Answer : " + answer.Answer;
             return Ok(message);
         }
