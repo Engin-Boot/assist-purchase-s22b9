@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "AssistAPurchase/1.0.0": {
         "dependencies": {
+          "XPlat.Core": "1.7.20109.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -312,6 +313,17 @@
         },
         "compile": {
           "AssistAPurchase.dll": {}
+        }
+      },
+      "XPlat.Core/1.7.20109.1": {
+        "runtime": {
+          "lib/netstandard2.0/XPlat.Core.dll": {
+            "assemblyVersion": "1.7.20109.1",
+            "fileVersion": "1.7.20109.1"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/XPlat.Core.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -2013,6 +2025,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "XPlat.Core/1.7.20109.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zLqWGPO6GmobKKO3no+tdchxgic/HC+qhdJiHUvOcFQnfSBX3ZFNxPf9wsT6dESc6qgG9I9rKNcnItduBtsuWw==",
+      "path": "xplat.core/1.7.20109.1",
+      "hashPath": "xplat.core.1.7.20109.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
       "type": "referenceassembly",

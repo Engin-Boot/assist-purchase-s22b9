@@ -120,6 +120,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "XPlat.Core": {
+              "target": "Package",
+              "version": "[1.7.20109.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

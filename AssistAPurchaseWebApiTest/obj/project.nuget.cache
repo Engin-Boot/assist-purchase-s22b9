@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tqGpsuQZLr1NpJcr3YseS51yPow1CKsMKX2vK9IkJ+kngniaTbOrxBMPFvj8pQ9HzKX7jbHA+3rWNiqpA/48lg==",
+  "dgSpecHash": "UA5tMpe8zpE6Hl7eMJ/SR/zhtgOiqLPkW1pVC+mmFIQSEKMK8jQauCpASKv5fVUfwaTm+xG7GuhKyoLFyon5UA==",
   "success": true,
   "projectFilePath": "C:\\BootCamp\\Case\\assist-purchase-s22b9\\AssistAPurchaseWebApiTest\\AssistAPurchaseWebApiTest.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,7 @@
     "C:\\Users\\320088465\\.nuget\\packages\\system.threading.tasks.extensions\\4.0.0\\system.threading.tasks.extensions.4.0.0.nupkg.sha512",
     "C:\\Users\\320088465\\.nuget\\packages\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Users\\320088465\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512",
+    "C:\\Users\\320088465\\.nuget\\packages\\xplat.core\\1.7.20109.1\\xplat.core.1.7.20109.1.nupkg.sha512",
     "C:\\Users\\320088465\\.nuget\\packages\\xunit\\2.4.0\\xunit.2.4.0.nupkg.sha512",
     "C:\\Users\\320088465\\.nuget\\packages\\xunit.abstractions\\2.0.2\\xunit.abstractions.2.0.2.nupkg.sha512",
     "C:\\Users\\320088465\\.nuget\\packages\\xunit.analyzers\\0.10.0\\xunit.analyzers.0.10.0.nupkg.sha512",

@@ -873,3 +873,14 @@ C:\Users\320104085\OneDrive - Philips\Bootcamp\CaseStudy2_AssistAPurchase\assist
 C:\Users\320104085\OneDrive - Philips\Bootcamp\CaseStudy2_AssistAPurchase\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\obj\Debug\netcoreapp3.1\AssistAPurchase.Integration.Tests.pdb
 C:\Users\320104085\OneDrive - Philips\Bootcamp\CaseStudy2_AssistAPurchase\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\obj\Debug\netcoreapp3.1\AssistAPurchase.Integration.Tests.genruntimeconfig.cache
 >>>>>>> ced4277259bf6c0bf8f88790ca10a27f3031d5c0
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\XPlat.Core.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\DotNetConfig.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\McMaster.NETCore.Plugins.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\ReportGenerator.Core.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\ReportGenerator.DotnetCorePluginLoader.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\SixLabors.Fonts.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\SixLabors.ImageSharp.Drawing.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\SixLabors.ImageSharp.dll
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase.Integration.Tests\bin\Debug\netcoreapp3.1\dotnet-reportgenerator.dll

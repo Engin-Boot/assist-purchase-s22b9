@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xywe3KMeIAuUWO/1ttnuNr+lfE3FAexFC4OSQSi2+alf7L663FaXSjEbeZpKf5fNxx++NcgTmj4YDuLN+1FcWg==",
+  "dgSpecHash": "9nrhbYiI76ir/IBlCxy9LjwOL93zxuKgo8URsGwpUoxmp2/bue6LdUioI8mLyJsrGE84NaOrI1tHVUoMHEaUMg==",
   "success": true,
   "projectFilePath": "C:\\BootCamp\\Case\\assist-purchase-s22b9\\AssistAPurchase\\AssistAPurchase.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\320088465\\.nuget\\packages\\xplat.core\\1.7.20109.1\\xplat.core.1.7.20109.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -63,6 +63,16 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.4.3, )"
+            },
+            "coverlet.msbuild": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.9.0, )"
+            },
+            "dotnet-reportgenerator-cli": {
+              "target": "Package",
+              "version": "[4.6.7, )"
             }
           },
           "imports": [
@@ -76,9 +86,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -120,6 +127,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "XPlat.Core": {
+              "target": "Package",
+              "version": "[1.7.20109.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
