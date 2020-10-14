@@ -920,8 +920,6 @@ C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\obj\Debug\netcoreapp3.1\AssistAPurchaseWebApiTest.dll
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\obj\Debug\netcoreapp3.1\AssistAPurchaseWebApiTest.pdb
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\obj\Debug\netcoreapp3.1\AssistAPurchaseWebApiTest.genruntimeconfig.cache
-<<<<<<< HEAD
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-=======
 >>>>>>> 6c8216d5db83c836cd3c3636452c97cfee0a9027
 >>>>>>> ca08bdf663838290a3c1fac2134564f1d498f4af
