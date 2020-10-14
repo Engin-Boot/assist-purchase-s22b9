@@ -3,6 +3,7 @@ using AssistAPurchase.Controllers;
 using AssistAPurchase.Models;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
+using System;
 
 namespace AssistAPurchaseWebApiTest
 {
@@ -64,6 +65,8 @@ namespace AssistAPurchaseWebApiTest
          };
             // Act
             var createdResponse = controller.QueryFromCustomer(curerentAlertBody);
+            Console.WriteLine(curerentAlertBody.CustomerphoneNumber);
+            Console.WriteLine(curerentAlertBody.CustonmerMailId);
             // Assert
             Assert.Equal("",curerentAlertBody.Answer);
             Assert.IsType<OkObjectResult>(createdResponse);

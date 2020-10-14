@@ -1,7 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <coverage line-rate="0.8987" branch-rate="0.8240000000000001" version="1.9" timestamp="1602661928" lines-covered="657" lines-valid="731" branches-covered="89" branches-valid="108">
   <sources>
     <source>C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchase\</source>
+=======
+<coverage line-rate="0.8987" branch-rate="0.8240000000000001" version="1.9" timestamp="1602653119" lines-covered="657" lines-valid="731" branches-covered="89" branches-valid="108">
+  <sources>
+    <source>C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchase\</source>
+>>>>>>> 50922c0eb6a2f64bd91816f29cd93ea4bdd0f893
   </sources>
   <packages>
     <package name="AssistAPurchase" line-rate="0.8987" branch-rate="0.8240000000000001" complexity="164">
@@ -1265,16 +1271,28 @@
             <method name="AnswerFromPhilipsPersonnel" signature="(System.String,AssistAPurchase.Models.AlertModel)" line-rate="1" branch-rate="1" complexity="2">
               <lines>
                 <line number="47" hits="2" branch="False" />
+<<<<<<< HEAD
                 <line number="48" hits="2" branch="False" />
                 <line number="49" hits="2" branch="True" condition-coverage="100% (2/2)">
+=======
+                <line number="50" hits="2" branch="False" />
+                <line number="51" hits="2" branch="True" condition-coverage="100% (2/2)">
+>>>>>>> 50922c0eb6a2f64bd91816f29cd93ea4bdd0f893
                   <conditions>
                     <condition number="20" type="jump" coverage="100%" />
                   </conditions>
                 </line>
+<<<<<<< HEAD
                 <line number="50" hits="1" branch="False" />
                 <line number="51" hits="1" branch="False" />
                 <line number="52" hits="1" branch="False" />
                 <line number="53" hits="2" branch="False" />
+=======
+                <line number="52" hits="1" branch="False" />
+                <line number="53" hits="1" branch="False" />
+                <line number="54" hits="1" branch="False" />
+                <line number="55" hits="2" branch="False" />
+>>>>>>> 50922c0eb6a2f64bd91816f29cd93ea4bdd0f893
               </lines>
             </method>
             <method name=".ctor" signature="(AssistAPurchase.Repository.IAlertRepository)" line-rate="1" branch-rate="1" complexity="1">
@@ -1314,16 +1332,28 @@
             <line number="42" hits="3" branch="False" />
             <line number="43" hits="4" branch="False" />
             <line number="47" hits="2" branch="False" />
+<<<<<<< HEAD
             <line number="48" hits="2" branch="False" />
             <line number="49" hits="2" branch="True" condition-coverage="100% (2/2)">
+=======
+            <line number="50" hits="2" branch="False" />
+            <line number="51" hits="2" branch="True" condition-coverage="100% (2/2)">
+>>>>>>> 50922c0eb6a2f64bd91816f29cd93ea4bdd0f893
               <conditions>
                 <condition number="20" type="jump" coverage="100%" />
               </conditions>
             </line>
+<<<<<<< HEAD
             <line number="50" hits="1" branch="False" />
             <line number="51" hits="1" branch="False" />
             <line number="52" hits="1" branch="False" />
             <line number="53" hits="2" branch="False" />
+=======
+            <line number="52" hits="1" branch="False" />
+            <line number="53" hits="1" branch="False" />
+            <line number="54" hits="1" branch="False" />
+            <line number="55" hits="2" branch="False" />
+>>>>>>> 50922c0eb6a2f64bd91816f29cd93ea4bdd0f893
             <line number="12" hits="6" branch="False" />
             <line number="13" hits="6" branch="False" />
             <line number="14" hits="6" branch="False" />

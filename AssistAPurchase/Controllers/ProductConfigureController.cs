@@ -59,6 +59,7 @@ namespace AssistAPurchase.Controllers
             if (ProductConfigureSupporterFunctions.CheckForNullOrMisMatchProductNumber(product, productNumber))
                 return BadRequest();
             var currentProduct = Products.Find(productNumber);
+            
             if (currentProduct == null)
             {
                 return NotFound();
@@ -72,13 +73,11 @@ namespace AssistAPurchase.Controllers
         [HttpDelete("{productNumber}")]
         public ActionResult Delete(string productNumber)
         {
-            var currentProduct = Products.Find(productNumber);
-            //Products.Remove(productNumber);
-            if (currentProduct == null)
+            MonitoringItems itemToBeDeleted = Products.Remove(productNumber);
+            if (itemToBeDeleted == null)
             {
                 return NotFound();
             }
-            Products.Remove(productNumber);
             return Ok();
         }
     }

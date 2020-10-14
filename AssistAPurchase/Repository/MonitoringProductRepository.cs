@@ -49,7 +49,7 @@ namespace AssistAPurchase.Repository
         public string Update(MonitoringItems product)
         {
             var currentProductNumber = product.ProductNumber;
-            var message = "";
+            string message;
             for (var i = 0; i < monitoringItems.Count; i++)
                 if (monitoringItems[i].ProductNumber == currentProductNumber)
                 {
@@ -58,9 +58,7 @@ namespace AssistAPurchase.Repository
                     message = "Updated Sucessfully";
                     return message;
                 }
-
-            message = "No Items Matches!!";
-            return message;
+            return null;
         }
     }
 }

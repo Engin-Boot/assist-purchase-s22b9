@@ -52,9 +52,11 @@ namespace AssistAPurchaseWebApiTest
             // Arrange
             var testProductNumber = "MP2";
             // Act
-            var okResult = controller.GetProductByProductNumber(testProductNumber);
+            var okResult = controller.GetProductByProductNumber(testProductNumber).Result as OkObjectResult;
             // Assert
-            Assert.IsType<OkObjectResult>(okResult.Result);
+            Assert.IsType<OkObjectResult>(okResult);
+            string expectedProductName = "IntelliVue";
+            Assert.Equal(expectedProductName, (okResult.Value as MonitoringItems).ProductName);
         }
         [Fact]
         public void FindExistingProductNumberPassedReturnsRightItem()

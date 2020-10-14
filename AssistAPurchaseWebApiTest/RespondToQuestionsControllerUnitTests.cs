@@ -68,9 +68,12 @@ namespace AssistAPurchaseWebApiTest
         {
             // Act
             var okResult = controller.GetProductByPrice("1000","BELOW").Result as OkObjectResult;
+            var okResult2 = controller.GetProductByPrice("50000", "ABOVE").Result as OkObjectResult;
             // Assert
             var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
             Assert.Empty(products);
+            var products2 = Assert.IsType<List<MonitoringItems>>(okResult2.Value);
+            Assert.Equal(1,products2.Count);
         }
 
         [Fact]
@@ -148,9 +151,13 @@ namespace AssistAPurchaseWebApiTest
         {
             // Act
             var okResult = controller.GetValueByScreenSizeCategory("10","BELOW").Result as OkObjectResult;
+            var okResult2 = controller.GetValueByScreenSizeCategory("10", "ABOVE").Result as OkObjectResult;
             // Assert
             var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
             Assert.Equal(9, products.Count);
+            var products2 = Assert.IsType<List<MonitoringItems>>(okResult2.Value);
+            Assert.Equal(8, products2.Count);
+
         }
 
         [Fact]
@@ -171,6 +178,35 @@ namespace AssistAPurchaseWebApiTest
             // Assert
             var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
             Assert.Equal(4,products.Count);
+        }
+
+        [Fact]
+        public void GetDescriptionWhenCalledReturnsOk()
+        {
+            // Act
+            var okResult = controller.GetDescription("X3") as OkObjectResult;
+            // Assert
+            Assert.IsType<OkObjectResult>(okResult);
+        }
+
+        [Fact]
+        public void GetdescriptionCalledReturnDescription() {
+            var expectedDescription = "The IntelliVue MX40 patient wearable monitor gives you technology, intelligent design, and innovative features you expect from Philips – in a device light enough and small enough to be comfortably worn by ambulatory patients.";
+            // Act
+            var okResult = controller.GetDescription("MX40") as OkObjectResult;
+            // Assert
+            Assert.IsType<string>(okResult.Value);
+            Assert.Equal(expectedDescription, (okResult.Value));
+        }
+
+        [Fact]
+        public void GetDescriptionWhenCalledReturnsNotFound()
+        {
+            // Act
+            var result = controller.GetDescription("XXX");
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
+
         }
 
 
