@@ -85,5 +85,12 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
+        [Fact]
+        public async Task WhenProductNumberIsNullThenCheckDescriptionNotDisplayed()
+        {
+            var response = await _sut.Client.GetAsync(url + "/Description/null");
+            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
     }
 }

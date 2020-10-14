@@ -19,14 +19,14 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         {
             _sut = new TestContext();
         }
-        MonitoringProductsGetter products_database = new MonitoringProductsGetter();
+       readonly MonitoringProductsGetter _productsDatabase = new MonitoringProductsGetter();
 
         [Fact]
         public async Task WhenViewProductsByThenCheckDatabaseCountWithRenderedProductsCount()
         {
             var response = await _sut.Client.GetAsync(url + "/getAllProducts");
             response.EnsureSuccessStatusCode();
-            Assert.Equal(17, products_database.Products.Count);
+            Assert.Equal(17, _productsDatabase.Products.Count);
         }
 
 
@@ -63,6 +63,13 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         {
             var response = await _sut.Client.DeleteAsync(url + "/X3");
             Assert.True(response.StatusCode == HttpStatusCode.OK);
+        }
+
+        [Fact]
+        public async Task WhenDeleteRequestIsSentToDifferentURLThenResponseOk()
+        {
+            var response = await _sut.Client.DeleteAsync(url + "/X99");
+            Assert.True(response.StatusCode == HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -123,6 +130,34 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
             var response = await _sut.Client.PutAsync(url + "/MX480",
                    new StringContent(JsonConvert.SerializeObject(modifyProducts), Encoding.UTF8, "application/json"));
             Assert.True(response.StatusCode == HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async Task WhenNewDataToBeCreatedThenCheckResponse()
+        {
+            var createProduct = new MonitoringItems()
+            {
+                ProductNumber = "X3",
+                ProductName = "IntelliVue",
+                Description = "The Philips IntelliVue X3 is a compact, dual-purpose, transport patient monitor featuring intuitive SmartPhone-style operation and offering a scalable set of clinical measurements.",
+                ProductSpecficTraining = "NO",
+                Price = "14500",
+                Wearable = "NO",
+                SoftwareUpdateSupport = "YES",
+                Portability = "YES",
+                Compact = "YES",
+                BatterySupport = "NO",
+                ThirdPartyDeviceSupport = "YES",
+                SafeToFlyCertification = "NO",
+                TouchScreenSupport = "YES",
+                ScreenSize = "6.1",
+                MultiPatientSupport = "NO",
+                CyberSecurity = "NO"
+            };
+            var response = await _sut.Client.PostAsync(url + "/X5",
+                new StringContent(JsonConvert.SerializeObject(createProduct), Encoding.UTF8, "application/json"));
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+
         }
     }
 

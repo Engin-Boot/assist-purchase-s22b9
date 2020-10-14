@@ -23,7 +23,6 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         [Fact]
         public async Task WhenItemIsBookedThenSendConfirmationAlert()
         {
-            // AlertModel value = null;
             var info = new AlertModel()
             {
                 CustomerName ="YYYYY",
@@ -38,6 +37,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
                 new StringContent(JsonConvert.SerializeObject(info), Encoding.UTF8, "application/json"));
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
+
 
         [Fact]
         public async Task WhenConversationBetweenCustomerAndPersonnelThenCheckItsReliable()
@@ -71,5 +71,13 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
                 new StringContent(JsonConvert.SerializeObject(info), Encoding.UTF8, "application/json"));
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
+
+        [Fact]
+        public async Task WhenBodyIsSentNullThenCheckStatusBadRequest()
+        {
+            var response = await _sut.Client.PostAsync(url + "/ConfirmationAlert",null);
+          response.StatusCode.Should().Be(HttpStatusCode.UnsupportedMediaType);
+        }
+
     }
 }

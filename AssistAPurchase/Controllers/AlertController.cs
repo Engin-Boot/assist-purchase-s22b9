@@ -45,12 +45,10 @@ namespace AssistAPurchase.Controllers
         [HttpPost("Query/{customerName}")]
         public IActionResult AnswerFromPhilipsPersonnel(string customerName, [FromBody] AlertModel answer)
         {
-
-            string message;
             AlertModel alert= Alerts.FindByCustomerName(customerName);
             if (alert == null)
                 return NotFound("Query Not Registered.");
-            message = "Question : " + alert.Question + "\n" + "Answer : " + answer.Answer;
+            string message = "Question : " + alert.Question + "\n" + "Answer : " + answer.Answer;
             return Ok(message);
         }
     }
