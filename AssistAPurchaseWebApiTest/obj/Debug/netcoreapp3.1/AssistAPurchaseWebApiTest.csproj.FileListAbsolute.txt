@@ -817,6 +817,9 @@ C:\Users\320104085\OneDrive - Philips\Bootcamp\CaseStudy2_AssistAPurchase\assist
 C:\Users\320104085\OneDrive - Philips\Bootcamp\CaseStudy2_AssistAPurchase\assist-purchase-s22b9\AssistAPurchaseWebApiTest\obj\Debug\netcoreapp3.1\AssistAPurchaseWebApiTest.pdb
 C:\Users\320104085\OneDrive - Philips\Bootcamp\CaseStudy2_AssistAPurchase\assist-purchase-s22b9\AssistAPurchaseWebApiTest\obj\Debug\netcoreapp3.1\AssistAPurchaseWebApiTest.genruntimeconfig.cache
 >>>>>>> ced4277259bf6c0bf8f88790ca10a27f3031d5c0
+<<<<<<< HEAD
+C:\BootCamp\Case\assist-purchase-s22b9\AssistAPurchaseWebApiTest\bin\Debug\netcoreapp3.1\XPlat.Core.dll
+=======
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\bin\Debug\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
@@ -919,4 +922,8 @@ C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\obj\Debug\netcoreapp3.1\AssistAPurchaseWebApiTest.dll
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\obj\Debug\netcoreapp3.1\AssistAPurchaseWebApiTest.pdb
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\obj\Debug\netcoreapp3.1\AssistAPurchaseWebApiTest.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\320104085\OneDrive - Philips\Bootcamp\AssistAPurchase13\assist-purchase-s22b9\AssistAPurchaseWebApiTest\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+=======
+>>>>>>> 6c8216d5db83c836cd3c3636452c97cfee0a9027
+>>>>>>> ca08bdf663838290a3c1fac2134564f1d498f4af
