@@ -18,6 +18,12 @@ jobs:
           
       - name: Install resharper
         run: dotnet tool install -g JetBrains.ReSharper.GlobalTools
+        
+      - name: Add package
+        run: dotnet add AssistAPurchaseWebApiTest/AssistAPurchaseWebApiTest.csproj package xunit --version 2.4.1
+        
+      - name: Add package
+        run: dotnet add AssistAPurchase.Integration.Tests/AssistAPurchase.Integration.Tests.csproj package xunit --version 2.4.1
        
       - name: Run resharper duplicate code check
         run: jb dupfinder AssistAPurchase.sln /output=dupreport.xml
