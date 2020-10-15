@@ -23,4 +23,4 @@ jobs:
       
       - name: Check Coverage
        
-        run: powershell ./IntegrationCoverage.ps1 -linerate 0.88
+        run: powershell ./IntegrationCoverage.ps1 -linerate 0.95

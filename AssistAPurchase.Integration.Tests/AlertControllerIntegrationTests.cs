@@ -56,27 +56,6 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
             var response = await _sut.Client.PostAsync(url + "/Query",
                 new StringContent(JsonConvert.SerializeObject(info), Encoding.UTF8, "application/json"));
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var reply = await _sut.Client.PostAsync(url + "/Query/XXXXX",
-                new StringContent(JsonConvert.SerializeObject(info), Encoding.UTF8, "application/json"));
-            reply.StatusCode.Should().Be(HttpStatusCode.OK);
-        }
-        [Fact]
-        public async Task WhenConversationBetweenCustomerAndPersonnelThenCheckItsReliableOrNot()
-        {
-            // AlertModel value = null;
-            var info = new AlertModel()
-            {
-                CustomerName = "XXXXX",
-                CustonmerMailId = "1234",
-                ItemPurchased = "1",
-                CustomerphoneNumber = "9023489095",
-                Question = "Which Product is better?",
-                Answer = ""
-
-            };
-            var response = await _sut.Client.PostAsync(url + "/Query",
-                new StringContent(JsonConvert.SerializeObject(info), Encoding.UTF8, "application/json"));
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
             var answer = new AlertModel()
             {
                 Answer = "MX40 is better"
