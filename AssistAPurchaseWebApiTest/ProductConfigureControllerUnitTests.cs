@@ -9,12 +9,12 @@ namespace AssistAPurchaseWebApiTest
 {
     public class ProductConfigureControllerUnitTests
     {
-        readonly ProductConfigureController controller;
-        IMonitoringProductRepository service;
+        readonly ProductConfigureController _controller;
 
-        public ProductConfigureControllerUnitTests() {
-            service = new MonitoringProductRepository();
-            controller = new ProductConfigureController(service);
+        public ProductConfigureControllerUnitTests()
+        {
+            IMonitoringProductRepository service = new MonitoringProductRepository();
+            _controller = new ProductConfigureController(service);
         }
 
         //Tests for GET getAll()- GET api/ProductConfigure/getAllProducts
@@ -22,7 +22,7 @@ namespace AssistAPurchaseWebApiTest
         public void GetAllWhenCalledReturnsOkResult()
         {
             // Act
-            var okResult = controller.GetAll();
+            var okResult = _controller.GetAll();
             // Assert
             Assert.IsType<OkObjectResult>(okResult.Result);
         }
@@ -31,10 +31,12 @@ namespace AssistAPurchaseWebApiTest
         public void GetAllWhenCalledReturnsAllItems()
         {
             // Act
-            var okResult = controller.GetAll().Result as OkObjectResult;
             // Assert
-            var items = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(17, items.Count);
+            if (_controller.GetAll().Result is OkObjectResult okResult)
+            {
+                var items = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(17, items.Count);
+            }
         }
 
         // Test for GET Find()- GET api/ProductConfigure/{productNumber}
@@ -42,7 +44,7 @@ namespace AssistAPurchaseWebApiTest
         public void FindUnknownProductNumberPassedReturnsNotFoundResult()
         {
             // Act
-            var notFoundResult = controller.GetProductByProductNumber("XYZ");
+            var notFoundResult = _controller.GetProductByProductNumber("XYZ");
             // Assert
             Assert.IsType<NotFoundResult>(notFoundResult.Result);
         }
@@ -52,11 +54,11 @@ namespace AssistAPurchaseWebApiTest
             // Arrange
             var testProductNumber = "MP2";
             // Act
-            var okResult = controller.GetProductByProductNumber(testProductNumber).Result as OkObjectResult;
+            var okResult = _controller.GetProductByProductNumber(testProductNumber).Result as OkObjectResult;
             // Assert
             Assert.IsType<OkObjectResult>(okResult);
             string expectedProductName = "IntelliVue";
-            Assert.Equal(expectedProductName, (okResult.Value as MonitoringItems).ProductName);
+            Assert.Equal(expectedProductName, (okResult.Value as MonitoringItems)?.ProductName);
         }
         [Fact]
         public void FindExistingProductNumberPassedReturnsRightItem()
@@ -64,10 +66,12 @@ namespace AssistAPurchaseWebApiTest
             // Arrange
             var testProductNumber = "MX750";
             // Act
-            var okResult = controller.GetProductByProductNumber(testProductNumber).Result as OkObjectResult;
             // Assert
-            Assert.IsType<MonitoringItems>(okResult.Value);
-            Assert.Equal(testProductNumber, (okResult.Value as MonitoringItems).ProductNumber);
+            if (_controller.GetProductByProductNumber(testProductNumber).Result is OkObjectResult okResult)
+            {
+                Assert.IsType<MonitoringItems>(okResult.Value);
+                Assert.Equal(testProductNumber, (okResult.Value as MonitoringItems)?.ProductNumber);
+            }
         }
 
 
@@ -76,11 +80,10 @@ namespace AssistAPurchaseWebApiTest
         public void AddInvalidObjectPassedReturnsBadRequest()
         {
             // Arrange
-            MonitoringItems monitoringItem = null;
             var productNumber = "XXXX";
-            controller.ModelState.AddModelError("ProductNumber", "Required");
+            _controller.ModelState.AddModelError("ProductNumber", "Required");
             // Act
-            var badResponse = controller.Create(productNumber,monitoringItem);
+            var badResponse = _controller.Create(productNumber,null);
             // Assert
             Assert.IsType<BadRequestResult>(badResponse);
         }
@@ -95,7 +98,7 @@ namespace AssistAPurchaseWebApiTest
             };
             var productNumber = "XXXX";
             // Act
-            var createdResponse = controller.Create(productNumber,testMonitoringItem);
+            var createdResponse = _controller.Create(productNumber,testMonitoringItem);
             // Assert
             Assert.IsType<CreatedAtRouteResult>(createdResponse);
         }
@@ -106,7 +109,7 @@ namespace AssistAPurchaseWebApiTest
             // Arrange
             var notExistingProductNumber = "WWF";
             // Act
-            var badResponse = controller.Delete(notExistingProductNumber);
+            var badResponse = _controller.Delete(notExistingProductNumber);
             // Assert
             Assert.IsType<NotFoundResult>(badResponse);
         }
@@ -116,7 +119,7 @@ namespace AssistAPurchaseWebApiTest
             // Arrange
             var existingProductNumber = "CM";
             // Act
-            var okResponse = controller.Delete(existingProductNumber);
+            var okResponse = _controller.Delete(existingProductNumber);
             // Assert
             Assert.IsType<OkResult>(okResponse);
         }
@@ -126,24 +129,24 @@ namespace AssistAPurchaseWebApiTest
             // Arrange
             var existingProductNumber = "MP2";
             // Act
-            var okResponse = controller.Delete(existingProductNumber);
+            _controller.Delete(existingProductNumber);
             // Assert
-            var okResult = controller.GetAll().Result as OkObjectResult;
             // Assert
-            var items = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(16, items.Count);
-            
+            if (_controller.GetAll().Result is OkObjectResult okResult)
+            {
+                var items = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(16, items.Count);
+            }
         }
 
         //test for update
         [Fact]
         public void UpdateInvalidObjectPassedReturnsBadRequest()
         {
-            // Arrange-when product object is invalid
-            MonitoringItems item = null;
+            
             var productNumber = "abcd";
             // Act
-            var badResponse = controller.Update(productNumber,item);
+            var badResponse = _controller.Update(productNumber,null);
             // Assert
             Assert.IsType<BadRequestResult>(badResponse);
         }
@@ -158,7 +161,7 @@ namespace AssistAPurchaseWebApiTest
             };
             var productNumber = "XYZA";
             // Act
-            var badResponse = controller.Update(productNumber, misMatchProductNumberItem);
+            var badResponse = _controller.Update(productNumber, misMatchProductNumberItem);
             // Assert
             Assert.IsType<BadRequestResult>(badResponse);
         }
@@ -174,7 +177,7 @@ namespace AssistAPurchaseWebApiTest
             };
             var productNumber = "M1M2";
             // Act
-            var notFoundResponse = controller.Update(productNumber, misMatchProductNumberItem);
+            var notFoundResponse = _controller.Update(productNumber, misMatchProductNumberItem);
             // Assert
             Assert.IsType<NotFoundResult>(notFoundResponse);
         }
@@ -186,7 +189,7 @@ namespace AssistAPurchaseWebApiTest
             MonitoringItems validMonitoringItem = new MonitoringItems { ProductNumber = "MP2", ProductName = "IntelliVue" };
             var validProductNumber = "MP2";
             // Act
-            var noContentResultResponse = controller.Update(validProductNumber,validMonitoringItem);
+            var noContentResultResponse = _controller.Update(validProductNumber,validMonitoringItem);
             // Assert
             Assert.IsType<NoContentResult>(noContentResultResponse);
         }

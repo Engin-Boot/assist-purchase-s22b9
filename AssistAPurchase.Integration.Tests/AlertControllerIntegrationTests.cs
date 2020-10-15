@@ -2,13 +2,12 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using AssistAPurchase.Integration.Tests.Fixtures;
 using AssistAPurchase.Models;
 using FluentAssertions;
 using Newtonsoft.Json;
 using Xunit;
 
-namespace AssistAPurchase.Integration.Tests.Scenarios
+namespace AssistAPurchase.Integration.Tests
 {
    public class AlertControllerIntegrationTests
     {
@@ -25,7 +24,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         {
             var info = new AlertModel()
             {
-                CustomerName ="YYYYY",
+                CustomerName ="YYYY",
                 CustonmerMailId = "1234",
                 ItemPurchased = "1",
                 CustomerphoneNumber  ="9023489095",
@@ -70,9 +69,8 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         [InlineData("/Query/XXXXX")]
         public async Task WhenBodyIsSentNullThenCheckStatusCodeBadRequest(string value)
         {
-            AlertModel info = null;
             var response = await _sut.Client.PostAsync(url + value,
-                new StringContent(JsonConvert.SerializeObject(info), Encoding.UTF8, "application/json"));
+                new StringContent(JsonConvert.SerializeObject(null), Encoding.UTF8, "application/json"));
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
 

@@ -6,23 +6,24 @@ namespace AssistAPurchase.Repository
 {
     public class AlertRepository : IAlertRepository
     {
-        private static List<AlertModel> alerts;
+        private static List<AlertModel> _alerts;
 
         public AlertRepository() {
 
-            alerts = new List<AlertModel>();
+            _alerts = new List<AlertModel>();
         }
         public void Add(AlertModel alert) {
 
-            alerts.Add(alert);
+            _alerts.Add(alert);
         }
-        public AlertModel FindByCustomerName(string customerName) {
-
-            for (int i = 0; i < alerts.Count; i++)
+        public AlertModel FindByCustomerName(string customerName)
+        {
+            foreach (AlertModel alert in _alerts)
             {
-                if (customerName == alerts[i].CustomerName)
-                    return alerts[i];
+                if (customerName == alert.CustomerName)
+                    return alert;
             }
+
             return null;
         }
     }

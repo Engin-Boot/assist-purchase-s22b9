@@ -21,6 +21,9 @@ jobs:
        
       - name: Run resharper duplicate code check
         run: jb dupfinder AssistAPurchase.sln /output=dupreport.xml
+        
+       - name: Run resharper InspectCode code check
+        run: jb inspectcode AssistAPurchase.sln /output=insreport.xml
        
       - name: Check Reports
         run: powershell ./resharper.ps1

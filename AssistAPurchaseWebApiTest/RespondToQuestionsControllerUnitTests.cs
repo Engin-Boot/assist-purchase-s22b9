@@ -10,19 +10,19 @@ namespace AssistAPurchaseWebApiTest
 {
     public class RespondToQuestionsControllerUnitTests
     {
-        readonly RespondToQuestionsController controller;
-        IRespondToQuestionRepository service;
+        readonly RespondToQuestionsController _controller;
+
         public RespondToQuestionsControllerUnitTests()
         {
-            service = new RespondToQuestionRepository();
-            controller = new RespondToQuestionsController(service);
+            IRespondToQuestionRepository service = new RespondToQuestionRepository();
+            _controller = new RespondToQuestionsController(service);
         }
 
         [Fact]
         public void GetAllWhenCalledReturnsOkResult()
         {
             // Act
-            var okResult = controller.GetAll();
+            var okResult = _controller.GetAll();
             // Assert
             Assert.IsType<OkObjectResult>(okResult.Result);
         }
@@ -31,160 +31,206 @@ namespace AssistAPurchaseWebApiTest
         public void GetAllWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetAll().Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(17, products.Count);
+            if (_controller.GetAll().Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(17, products.Count);
+            }
         }
 
         [Fact]
         public void GetProductWithCompactCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResultWithYes = controller.GetValueByCompactCategory("YES").Result as OkObjectResult;
-            var okResultWithNo = controller.GetValueByCompactCategory("NO").Result as OkObjectResult;
-            var okResult = controller.GetValueByCompactCategory("BOTH").Result as OkObjectResult;
+            var okResultWithYes = _controller.GetValueByCompactCategory("YES").Result as OkObjectResult;
+            var okResultWithNo = _controller.GetValueByCompactCategory("NO").Result as OkObjectResult;
+            var okResult = _controller.GetValueByCompactCategory("BOTH").Result as OkObjectResult;
             // Assert
-            var productsWithYes = Assert.IsType<List<MonitoringItems>>(okResultWithYes.Value);
-            Assert.Equal(12, productsWithYes.Count);
-            var productsWithNo = Assert.IsType<List<MonitoringItems>>(okResultWithNo.Value);
-            Assert.Equal(5, productsWithNo.Count);
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Empty(products);
+            if (okResultWithYes != null)
+            {
+                var productsWithYes = Assert.IsType<List<MonitoringItems>>(okResultWithYes.Value);
+                Assert.Equal(12, productsWithYes.Count);
+            }
+
+            if (okResultWithNo != null)
+            {
+                var productsWithNo = Assert.IsType<List<MonitoringItems>>(okResultWithNo.Value);
+                Assert.Equal(5, productsWithNo.Count);
+            }
+
+            if (okResult != null)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Empty(products);
+            }
         }
 
         [Fact]
         public void GetProductWithProductSpecificTrainingCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueByProductSpecificTrainingCategory("YES").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(9, products.Count);
+            if (_controller.GetValueByProductSpecificTrainingCategory("YES").Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(9, products.Count);
+            }
         }
 
         [Fact]
         public void GetProductWithPriceCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetProductByPrice("1000","BELOW").Result as OkObjectResult;
-            var okResult2 = controller.GetProductByPrice("50000", "ABOVE").Result as OkObjectResult;
+            var okResult = _controller.GetProductByPrice("1000","BELOW").Result as OkObjectResult;
+            var okResult2 = _controller.GetProductByPrice("50000", "ABOVE").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Empty(products);
-            var products2 = Assert.IsType<List<MonitoringItems>>(okResult2.Value);
-            Assert.Equal(1,products2.Count);
+            if (okResult != null)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Empty(products);
+            }
+
+            if (okResult2 != null)
+            {
+                var products2 = Assert.IsType<List<MonitoringItems>>(okResult2.Value);
+                Assert.Single(products2);
+            }
         }
 
         [Fact]
         public void GetProductWithWearableCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueByWearableCategory("YES").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(4, products.Count);
+            if (_controller.GetValueByWearableCategory("YES").Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(4, products.Count);
+            }
         }
 
         [Fact]
         public void GetProductWithSoftwareUpdateSupportCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueBySoftwareUpdateSupportCategory("YES").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(8, products.Count);
+            if (_controller.GetValueBySoftwareUpdateSupportCategory("YES").Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(8, products.Count);
+            }
         }
 
         [Fact]
         public void GetProductWithPortabilityCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueByPortabilityCategory("NO").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(5, products.Count);
+            if (_controller.GetValueByPortabilityCategory("NO").Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(5, products.Count);
+            }
         }
 
         [Fact]
         public void GetProductWithBatterySupportWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueByBatterySupportCategory("NO").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(12, products.Count);
+            if (_controller.GetValueByBatterySupportCategory("NO").Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(@object: okResult.Value);
+                Assert.Equal(12, products.Count);
+            }
         }
 
         [Fact]
         public void GetProductWithThirdPartyDevicetCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueByThirdPartyDeviceSupportCategory("YES").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(9, products.Count);
+            if (_controller.GetValueByThirdPartyDeviceSupportCategory("YES").Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(9, products.Count);
+            }
         }
 
         [Fact]
         public void GetProductWithSafeToFlyCertificationCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueBySafeToFlyCertificationCategory("NO").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(13, products.Count);
+            if (_controller.GetValueBySafeToFlyCertificationCategory("NO").Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(13, products.Count);
+            }
         }
 
         [Fact]
         public void GetProductWithTouchScreenSupportCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueByTouchScreenSupportCategory("YES").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(17, products.Count);
+            if (_controller.GetValueByTouchScreenSupportCategory("YES").Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(17, products.Count);
+            }
         }
 
         [Fact]
         public void GetProductWithScreenSizeCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueByScreenSizeCategory("10","BELOW").Result as OkObjectResult;
-            var okResult2 = controller.GetValueByScreenSizeCategory("10", "ABOVE").Result as OkObjectResult;
+            var okResult = _controller.GetValueByScreenSizeCategory("10","BELOW").Result as OkObjectResult;
+            var okResult2 = _controller.GetValueByScreenSizeCategory("10", "ABOVE").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(9, products.Count);
-            var products2 = Assert.IsType<List<MonitoringItems>>(okResult2.Value);
-            Assert.Equal(8, products2.Count);
+            if (okResult != null)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(9, products.Count);
+            }
 
+            if (okResult2 != null)
+            {
+                var products2 = Assert.IsType<List<MonitoringItems>>(okResult2.Value);
+                Assert.Equal(8, products2.Count);
+            }
         }
 
         [Fact]
         public void GetProductWithCyberSecirityCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueByCyberSecurityCategory("YES").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Single(products);
+            if (_controller.GetValueByCyberSecurityCategory("YES").Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Single(products);
+            }
         }
 
         [Fact]
         public void GetProductMultiPatientCategoryWhenCalledReturnsItemsCount()
         {
             // Act
-            var okResult = controller.GetValueByMultiPatientSupportCategory("YES").Result as OkObjectResult;
             // Assert
-            var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-            Assert.Equal(4,products.Count);
+            if (_controller.GetValueByMultiPatientSupportCategory("YES").Result is OkObjectResult okResult)
+            {
+                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
+                Assert.Equal(4,products.Count);
+            }
         }
 
         [Fact]
         public void GetDescriptionWhenCalledReturnsOk()
         {
             // Act
-            var okResult = controller.GetDescription("X3") as OkObjectResult;
+            var okResult = _controller.GetDescription("X3") as OkObjectResult;
             // Assert
             Assert.IsType<OkObjectResult>(okResult);
         }
@@ -193,17 +239,19 @@ namespace AssistAPurchaseWebApiTest
         public void GetdescriptionCalledReturnDescription() {
             var expectedDescription = "The IntelliVue MX40 patient wearable monitor gives you technology, intelligent design, and innovative features you expect from Philips – in a device light enough and small enough to be comfortably worn by ambulatory patients.";
             // Act
-            var okResult = controller.GetDescription("MX40") as OkObjectResult;
             // Assert
-            Assert.IsType<string>(okResult.Value);
-            Assert.Equal(expectedDescription, (okResult.Value));
+            if (_controller.GetDescription("MX40") is OkObjectResult okResult)
+            {
+                Assert.IsType<string>(okResult.Value);
+                Assert.Equal(expectedDescription, (okResult.Value));
+            }
         }
 
         [Fact]
         public void GetDescriptionWhenCalledReturnsNotFound()
         {
             // Act
-            var result = controller.GetDescription("XXX");
+            var result = _controller.GetDescription("XXX");
             // Assert
             Assert.IsType<NotFoundResult>(result);
 

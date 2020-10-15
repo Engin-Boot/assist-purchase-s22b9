@@ -8,7 +8,7 @@ namespace AssistAPurchase.Controllers
     [ApiController]
     public class AlertController : ControllerBase
     {
-        public IAlertRepository Alerts { get; set; }
+        private IAlertRepository Alerts { get;}
         public AlertController(IAlertRepository alerts)
         {
             Alerts = alerts;

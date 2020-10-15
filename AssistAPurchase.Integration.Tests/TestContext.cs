@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 
-namespace AssistAPurchase.Integration.Tests.Fixtures
+namespace AssistAPurchase.Integration.Tests
 {
     class TestContext
     {
-        public HttpClient Client { get; set; }
+        public HttpClient Client { get; private set; }
         private TestServer _server;
 
         public TestContext()

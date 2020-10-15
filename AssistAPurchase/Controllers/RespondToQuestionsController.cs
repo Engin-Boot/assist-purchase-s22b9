@@ -9,7 +9,7 @@ namespace AssistAPurchase.Controllers
     [ApiController]
     public class RespondToQuestionsController : ControllerBase
     {
-        public IRespondToQuestionRepository Products { get; set; } 
+        private IRespondToQuestionRepository Products { get;} 
         public RespondToQuestionsController(IRespondToQuestionRepository prodcuts)
         {
             Products = prodcuts;

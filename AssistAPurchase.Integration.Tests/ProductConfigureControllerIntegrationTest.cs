@@ -2,14 +2,13 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using AssistAPurchase.DataBase;
-using AssistAPurchase.Integration.Tests.Fixtures;
+using AssistAPurchase.AssistAPurchase.DataBase;
 using AssistAPurchase.Models;
 using FluentAssertions;
 using Newtonsoft.Json;
 using Xunit;
 
-namespace AssistAPurchase.Integration.Tests.Scenarios
+namespace AssistAPurchase.Integration.Tests
 {
     public class ProductConfigureControllerIntegrationTest
     {
@@ -51,9 +50,8 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         [Fact]
         public async Task WhenDataBodyIsPostedEmptyThenCheckResponseBadRequest()
         {
-            MonitoringItems value = null;
             var response = await _sut.Client.PostAsync(url + "/X3",
-                    new StringContent(JsonConvert.SerializeObject(value), Encoding.UTF8, "application/json"));
+                    new StringContent(JsonConvert.SerializeObject(null), Encoding.UTF8, "application/json"));
                 response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
             
         }
@@ -66,7 +64,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         }
 
         [Fact]
-        public async Task WhenDeleteRequestIsSentToDifferentURLThenResponseOk()
+        public async Task WhenDeleteRequestIsSentToDifferentUrlThenResponseOk()
         {
             var response = await _sut.Client.DeleteAsync(url + "/X99");
             Assert.True(response.StatusCode == HttpStatusCode.NotFound);
@@ -112,9 +110,8 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         [Fact]
         public async Task WhenDataContainsEmptyBodyThenCheckTheResponseBadRequest()
         {
-            MonitoringItems items = null;
             var response = await _sut.Client.PutAsync(url + "/MX40",
-                new StringContent(JsonConvert.SerializeObject(items), Encoding.UTF8, "application/json"));
+                new StringContent(JsonConvert.SerializeObject(null), Encoding.UTF8, "application/json"));
             Assert.True(response.StatusCode == HttpStatusCode.BadRequest);
         }
 

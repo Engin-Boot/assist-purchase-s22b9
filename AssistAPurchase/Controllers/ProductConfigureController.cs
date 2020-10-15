@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using AssistAPurchase.Models;
 using AssistAPurchase.Repository;
@@ -11,7 +12,7 @@ namespace AssistAPurchase.Controllers
     [ApiController]
     public class ProductConfigureController : ControllerBase
     {
-        public IMonitoringProductRepository Products{ get; set; }
+        private IMonitoringProductRepository Products{ get;}
         public ProductConfigureController(IMonitoringProductRepository prodcuts)
         {
             Products = prodcuts;
@@ -64,7 +65,8 @@ namespace AssistAPurchase.Controllers
             {
                 return NotFound();
             }
-            Products.Update(product);
+            string message = Products.Update(product);
+            Console.WriteLine(message);
             return new NoContentResult();
         }
 

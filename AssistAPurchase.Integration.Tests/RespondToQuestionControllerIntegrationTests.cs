@@ -1,38 +1,35 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
-using AssistAPurchase.DataBase;
-using AssistAPurchase.Integration.Tests.Fixtures;
-using AssistAPurchase.Models;
+using AssistAPurchase.AssistAPurchase.DataBase;
 using FluentAssertions;
 using Newtonsoft.Json;
 using Xunit;
 
-namespace AssistAPurchase.Integration.Tests.Scenarios
+namespace AssistAPurchase.Integration.Tests
 {
   public  class RespondToQuestionControllerIntegrationTests
     {
         private readonly TestContext _sut;
-        static string url = "https://localhost:5001/api/RespondToQuestions/MonitoringProductHomePage";
+        static string _url = "https://localhost:5001/api/RespondToQuestions/MonitoringProductHomePage";
         
         public RespondToQuestionControllerIntegrationTests()
         {
             _sut = new TestContext();
         }
-        MonitoringProductsGetter products_database = new MonitoringProductsGetter();
-        private MonitoringItems monitoring = new MonitoringItems();
+        readonly MonitoringProductsGetter _productsDatabase = new MonitoringProductsGetter();
 
         [Fact]
         public async Task WhenUsersViewAllProductsThenCheckDatabaseCountWithRenderedProductsCount()
         {
-            var response = await _sut.Client.GetAsync(url);
+            var response = await _sut.Client.GetAsync(_url);
             response.EnsureSuccessStatusCode();
-            Assert.Equal(17, products_database.Products.Count);
+            Assert.Equal(17, _productsDatabase.Products.Count);
         }
 
         [Fact]
         public async Task WhenUsersNeedDescriptionThenCheckDescriptionOfProductRendered()
         {
-            var response = await _sut.Client.GetAsync(url + "/Description/X3");
+            var response = await _sut.Client.GetAsync(_url + "/Description/X3");
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
             Assert.Equal("The Philips IntelliVue X3 is a compact, dual-purpose, transport patient monitor featuring intuitive smartphone-style operation and offering a scalable set of clinical measurements.",
@@ -72,7 +69,7 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
 
         public async Task WhenUsersViewProductsWithCategoryThenCheckDatabaseCountWithRenderedProductsCount(string value1, int expected)
         {
-            var response = await _sut.Client.GetAsync(url + value1);
+            var response = await _sut.Client.GetAsync(_url + value1);
             response.EnsureSuccessStatusCode();
             var forecast = JsonConvert.DeserializeObject<Task[]>(await response.Content.ReadAsStringAsync());
             forecast.Should().HaveCount(expected);
@@ -81,14 +78,14 @@ namespace AssistAPurchase.Integration.Tests.Scenarios
         [Fact]
         public async Task WhenUsersViewAllProductsThenCheckConnectionIsOk()
         {
-            var response = await _sut.Client.GetAsync(url);
+            var response = await _sut.Client.GetAsync(_url);
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Fact]
         public async Task WhenProductNumberIsNullThenCheckDescriptionNotDisplayed()
         {
-            var response = await _sut.Client.GetAsync(url + "/Description/null");
+            var response = await _sut.Client.GetAsync(_url + "/Description/null");
             response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
 

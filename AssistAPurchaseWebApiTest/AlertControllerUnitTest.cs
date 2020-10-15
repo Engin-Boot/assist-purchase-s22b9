@@ -3,16 +3,16 @@ using AssistAPurchase.Controllers;
 using AssistAPurchase.Models;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
-using System;
+using Xunit.Abstractions;
 
 namespace AssistAPurchaseWebApiTest
 {
     public class AlertControllerUnitTest
     {
-        readonly AlertController controller;
-        IAlertRepository service;
+        private readonly ITestOutputHelper _testOutputHelper;
+        readonly AlertController _controller;
 
-        AlertModel alert = new AlertModel()
+        readonly AlertModel _alert = new AlertModel()
         {
             CustomerName = "Jerry",
             CustonmerMailId = "jerry123@gmail.com",
@@ -21,10 +21,11 @@ namespace AssistAPurchaseWebApiTest
             Question = "Which is the best according to budget?",
             Answer = ""
         };
-        public AlertControllerUnitTest()
+        public AlertControllerUnitTest(ITestOutputHelper testOutputHelper)
         {
-            service = new AlertRepository();
-            controller = new AlertController(service);
+            _testOutputHelper = testOutputHelper;
+            IAlertRepository service = new AlertRepository();
+            _controller = new AlertController(service);
         }
         [Fact]
         public void SendAlertWhenCustomerPurchedItemReturnOk()
@@ -36,17 +37,16 @@ namespace AssistAPurchaseWebApiTest
               ItemPurchased= "Item1 Item2 Item3",
             };
             // Act
-            var createdResponse = controller.SendAlert(curerentAlertBody);
+            var createdResponse = _controller.SendAlert(curerentAlertBody);
             // Assert
             Assert.IsType<OkObjectResult>(createdResponse);
         }
         [Fact]
         public void SendAlertWhenCustomerPurchedItemWithInvalidBodyReturnNotFound()
         {
-            // Arrange
-            AlertModel curerentAlertBody = null;
+           
             // Act
-            var createdResponse = controller.SendAlert(curerentAlertBody);
+            var createdResponse = _controller.SendAlert(null);
             // Assert
             Assert.IsType<BadRequestObjectResult>(createdResponse);
         }
@@ -64,9 +64,9 @@ namespace AssistAPurchaseWebApiTest
                Answer= ""
          };
             // Act
-            var createdResponse = controller.QueryFromCustomer(curerentAlertBody);
-            Console.WriteLine(curerentAlertBody.CustomerphoneNumber);
-            Console.WriteLine(curerentAlertBody.CustonmerMailId);
+            var createdResponse = _controller.QueryFromCustomer(curerentAlertBody);
+            _testOutputHelper.WriteLine(curerentAlertBody.CustomerphoneNumber);
+            _testOutputHelper.WriteLine(curerentAlertBody.CustonmerMailId);
             // Assert
             Assert.Equal("",curerentAlertBody.Answer);
             Assert.IsType<OkObjectResult>(createdResponse);
@@ -76,10 +76,8 @@ namespace AssistAPurchaseWebApiTest
         public void SendAQueryToCustomerWhenQueryCalledWithInvalidBodyAndReturnbadRequest()
         {
 
-            // Arrange
-            AlertModel curerentAlertBody = null;
             // Act
-            var createdResponse = controller.QueryFromCustomer(curerentAlertBody);
+            var createdResponse = _controller.QueryFromCustomer(null);
             // Assert
             Assert.IsType<BadRequestObjectResult>(createdResponse);
         }
@@ -87,11 +85,11 @@ namespace AssistAPurchaseWebApiTest
         public void AnswerTheQueryAndReturnOk()
         {
             // Arrange
-            controller.QueryFromCustomer(alert);
+            _controller.QueryFromCustomer(_alert);
             //Act
             string validCustomerName = "Jerry";
             AlertModel answer = new AlertModel() { Answer = "Item3" };
-            var createdResponse = controller.AnswerFromPhilipsPersonnel(validCustomerName, answer);
+            var createdResponse = _controller.AnswerFromPhilipsPersonnel(validCustomerName, answer);
             // Assert
             Assert.IsType<OkObjectResult>(createdResponse);
         }
@@ -99,11 +97,11 @@ namespace AssistAPurchaseWebApiTest
         public void AnswerTheQueryWithInvalidInoutAndReturnNotFound()
         {
             // Arrange
-            controller.QueryFromCustomer(alert);
+            _controller.QueryFromCustomer(_alert);
             //Act
             string invalidCustomerName = "Tom";
             AlertModel answer = new AlertModel() { Answer = "" };
-            var createdResponse = controller.AnswerFromPhilipsPersonnel(invalidCustomerName, answer);
+            var createdResponse = _controller.AnswerFromPhilipsPersonnel(invalidCustomerName, answer);
             // Assert
             Assert.IsType<NotFoundObjectResult>(createdResponse);
         }

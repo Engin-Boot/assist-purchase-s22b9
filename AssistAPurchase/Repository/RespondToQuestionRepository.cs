@@ -14,11 +14,11 @@ namespace AssistAPurchase.Repository
         public IEnumerable<MonitoringItems> FindByCompactCategory(string compactValue)
         {
             List<MonitoringItems> finalItemWithCompactCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].Compact == compactValue)
+                if (item.Compact == compactValue)
                 {
-                    finalItemWithCompactCategory.Add(monitoringItems[i]);
+                    finalItemWithCompactCategory.Add(item);
                 }
             }
             return finalItemWithCompactCategory;
@@ -27,19 +27,17 @@ namespace AssistAPurchase.Repository
         public string GetDescription(string productNumber)
         {
             MonitoringItems monitoringItem= Find(productNumber);
-            if (monitoringItem == null)
-                return null;
-            return monitoringItem.Description;
+            return monitoringItem?.Description;
         }
 
         public IEnumerable<MonitoringItems> FindByProductSpecificTrainingCategory(string productSpecificTrainingvalue)
         {
             List<MonitoringItems> finalItemWithProductSpecificTrainingCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].ProductSpecficTraining == productSpecificTrainingvalue)
+                if (item.ProductSpecficTraining == productSpecificTrainingvalue)
                 {
-                    finalItemWithProductSpecificTrainingCategory.Add(monitoringItems[i]);
+                    finalItemWithProductSpecificTrainingCategory.Add(item);
                 }
             }
             return finalItemWithProductSpecificTrainingCategory;
@@ -48,17 +46,17 @@ namespace AssistAPurchase.Repository
         public IEnumerable<MonitoringItems> FindByPriceCategory(string amount, string belowOrAbove) 
         {
             if (belowOrAbove == "ABOVE")
-             return ProductConfigureSupporterFunctions.GetItemsAboveThanGivenPrice(amount, monitoringItems);
-            return ProductConfigureSupporterFunctions.GetItemsBelowThanGivenPrice(amount, monitoringItems);
+             return ProductConfigureSupporterFunctions.GetItemsAboveThanGivenPrice(amount, MonitoringItems);
+            return ProductConfigureSupporterFunctions.GetItemsBelowThanGivenPrice(amount, MonitoringItems);
         }
         public IEnumerable<MonitoringItems> FindByWearableCategory(string wearableCategoryvalue){
 
             List<MonitoringItems> finalItemWithWearableCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].Wearable == wearableCategoryvalue)
+                if (item.Wearable == wearableCategoryvalue)
                 {
-                    finalItemWithWearableCategory.Add(monitoringItems[i]);
+                    finalItemWithWearableCategory.Add(item);
                 }
             }
             return finalItemWithWearableCategory;
@@ -67,11 +65,11 @@ namespace AssistAPurchase.Repository
         public IEnumerable<MonitoringItems> FindBySoftwareUpdateSupportCategory(string softwareUpdateSupportvalue)
         {
             List<MonitoringItems> finalItemWithSoftwareUpdateSupportCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].SoftwareUpdateSupport == softwareUpdateSupportvalue)
+                if (item.SoftwareUpdateSupport == softwareUpdateSupportvalue)
                 {
-                    finalItemWithSoftwareUpdateSupportCategory.Add(monitoringItems[i]);
+                    finalItemWithSoftwareUpdateSupportCategory.Add(item);
                 }
             }
             return finalItemWithSoftwareUpdateSupportCategory;
@@ -80,11 +78,11 @@ namespace AssistAPurchase.Repository
         public IEnumerable<MonitoringItems> FindByPortabilityCategory(string portabilityCategoryValue)
         {
             List<MonitoringItems> finalItemWithPortabilityCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].Portability == portabilityCategoryValue)
+                if (item.Portability == portabilityCategoryValue)
                 {
-                    finalItemWithPortabilityCategory.Add(monitoringItems[i]);
+                    finalItemWithPortabilityCategory.Add(item);
                 }
             }
             return finalItemWithPortabilityCategory;
@@ -92,11 +90,11 @@ namespace AssistAPurchase.Repository
         public IEnumerable<MonitoringItems> FindByBatterySupportCategory(string batterySupportCategoryValue)
         {
             List<MonitoringItems> finalItemWithBatterySupportCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].BatterySupport == batterySupportCategoryValue)
+                if (item.BatterySupport == batterySupportCategoryValue)
                 {
-                    finalItemWithBatterySupportCategory.Add(monitoringItems[i]);
+                    finalItemWithBatterySupportCategory.Add(item);
                 }
             }
             return finalItemWithBatterySupportCategory;
@@ -105,11 +103,11 @@ namespace AssistAPurchase.Repository
         public IEnumerable<MonitoringItems> FindByThirdPartyDeviceSupportCategory(string thirdPartyDeviceSupportCategoryValue)
         {
             List<MonitoringItems> finalItemWithThirdPartyDeviceSupportCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].ThirdPartyDeviceSupport == thirdPartyDeviceSupportCategoryValue)
+                if (item.ThirdPartyDeviceSupport == thirdPartyDeviceSupportCategoryValue)
                 {
-                    finalItemWithThirdPartyDeviceSupportCategory.Add(monitoringItems[i]);
+                    finalItemWithThirdPartyDeviceSupportCategory.Add(item);
                 }
             }
             return finalItemWithThirdPartyDeviceSupportCategory;
@@ -118,11 +116,11 @@ namespace AssistAPurchase.Repository
         public IEnumerable<MonitoringItems> FindBySafeToFlyCertificationCategory(string safeToFlyCertificationCategoryValue)
         {
             List<MonitoringItems> finalItemWithSafeToFlyCertificationCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].SafeToFlyCertification == safeToFlyCertificationCategoryValue)
+                if (item.SafeToFlyCertification == safeToFlyCertificationCategoryValue)
                 {
-                    finalItemWithSafeToFlyCertificationCategory.Add(monitoringItems[i]);
+                    finalItemWithSafeToFlyCertificationCategory.Add(item);
                 }
             }
             return finalItemWithSafeToFlyCertificationCategory;
@@ -130,11 +128,11 @@ namespace AssistAPurchase.Repository
         public IEnumerable<MonitoringItems> FindByTouchScreenSupportCategory(string touchScreenSupportCategoryValue)
         {
             List<MonitoringItems> finalItemWithTouchScreenSupportCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].TouchScreenSupport == touchScreenSupportCategoryValue)
+                if (item.TouchScreenSupport == touchScreenSupportCategoryValue)
                 {
-                    finalItemWithTouchScreenSupportCategory.Add(monitoringItems[i]);
+                    finalItemWithTouchScreenSupportCategory.Add(item);
                 }
             }
             return finalItemWithTouchScreenSupportCategory;
@@ -143,18 +141,18 @@ namespace AssistAPurchase.Repository
         public IEnumerable<MonitoringItems> FindByScreenSizeCategory(string screenSize, string belowOrAbove)
         {
             if (belowOrAbove == "ABOVE")
-                return ProductConfigureSupporterFunctions.GetItemsAboveThanGivenScreenSize(screenSize,monitoringItems);
-            return ProductConfigureSupporterFunctions.GetItemsBelowThanGivenScreenSize(screenSize, monitoringItems);
+                return ProductConfigureSupporterFunctions.GetItemsAboveThanGivenScreenSize(screenSize,MonitoringItems);
+            return ProductConfigureSupporterFunctions.GetItemsBelowThanGivenScreenSize(screenSize, MonitoringItems);
         }
 
         public IEnumerable<MonitoringItems> FindByMultiPatientSupportCategory(string multiPatientSupportCategoryValue)
         {
             List<MonitoringItems> finalItemWithMultiPatientSupportCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].MultiPatientSupport == multiPatientSupportCategoryValue)
+                if (item.MultiPatientSupport == multiPatientSupportCategoryValue)
                 {
-                    finalItemWithMultiPatientSupportCategory.Add(monitoringItems[i]);
+                    finalItemWithMultiPatientSupportCategory.Add(item);
                 }
             }
             return finalItemWithMultiPatientSupportCategory;
@@ -163,11 +161,11 @@ namespace AssistAPurchase.Repository
         public IEnumerable<MonitoringItems> FindByCyberSecuritytCategory(string cyberSecurityCategoryValue)
         {
             List<MonitoringItems> finalItemWithCyberSecurityCategory = new List<MonitoringItems>();
-            for (int i = 0; i < monitoringItems.Count; i++)
+            foreach (MonitoringItems item in MonitoringItems)
             {
-                if (monitoringItems[i].CyberSecurity == cyberSecurityCategoryValue)
+                if (item.CyberSecurity == cyberSecurityCategoryValue)
                 {
-                    finalItemWithCyberSecurityCategory.Add(monitoringItems[i]);
+                    finalItemWithCyberSecurityCategory.Add(item);
                 }
             }
             return finalItemWithCyberSecurityCategory;
