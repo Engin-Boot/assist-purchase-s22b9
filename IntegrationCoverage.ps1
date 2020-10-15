@@ -32,11 +32,11 @@ Write-Host ""
     Write-Host "Package:"  $pkg.name "Line-Coverage:"$pkg.'line-rate'
 
     if($pkg.'line-rate' -lt $linerate){
-        $result= 0.95
+        $result= 1
        }
     }
 
-if($result -eq 0.95){
+if($result -eq 1){
     Write-Host "Coverage Check: failed" -ForegroundColor red 
 }
 else{
