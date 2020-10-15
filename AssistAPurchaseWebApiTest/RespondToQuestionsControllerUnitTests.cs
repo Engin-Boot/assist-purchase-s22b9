@@ -45,7 +45,6 @@ namespace AssistAPurchaseWebApiTest
             // Act
             var okResultWithYes = _controller.GetValueByCompactCategory("YES").Result as OkObjectResult;
             var okResultWithNo = _controller.GetValueByCompactCategory("NO").Result as OkObjectResult;
-            var okResult = _controller.GetValueByCompactCategory("BOTH").Result as OkObjectResult;
             // Assert
             if (okResultWithYes != null)
             {
@@ -57,12 +56,6 @@ namespace AssistAPurchaseWebApiTest
             {
                 var productsWithNo = Assert.IsType<List<MonitoringItems>>(okResultWithNo.Value);
                 Assert.Equal(5, productsWithNo.Count);
-            }
-
-            if (okResult != null)
-            {
-                var products = Assert.IsType<List<MonitoringItems>>(okResult.Value);
-                Assert.Empty(products);
             }
         }
 
