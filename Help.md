@@ -94,4 +94,11 @@
    ![image](/images/UnitTest2.PNG) 
    
    ![image](/images/UnitTest1.PNG) 
+   
+   ### Integration Testing Report
+   
+   ![image](/images/Integration_coverage.PNG) 
+   
+   ![image](/images/Integration_coverage_overall.PNG) 
+   
   

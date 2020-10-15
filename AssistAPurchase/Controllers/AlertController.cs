@@ -24,7 +24,7 @@ namespace AssistAPurchase.Controllers
                 message = "Unable to send alert!!.";
                 return BadRequest(message);
             }
-            message = body.CustomerName + " has booked following monitoring devices " + "\n" + body.ItemPurchased ;
+            message = body.CustomerName + " has booked following monitoring devices " + "\n" + body.ItemPurchased;
             return Ok(message);
         }
 
