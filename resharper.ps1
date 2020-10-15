@@ -9,6 +9,13 @@ function WriteXmlToScreen ([xml]$xml)
     Write-Output $StringWriter.ToString();
 }
 
+
+Write-Host "---------------------------------"
+Write-Host "Resharper code inspection report..." 
+Write-Host "---------------------------------"
+[xml]$insdoc = Get-Content -Path insreport.xml
+WriteXmlToScreen $insdoc
+
 Write-Host ""
 Write-Host "---------------------------------"
 Write-Host "Resharper code duplication report..." 
@@ -24,6 +31,15 @@ Write-Host "---------------------------------"
 $issuetypes = $insdoc.SelectNodes("//IssueTypes/IssueType")
 
 $result = 0
+
+if($issuetypes.count -eq 0){
+    Write-Host "Number of Inspection Violations:" $issuetypes.count -ForegroundColor green 
+}
+else{
+    Write-Host "Number of Inspection Violations:" $issuetypes.count -ForegroundColor red
+    $result = 1
+}
+
 
 $duplicateCost = $dupdoc.DuplicatesReport.Statistics.TotalDuplicatesCost
 
