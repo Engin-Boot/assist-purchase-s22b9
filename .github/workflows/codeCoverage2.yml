@@ -1,4 +1,4 @@
-name: Coverage2
+name: IntegrationCoverage
  
 on: 
     push:
@@ -23,4 +23,4 @@ jobs:
       
       - name: Check Coverage
        
-        run: powershell ./coverage2.ps1 -linerate 1
+        run: powershell ./IntegrationCoverage.ps1 -linerate 0.88
