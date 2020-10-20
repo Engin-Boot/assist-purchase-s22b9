@@ -17,7 +17,7 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
         }
         private void GetAllItems()
         {
-            List<UserModel> UsersList = new List<UserModel>
+            List<UserModel> usersList = new List<UserModel>
             {
                 new UserModel
                 {
@@ -33,7 +33,7 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                 },
 
             };
-            this.Users = UsersList;
+            this.Users = usersList;
             }       
     }
 }

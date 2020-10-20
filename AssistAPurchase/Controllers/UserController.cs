@@ -8,27 +8,25 @@ namespace AssistAPurchase.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private IUserRepository _repo { get; }
+        private IUserRepository Repo { get; }
         public UserController(IUserRepository repo)
         {
-            _repo = repo;
+            Repo = repo;
         }
         // POST api/User/Login
         [HttpPost("login")]
         public IActionResult Login([FromBody] UserModel user)
         {
-            var isSuccessful = _repo.Login(user);
+            var isSuccessful = Repo.Login(user);
             if(isSuccessful)
-             {
                 return Ok();
-             }
             return NotFound();
         }
        
         [HttpPost("signup")]
         public IActionResult SignUp([FromBody] UserModel user)
         {
-            var isSuccessful = _repo.SignUp(user);
+            var isSuccessful = Repo.SignUp(user);
             if (isSuccessful)
             {
                 return Ok();

@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading.Tasks;
 using AssistAPurchase.Models;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Xunit;
 

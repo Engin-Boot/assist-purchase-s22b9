@@ -5,7 +5,7 @@ namespace AssistAPurchase.Repository
 {
     public class UserRepository : IUserRepository
     {
-        protected readonly List<UserModel> UserList = new List<UserModel>();
+        private readonly List<UserModel> UserList = new List<UserModel>();
 
         public UserRepository()
         {
