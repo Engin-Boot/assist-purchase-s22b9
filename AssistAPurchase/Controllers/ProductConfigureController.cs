@@ -50,7 +50,7 @@ namespace AssistAPurchase.Controllers
                 return BadRequest();
             }*/
             Products.Add(product);
-            return CreatedAtRoute("GetMonitoringProduct", new { productNumber = product.ProductNumber }, product);
+            return Ok();
         }
 
         // Put api/ProductConfigure/{productNumber}

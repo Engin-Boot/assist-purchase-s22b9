@@ -99,8 +99,9 @@ namespace AssistAPurchaseWebApiTest
             var productNumber = "XXXX";
             // Act
             var createdResponse = _controller.Create(productNumber,testMonitoringItem);
-            // Assert
-            Assert.IsType<CreatedAtRouteResult>(createdResponse);
+            var actualResponseObject = createdResponse as OkResult;
+            Assert.NotNull(actualResponseObject);
+            
         }
         // For remove method
         [Fact]

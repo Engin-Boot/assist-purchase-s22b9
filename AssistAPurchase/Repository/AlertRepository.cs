@@ -23,7 +23,6 @@ namespace AssistAPurchase.Repository
                 if (customerName == alert.CustomerName)
                     return alert;
             }
-
             return null;
         }
     }
