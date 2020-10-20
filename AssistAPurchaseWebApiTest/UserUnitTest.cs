@@ -60,7 +60,7 @@ namespace AssistAPurchaseWebApiTest
             Assert.NotNull(actualResult);
         }
         [Fact]
-        public void SignUpReturnsOKResult()
+        public void SignUpReturnsOkResult()
         {
             var user = new UserModel
             {

@@ -5,7 +5,7 @@ namespace AssistAPurchase.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private readonly List<UserModel> UserList = new List<UserModel>();
+        private readonly List<UserModel> _userList = new List<UserModel>();
 
         public UserRepository()
         {
@@ -16,7 +16,7 @@ namespace AssistAPurchase.Repository
 
         private bool Find(string email)
         {
-            foreach (UserModel userModel in UserList)
+            foreach (UserModel userModel in _userList)
                 if (userModel.Email == email)
                     return true;
             return false;
@@ -24,11 +24,11 @@ namespace AssistAPurchase.Repository
 
         private void Add(UserModel user)
         {
-            UserList.Add(user);
+            _userList.Add(user);
         }
         public bool Login(UserModel user)
         {
-            foreach (UserModel userModel in UserList)
+            foreach (UserModel userModel in _userList)
                 if (userModel.Email == user.Email)
                     if(userModel.Password == user.Password)
                         return true;
