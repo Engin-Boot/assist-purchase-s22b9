@@ -26,7 +26,7 @@ namespace AssistAPurchase
             services.AddSingleton<IMonitoringProductRepository, MonitoringProductRepository>();
             services.AddSingleton<IRespondToQuestionRepository, RespondToQuestionRepository>();
             services.AddSingleton<IAlertRepository,AlertRepository>();
-            
+            services.AddSingleton<IUserRepository, UserRepository>();
 
         }
 
