@@ -50,8 +50,7 @@ namespace AssistAPurchaseWebApiTest
             var user = new UserModel
             {
                 Email = "gagan@gmail.com",
-                Password = "gagan",
-                UserName = "gagan"
+                Password = "gagan"
             };
             // Act
             var result = _controller.SignUp(user);
@@ -66,7 +65,6 @@ namespace AssistAPurchaseWebApiTest
             {
                 Email = "test@gmail.com",
                 Password = "test",
-                UserName = "test"
             };
             // Act
             var result = _controller.SignUp(user);

@@ -21,13 +21,13 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
             {
                 new UserModel
                 {
-                    UserName = "gagan",
+                    
                     Password = "gagan",
                     Email = "gagan@gmail.com"
                 },
                 new UserModel
                 {
-                    UserName = "kavya",
+                    
                     Password = "kavya",
                     Email = "kavya@gmail.com"
                 },

@@ -52,7 +52,7 @@ namespace AssistAPurchase.Integration.Tests
             {
                 Email = "gagan@gmail.com",
                 Password = "gagan",
-                UserName = "gagan"
+                
 
             };
             var response = await _sut.Client.PostAsync(url + "/signup",
