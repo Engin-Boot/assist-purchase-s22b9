@@ -18,6 +18,7 @@
             public string ScreenSize { get; set; }
             public string MultiPatientSupport { get; set; }
             public string CyberSecurity { get; set; }
+            public string Image { get; set; }
 
     }
 }

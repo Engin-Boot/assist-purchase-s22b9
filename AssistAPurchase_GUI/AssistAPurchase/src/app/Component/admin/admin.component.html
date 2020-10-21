@@ -26,6 +26,7 @@
         <th>Screen Size</th>
         <th>Multi Patient Support</th>
         <th>Cyber Security</th>
+        <th>Image</th>
     </tr>
   <tr *ngFor="let product of prodDetail">
     <td>{{product.productNumber}}</td>
@@ -44,6 +45,7 @@
     <td>{{product.screenSize}}</td>
     <td>{{product.multiPatientSupport}}</td>
     <td>{{product.cyberSecurity}}</td>
+    <td><img src="{{product.image}}" alt="{{product.productName}}" width="200" height="200"></td>
   </tr>
 </table>
 

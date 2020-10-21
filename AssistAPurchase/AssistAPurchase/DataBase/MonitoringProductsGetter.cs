@@ -36,7 +36,9 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "6.1",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/4d6fbbf0d41f47978ee1a7a8018a31c2?wid=610&hei=458&$pnglarge$"
+
                 },
                 new MonitoringItems
                 {
@@ -56,7 +58,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "2.8",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/2506df2ea699488ebab3a77c0162c98e?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -76,7 +79,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "19",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "YES"
+                    CyberSecurity = "YES",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/5ee0ec7c2b504c84a8f4ab0a010b56ff?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -96,7 +100,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "3.5",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/73a602593d254b059dada77c0141ec54?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -116,7 +121,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "8.4",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/074372eaf7e540e9b156a77c0162c50c?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -136,7 +142,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "12",
                     MultiPatientSupport = "YES",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/ed58cb6ded634887abc9a77c014d1c5e?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -156,7 +163,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "15",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/4b1554a9650b49a68921a77c0141c0e4?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -176,7 +184,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "3.5",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/4b9ba82aea1f49cfa0e3a77c014799a0?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -196,7 +205,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "12",
                     MultiPatientSupport = "YES",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/466acdacb84b4edb9f01a77c016360e7?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -216,7 +226,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "15",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/466acdacb84b4edb9f01a77c016360e7?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -236,7 +247,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "15",
                     MultiPatientSupport = "YES",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/466acdacb84b4edb9f01a77c016360e7?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -256,7 +268,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "9",
                     MultiPatientSupport = "YES",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/989c15d9fa2f4f56979ea77c015ff850?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -276,7 +289,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "19",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/6f4cbced0c0948a1b9cca77c01510911?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -296,7 +310,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "8.4",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/8d787bd227a04c389a63a77c015ff281?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -316,7 +331,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "6.1",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/8d787bd227a04c389a63a77c015ff281?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -336,7 +352,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "10",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/bd5a95ed078546bb8352a77c0156d31e?wid=610&hei=458&$pnglarge$"
                 },
                 new MonitoringItems
                 {
@@ -356,7 +373,8 @@ namespace AssistAPurchase.AssistAPurchase.DataBase
                     TouchScreenSupport = "YES",
                     ScreenSize = "12.1",
                     MultiPatientSupport = "NO",
-                    CyberSecurity = "NO"
+                    CyberSecurity = "NO",
+                    Image = "https://images.philips.com/is/image/philipsconsumer/cf46e6b08919484fa6e5a93600d93f31?wid=610&hei=458&$pnglarge$"
                 }
             };
             this.Products = monitoringItems;

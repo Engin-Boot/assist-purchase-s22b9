@@ -15,4 +15,5 @@ export interface GetAllProduct{
     screenSize : string;
     multiPatientSupport : string;
     cyberSecurity : string;
+    image : HTMLImageElement
 }
