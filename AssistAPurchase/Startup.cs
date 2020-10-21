@@ -48,6 +48,7 @@ namespace AssistAPurchase
             {
                 endpoints.MapControllers();
             });
+            app.UseCors();
         }
     }
 }
