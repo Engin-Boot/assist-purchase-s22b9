@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class ProductManagementService {
 
-  public url: string = 'https://localhost:5001/api/ProductConfigure/getAllProducts';
-  constructor( private http: HttpClient ) { }
+  public url: string = 'http://localhost:5000/api/ProductConfigure/getAllProducts';
+  constructor( private https: HttpClient ) { }
 
-  GetProductInfo(): Observable<GetAllProduct[]> {
+  public GetProductInfo() {
     
-    return this.http.get<GetAllProduct[]>(this.url);
+    return this.https.get(this.url);
   }
 }

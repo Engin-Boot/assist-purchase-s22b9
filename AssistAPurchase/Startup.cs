@@ -27,6 +27,7 @@ namespace AssistAPurchase
             services.AddSingleton<IRespondToQuestionRepository, RespondToQuestionRepository>();
             services.AddSingleton<IAlertRepository,AlertRepository>();
             services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddCors();
 
         }
 
@@ -38,17 +39,21 @@ namespace AssistAPurchase
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-            app.UseCors();
         }
     }
 }
