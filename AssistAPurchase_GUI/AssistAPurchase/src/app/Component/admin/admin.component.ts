@@ -26,5 +26,8 @@ export class AdminComponent implements OnInit {
       console.log("Completed");
     }); 
   }
-
+  
+  DeleteProductByProductId(productId: string): void{
+    this.productDetail.DeleteProduct(productId);
+  }
 }

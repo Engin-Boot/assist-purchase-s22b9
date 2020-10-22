@@ -8,11 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class ProductManagementService {
 
-  public url: string = 'http://localhost:5000/api/ProductConfigure/getAllProducts';
+  public url: string = 'http://localhost:5000/api/ProductConfigure/';
   constructor( private https: HttpClient ) { }
 
   public GetProductInfo() {
     
-    return this.https.get(this.url);
+    return this.https.get(this.url + 'getAllProducts');
+  }
+
+  public DeleteProduct(productId: string){
+    return this.https.delete(this.url + productId);
   }
 }

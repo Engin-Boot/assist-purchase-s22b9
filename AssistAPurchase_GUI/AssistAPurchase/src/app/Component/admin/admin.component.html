@@ -1,6 +1,3 @@
-<p>admin works!</p>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,46 +5,51 @@
 </head>
 <body>
 
-<table>
-    <tr>
-        <th>Product Number</th>
-        <th>Product Name</th>
-        <th>Description</th>
-        <th>Product Specfic Training</th>
-        <th>Price</th>
-        <th>Wearable</th>
-        <th>Software Update Support</th>
-        <th>Portability</th>
-        <th>Compact</th>
-        <th>BatterySupport</th>
-        <th>Third Party Device Support</th>
-        <th>Safe To Fly Certification</th>
-        <th>Touch Screen Support</th>
-        <th>Screen Size</th>
-        <th>Multi Patient Support</th>
-        <th>Cyber Security</th>
-        <th>Image</th>
+    <div id="mySidenav" class="sidenav">
+        <button id="add" onclick="addProduct()">Add Product</button>
+        <button id="update">Update Product</button>
+        <button id="delete">Delete Product</button>
+      </div>
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Product Number</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Product Specfic Training</th>
+            <th>Price</th>
+            <th>Wearable</th>
+            <th>Software Update Support</th>
+            <th>Portability</th>
+            <th>Compact</th>
+            <th>BatterySupport</th>
+            <th>Third Party Device Support</th>
+            <th>Safe To Fly Certification</th>
+            <th>Touch Screen Support</th>
+            <th>Screen Size</th>
+            <th>Multi Patient Support</th>
+            <th>Cyber Security</th>
+        </tr>
+    <tr *ngFor="let product of prodDetail">
+        <td><img src="{{product.image}}" alt="{{product.productName}}" width="200" height="200"></td>
+        <td>{{product.productNumber}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.productSpecficTraining}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.wearable}}</td>
+        <td>{{product.softwareUpdateSupport}}</td>
+        <td>{{product.portability}}</td>
+        <td>{{product.compact}}</td>
+        <td>{{product.batterySupport}}</td>
+        <td>{{product.tdirdPartyDeviceSupport}}</td>
+        <td>{{product.safeToFlyCertification}}</td>
+        <td>{{product.touchScreenSupport}}</td>
+        <td>{{product.screenSize}}</td>
+        <td>{{product.multiPatientSupport}}</td>
+        <td>{{product.cyberSecurity}}</td>
     </tr>
-  <tr *ngFor="let product of prodDetail">
-    <td>{{product.productNumber}}</td>
-    <td>{{product.productName}}</td>
-    <td>{{product.description}}</td>
-    <td>{{product.productSpecficTraining}}</td>
-    <td>{{product.price}}</td>
-    <td>{{product.wearable}}</td>
-    <td>{{product.softwareUpdateSupport}}</td>
-    <td>{{product.portability}}</td>
-    <td>{{product.compact}}</td>
-    <td>{{product.batterySupport}}</td>
-    <td>{{product.tdirdPartyDeviceSupport}}</td>
-    <td>{{product.safeToFlyCertification}}</td>
-    <td>{{product.touchScreenSupport}}</td>
-    <td>{{product.screenSize}}</td>
-    <td>{{product.multiPatientSupport}}</td>
-    <td>{{product.cyberSecurity}}</td>
-    <td><img src="{{product.image}}" alt="{{product.productName}}" width="200" height="200"></td>
-  </tr>
-</table>
+    </table>
 
 </body>
 </html>
