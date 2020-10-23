@@ -5,11 +5,13 @@
 </head>
 <body>
 
-    <div id="mySidenav" class="sidenav">
-        <button id="add" onclick="addProduct()">Add Product</button>
-        <button id="update">Update Product</button>
-        <button id="delete">Delete Product</button>
+    <div class="topnav" >
+        <button class="btnnav" (click)="showGetProductForm()">Display Product</button>
+        <button class="btnnav" (click)="showAddProductForm()">Add Product</button>
+        <button class="btnnav" (click)="showUpdateProductForm()">Update Product</button>
+        <button class="btnnav" (click)="showDeleteProductForm()">Delete Product</button>
       </div>
+      <div class="getAllProducts" [ngStyle]="{'display':getProductDispay}">
     <table>
         <tr>
             <th>Image</th>
@@ -50,6 +52,170 @@
         <td>{{product.cyberSecurity}}</td>
     </tr>
     </table>
+</div>
 
+
+
+
+
+
+
+
+
+
+
+
+<!-- Add Product -->
+
+    <div class="container" id="myform" [ngStyle]="{'display':addProductdisplay}">  
+  
+        <form id="contact" novalidate (ngInsert)="OnInsertProduct()" >
+        {{productModel | json}}
+          <h3>Add Product</h3>
+          <fieldset>
+            <input placeholder="Product Id" type="text" name="id" tabindex="1" required autofocus [(ngModel)]="productModel.productNumber">
+          </fieldset>
+          <fieldset>
+            <input placeholder="Product Name" type="text" tabindex="2" name="pname" required [(ngModel)]="productModel.productName">
+          </fieldset>
+          <fieldset>
+            <textarea placeholder="Description" tabindex="3" name="description" required [(ngModel)]="productModel.description"></textarea>
+          </fieldset>
+          
+          <fieldset>
+            <input placeholder="Product Specfic Training(YES/NO)" name="pst" type="text" tabindex="4" required [(ngModel)]="productModel.productSpecficTraining">
+          </fieldset> 
+          
+           <fieldset>
+            <input placeholder="Price" type="text" tabindex="5" name="price" required [(ngModel)]="productModel.price">
+          </fieldset> 
+          <fieldset>
+            <input placeholder="Wearable(YES/NO)" type="text" name="wearable" tabindex="6" required [(ngModel)]="productModel.wearable">
+          </fieldset>
+          <fieldset>
+            <input placeholder="Software Update Support(YES/NO)" type="text" name="sus" tabindex="7" required [(ngModel)]="productModel.softwareUpdateSupport">
+          </fieldset>
+          <fieldset>
+            <input placeholder="Portability(YES/NO)" type="text" tabindex="8" name="portability" required [(ngModel)]="productModel.portability">
+          </fieldset>
+              
+              <fieldset>
+            <input placeholder="Compact(YES/NO)" type="text" tabindex="9" name="compact" required [(ngModel)]="productModel.compact">
+          </fieldset>
+              <fieldset>
+            <input placeholder="Battery Support(YES/NO)" type="text" tabindex="10" name="battery" required [(ngModel)]="productModel.batterySupport">
+          </fieldset>
+          <fieldset>
+            <input placeholder="Third Party Device Support(YES/NO)" type="text"  name="tpds" tabindex="11" required [(ngModel)]="productModel.thirdPartyDeviceSupport">
+          </fieldset>
+          <fieldset>
+            <input placeholder="Safe To Fly Certification(YES/NO)" type="text" tabindex="12" name ="tfc" required [(ngModel)]="productModel.safeToFlyCertification">
+          </fieldset>
+          <fieldset>
+            <input placeholder="Touch Screen Support(YES/NO)" type="text" tabindex="13" name="touch" required [(ngModel)]="productModel.touchScreenSupport">
+          </fieldset>
+          <fieldset>
+            <input placeholder="ScreenSize" type="text" tabindex="14" required name="size" [(ngModel)]="productModel.screenSize">
+          </fieldset>
+          <fieldset>
+            <input placeholder="Multi Patient Support(YES/NO)" type="text" name="mps" tabindex="15" required [(ngModel)]="productModel.multiPatientSupport">
+          </fieldset>
+          <fieldset>
+            <input placeholder="Cyber Security(YES/NO)" type="text" name="cs" tabindex="16" required [(ngModel)]="productModel.cyberSecurity">
+          </fieldset>
+          <fieldset>
+            <input placeholder="Product Image URL" type="url" tabindex="17" name="image" required [(ngModel)]="productModel.image">
+          </fieldset>
+          <fieldset>
+            <button name="add" type="submit" class="btnsubmit">Add Product</button>
+          </fieldset>
+  
+        </form>
+      </div> 
+
+<!-- Update Product -->
+
+<div class="container" id="myform" [ngStyle]="{'display':updateProductDisplay}">  
+  
+    <form id="contact" action="" method="post">
+      
+      <h3>Update Product</h3>
+      <fieldset>
+        <input placeholder="Product Id" type="text" tabindex="1" required autofocus>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Product Name" type="text" tabindex="2" required>
+      </fieldset>
+      <fieldset>
+        <textarea placeholder="Description" tabindex="3" required></textarea>
+      </fieldset>
+      
+      <fieldset>
+        <input placeholder="Product Specfic Training(YES/NO)" type="text" tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Price" type="number" tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Wearable(YES/NO)" type="text" tabindex="6" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Software Update Support(YES/NO)" type="text" tabindex="7" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Portability(YES/NO)" type="text" tabindex="8" required>
+      </fieldset>
+          
+          <fieldset>
+        <input placeholder="Compact(YES/NO)" type="text" tabindex="9" required>
+      </fieldset>
+          <fieldset>
+        <input placeholder="Battery Support(YES/NO)" type="text" tabindex="10" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Third Party Device Support(YES/NO)" type="text" tabindex="11" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Safe To Fly Certification(YES/NO)" type="text" tabindex="12" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Touch Screen Support(YES/NO)" type="text" tabindex="13" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="ScreenSize" type="text" tabindex="14" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Multi Patient Support(YES/NO)" type="text" tabindex="15" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Cyber Security(YES/NO)" type="text" tabindex="16" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Product Image URL" type="url" tabindex="17" required>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" class="btnsubmit" id="contact-submit" data-submit="...Sending">Update Product</button>
+      </fieldset>
+      
+    </form>
+  </div>
+
+  <!-- Delete Product -->
+
+<div class="container" id="myform" [ngStyle]="{'display':deleteProductDisplay}">
+  
+    <form id="contact" action="" method="post" #deleteform="ngForm" (ng-submit)="DeleteProductByProductId(deleteform.id)">
+      
+      <h3>Delete Product</h3>
+
+      <fieldset>
+        <input placeholder="Product Id" name="id" type="text" tabindex="1"  autofocus ngModel required>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" class="btnsubmit" id="contact-submit">Delete Product</button>
+      </fieldset>
+      
+    </form>
+  </div>
 </body>
 </html>
