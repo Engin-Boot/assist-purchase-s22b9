@@ -31,17 +31,77 @@ export class AdminComponent implements OnInit {
     ()=>{
       console.log("Completed");
     });
-    this.OnInsertProduct();
   }
   
-  DeleteProductByProductId(productId: string): void{
-    this.productDetail.DeleteProduct(productId);
+  
+  AddProduct(invalid: boolean):void{
+    if(invalid)
+    {
+      alert("Please enter the required details")
+      return;
+    }
+    let observable=this.productDetail.InsertProduct(this.productModel)
+    observable.subscribe((data:Response)=>{
+      console.log(data);
+    },
+    (error:any)=>{
+     //alert(error);
+     console.log(error)
+     alert("Unable to insert the product")
+    },
+    ()=>{
+      console.log("Completed");
+      alert("Product added successfully")
+    });
+    window.location.reload();
   }
-  OnInsertProduct(){
-    console.log("product:" + this.productModel.productNumber);
+  UpdateProduct(invalid: boolean):void{
+    if(invalid)
+    {
+      alert("Please enter the required details")
+      return;
+    }
+    let observable=this.productDetail.UpdateProductController(this.productModel)
+    observable.subscribe((data:Response)=>{
+      console.log(data);
+    },
+    (error:any)=>{
+     //alert(error);
+     console.log(error)
+     alert("Unable to update the product")
+    },
+    ()=>{
+      console.log("Completed");
+      alert("Product updated successfully")
+    });
+    window.location.reload();
   }
-   productModel = new Product("","","","","","","","","","","", "","","","","","");
+  DeleteProduct(pid: string, invalid:boolean):void{
+    console.log("pid:" + pid);
+    if(invalid)
+    {
+      alert("Please enter the required details")
+      return;
+    }
+    let observable=this.productDetail.DeleteProductController(pid)
+    observable.subscribe((data:Response)=>{
+      console.log(data);
+    },
+    (error:any)=>{
+     //alert(error);
+     console.log(error)
+     alert("Unable to delete the product")
+    },
+    ()=>{
+      console.log("Completed");
+      alert("Product deleted successfully")
+    });
+    window.location.reload();
+  }
 
+
+  productModel = new Product("","","","NO","","NO","NO","NO","NO","NO","NO","NO","NO","","NO","NO","");
+   
 
 
   showGetProductForm(){

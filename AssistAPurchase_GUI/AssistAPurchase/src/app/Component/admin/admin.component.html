@@ -44,7 +44,7 @@
         <td>{{product.portability}}</td>
         <td>{{product.compact}}</td>
         <td>{{product.batterySupport}}</td>
-        <td>{{product.tdirdPartyDeviceSupport}}</td>
+        <td>{{product.thirdPartyDeviceSupport}}</td>
         <td>{{product.safeToFlyCertification}}</td>
         <td>{{product.touchScreenSupport}}</td>
         <td>{{product.screenSize}}</td>
@@ -69,65 +69,122 @@
 
     <div class="container" id="myform" [ngStyle]="{'display':addProductdisplay}">  
   
-        <form id="contact" novalidate (ngInsert)="OnInsertProduct()" >
-        {{productModel | json}}
+        <form #formInsert="ngForm" id="contact" >
+        
           <h3>Add Product</h3>
           <fieldset>
-            <input placeholder="Product Id" type="text" name="id" tabindex="1" required autofocus [(ngModel)]="productModel.productNumber">
+            <div class="form-group" [class.has-error]="pid.invalid && pid.touched">
+            <input required placeholder="Product Id" type="text" name="id" tabindex="1"  autofocus [(ngModel)]="productModel.productNumber" #pid="ngModel">
+            <span class="help-block" *ngIf="pid.invalid && pid.touched">Product Id is required </span>
+          </div>
           </fieldset>
+
           <fieldset>
+            
             <input placeholder="Product Name" type="text" tabindex="2" name="pname" required [(ngModel)]="productModel.productName">
+          
           </fieldset>
           <fieldset>
             <textarea placeholder="Description" tabindex="3" name="description" required [(ngModel)]="productModel.description"></textarea>
           </fieldset>
-          
           <fieldset>
-            <input placeholder="Product Specfic Training(YES/NO)" name="pst" type="text" tabindex="4" required [(ngModel)]="productModel.productSpecficTraining">
-          </fieldset> 
-          
-           <fieldset>
             <input placeholder="Price" type="text" tabindex="5" name="price" required [(ngModel)]="productModel.price">
-          </fieldset> 
-          <fieldset>
-            <input placeholder="Wearable(YES/NO)" type="text" name="wearable" tabindex="6" required [(ngModel)]="productModel.wearable">
-          </fieldset>
-          <fieldset>
-            <input placeholder="Software Update Support(YES/NO)" type="text" name="sus" tabindex="7" required [(ngModel)]="productModel.softwareUpdateSupport">
-          </fieldset>
-          <fieldset>
-            <input placeholder="Portability(YES/NO)" type="text" tabindex="8" name="portability" required [(ngModel)]="productModel.portability">
-          </fieldset>
-              
-              <fieldset>
-            <input placeholder="Compact(YES/NO)" type="text" tabindex="9" name="compact" required [(ngModel)]="productModel.compact">
-          </fieldset>
-              <fieldset>
-            <input placeholder="Battery Support(YES/NO)" type="text" tabindex="10" name="battery" required [(ngModel)]="productModel.batterySupport">
-          </fieldset>
-          <fieldset>
-            <input placeholder="Third Party Device Support(YES/NO)" type="text"  name="tpds" tabindex="11" required [(ngModel)]="productModel.thirdPartyDeviceSupport">
-          </fieldset>
-          <fieldset>
-            <input placeholder="Safe To Fly Certification(YES/NO)" type="text" tabindex="12" name ="tfc" required [(ngModel)]="productModel.safeToFlyCertification">
-          </fieldset>
-          <fieldset>
-            <input placeholder="Touch Screen Support(YES/NO)" type="text" tabindex="13" name="touch" required [(ngModel)]="productModel.touchScreenSupport">
           </fieldset>
           <fieldset>
             <input placeholder="ScreenSize" type="text" tabindex="14" required name="size" [(ngModel)]="productModel.screenSize">
           </fieldset>
           <fieldset>
-            <input placeholder="Multi Patient Support(YES/NO)" type="text" name="mps" tabindex="15" required [(ngModel)]="productModel.multiPatientSupport">
+            <label class="switchlabel"> Product Specfic Training  </label>
+            <label class="switch">
+              <input type="checkbox" name="pc"  (change)="productModel.productSpecficTraining = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.productSpecficTraining">
+              <span class="slider round"></span>
+              </label>  
+          </fieldset>
+            
+          <fieldset>
+            <label class="switchlabel"> Wearable  </label>
+            <label class="switch">
+              <input type="checkbox" name="wearable"  (change)="productModel.wearable = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.wearable">
+              <span class="slider round"></span>
+            </label>
+            
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Software Update Support  </label>
+            <label class="switch">
+              <input type="checkbox" name="sus"  (change)="productModel.softwareUpdateSupport = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.softwareUpdateSupport">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Portability  </label>
+            <label class="switch">
+              <input type="checkbox" name="portability"  (change)="productModel.portability = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.portability">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+              
+          <fieldset>
+            <label class="switchlabel"> Compact  </label>
+            <label class="switch">
+              <input type="checkbox" name="compact"  (change)="productModel.compact = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.compact">
+              <span class="slider round"></span>
+            </label>
           </fieldset>
           <fieldset>
-            <input placeholder="Cyber Security(YES/NO)" type="text" name="cs" tabindex="16" required [(ngModel)]="productModel.cyberSecurity">
+            <label class="switchlabel"> Battery Support  </label>
+            <label class="switch">
+              <input type="checkbox" name="batterySupport"  (change)="productModel.batterySupport = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.batterySupport">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Third Party Device Support  </label>
+            <label class="switch">
+              <input type="checkbox" name="thirdPartyDeviceSupport"  (change)="productModel.thirdPartyDeviceSupport = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.thirdPartyDeviceSupport">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Safe To Fly Certification  </label>
+            <label class="switch">
+              <input type="checkbox" name="safeToFlyCertification"  (change)="productModel.safeToFlyCertification = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.safeToFlyCertification">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Touch Screen Support  </label>
+            <label class="switch">
+              <input type="checkbox" name="touchScreenSupport"  (change)="productModel.touchScreenSupport = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.touchScreenSupport">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Multi Patient Support </label>
+            <label class="switch">
+              <input type="checkbox" name="multiPatientSupport"  (change)="productModel.multiPatientSupport = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.multiPatientSupport">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Cyber Security </label>
+            <label class="switch">
+              <input type="checkbox" name="cyberSecurity"  (change)="productModel.cyberSecurity = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.cyberSecurity">
+              <span class="slider round"></span>
+            </label>
           </fieldset>
           <fieldset>
-            <input placeholder="Product Image URL" type="url" tabindex="17" name="image" required [(ngModel)]="productModel.image">
+            <input placeholder="Product Image URL" type="url" tabindex="17" name="image" [(ngModel)]="productModel.image">
           </fieldset>
           <fieldset>
-            <button name="add" type="submit" class="btnsubmit">Add Product</button>
+            <button name="add" type="submit" class="btnsubmit" (click) = "AddProduct(formInsert.invalid)">Add Product</button>
           </fieldset>
   
         </form>
@@ -135,84 +192,142 @@
 
 <!-- Update Product -->
 
-<div class="container" id="myform" [ngStyle]="{'display':updateProductDisplay}">  
+<div class="container" id="myform2" [ngStyle]="{'display':updateProductDisplay}">  
   
-    <form id="contact" action="" method="post">
-      
-      <h3>Update Product</h3>
-      <fieldset>
-        <input placeholder="Product Id" type="text" tabindex="1" required autofocus>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Product Name" type="text" tabindex="2" required>
-      </fieldset>
-      <fieldset>
-        <textarea placeholder="Description" tabindex="3" required></textarea>
-      </fieldset>
-      
-      <fieldset>
-        <input placeholder="Product Specfic Training(YES/NO)" type="text" tabindex="4" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Price" type="number" tabindex="4" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Wearable(YES/NO)" type="text" tabindex="6" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Software Update Support(YES/NO)" type="text" tabindex="7" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Portability(YES/NO)" type="text" tabindex="8" required>
-      </fieldset>
+        <form #formUpdate="ngForm" id="contact" >
+          
+          <h3>Update Product</h3>
+          <fieldset>
+            <div class="form-group" [class.has-error]="pid.invalid && pid.touched">
+            <input required placeholder="Product Id" type="text" name="id" tabindex="1"  autofocus [(ngModel)]="productModel.productNumber" #pid="ngModel">
+            <span class="help-block" *ngIf="pid.invalid && pid.touched">Product Id is required </span>
+          </div>
+          </fieldset>
           
           <fieldset>
-        <input placeholder="Compact(YES/NO)" type="text" tabindex="9" required>
-      </fieldset>
+            
+            <input placeholder="Product Name" type="text" tabindex="2" name="pname" required [(ngModel)]="productModel.productName">
+          
+          </fieldset>
           <fieldset>
-        <input placeholder="Battery Support(YES/NO)" type="text" tabindex="10" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Third Party Device Support(YES/NO)" type="text" tabindex="11" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Safe To Fly Certification(YES/NO)" type="text" tabindex="12" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Touch Screen Support(YES/NO)" type="text" tabindex="13" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="ScreenSize" type="text" tabindex="14" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Multi Patient Support(YES/NO)" type="text" tabindex="15" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Cyber Security(YES/NO)" type="text" tabindex="16" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Product Image URL" type="url" tabindex="17" required>
-      </fieldset>
-      <fieldset>
-        <button name="submit" type="submit" class="btnsubmit" id="contact-submit" data-submit="...Sending">Update Product</button>
-      </fieldset>
-      
-    </form>
-  </div>
+            <textarea placeholder="Description" tabindex="3" name="description" required [(ngModel)]="productModel.description"></textarea>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Price" type="text" tabindex="5" name="price" required [(ngModel)]="productModel.price">
+          </fieldset>
+          <fieldset>
+            <input placeholder="ScreenSize" type="text" tabindex="14" required name="size" [(ngModel)]="productModel.screenSize">
+          </fieldset>
+          <fieldset>
+            <label class="switchlabel"> Product Specfic Training  </label>
+            <label class="switch">
+              <input type="checkbox" name="pc"  (change)="productModel.productSpecficTraining = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.productSpecficTraining">
+              <span class="slider round"></span>
+              </label>  
+          </fieldset>
+            
+          <fieldset>
+            <label class="switchlabel"> Wearable  </label>
+            <label class="switch">
+              <input type="checkbox" name="wearable"  (change)="productModel.wearable = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.wearable">
+              <span class="slider round"></span>
+            </label>
+            
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Software Update Support  </label>
+            <label class="switch">
+              <input type="checkbox" name="sus"  (change)="productModel.softwareUpdateSupport = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.softwareUpdateSupport">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Portability  </label>
+            <label class="switch">
+              <input type="checkbox" name="portability"  (change)="productModel.portability = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.portability">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+              
+          <fieldset>
+            <label class="switchlabel"> Compact  </label>
+            <label class="switch">
+              <input type="checkbox" name="compact"  (change)="productModel.compact = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.compact">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+          <fieldset>
+            <label class="switchlabel"> Battery Support  </label>
+            <label class="switch">
+              <input type="checkbox" name="batterySupport"  (change)="productModel.batterySupport = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.batterySupport">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Third Party Device Support  </label>
+            <label class="switch">
+              <input type="checkbox" name="thirdPartyDeviceSupport"  (change)="productModel.thirdPartyDeviceSupport = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.thirdPartyDeviceSupport">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Safe To Fly Certification  </label>
+            <label class="switch">
+              <input type="checkbox" name="safeToFlyCertification"  (change)="productModel.safeToFlyCertification = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.safeToFlyCertification">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Touch Screen Support  </label>
+            <label class="switch">
+              <input type="checkbox" name="touchScreenSupport"  (change)="productModel.touchScreenSupport = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.touchScreenSupport">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Multi Patient Support </label>
+            <label class="switch">
+              <input type="checkbox" name="multiPatientSupport"  (change)="productModel.multiPatientSupport = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.multiPatientSupport">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <label class="switchlabel"> Cyber Security </label>
+            <label class="switch">
+              <input type="checkbox" name="cyberSecurity"  (change)="productModel.cyberSecurity = $event.target.checked ? 'YES': 'NO'" [(ngModel)]="productModel.cyberSecurity">
+              <span class="slider round"></span>
+            </label>
+          </fieldset>
+          <fieldset>
+            <input placeholder="Product Image URL" required type="url" tabindex="17" name="image" [(ngModel)]="productModel.image">
+          </fieldset>
+          <fieldset>
+            <button name="update" type="submit" class="btnsubmit" (click) = "UpdateProduct(formUpdate.invalid)">Update Product</button>
+          </fieldset>
+  
+        </form>
+      </div> 
 
   <!-- Delete Product -->
 
 <div class="container" id="myform" [ngStyle]="{'display':deleteProductDisplay}">
   
-    <form id="contact" action="" method="post" #deleteform="ngForm" (ng-submit)="DeleteProductByProductId(deleteform.id)">
+    <form #formDelete="ngForm" id="contact" method="post">
       
       <h3>Delete Product</h3>
 
       <fieldset>
-        <input placeholder="Product Id" name="id" type="text" tabindex="1"  autofocus ngModel required>
+        <input placeholder="Product Id" #prodid name="id" type="text" tabindex="1"  autofocus ngModel required>
       </fieldset>
       <fieldset>
-        <button name="submit" type="submit" class="btnsubmit" id="contact-submit">Delete Product</button>
+        <button name="delete" type="submit" class="btnsubmit" (click) = "DeleteProduct(prodid.value, formDelete.invalid)">Delete Product</button>
       </fieldset>
       
     </form>
