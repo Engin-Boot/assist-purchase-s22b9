@@ -15,7 +15,7 @@ namespace AssistAPurchase.Repository
                 Add(item);
         }
 
-        public IEnumerable<MonitoringItems> GetAll()
+        public List<MonitoringItems> GetAll()
         {
             return MonitoringItems;
         }

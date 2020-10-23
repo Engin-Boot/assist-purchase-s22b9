@@ -16,8 +16,34 @@ namespace AssistAPurchaseWebApiTest
         {
             IRespondToQuestionRepository service = new RespondToQuestionRepository();
             _controller = new RespondToQuestionsController(service);
+
         }
 
+        
+        [Fact]
+        public void GetFilterResultReturnOkResult()
+        {
+            var product = new MonitoringItems
+            {
+                ProductSpecficTraining = "NO",
+                Price = "16900",
+                Wearable = "NO",
+                SoftwareUpdateSupport = "YES",
+                Portability= "YES",
+                Compact= "YES",
+                BatterySupport= "NO",
+                ThirdPartyDeviceSupport= "YES",
+                SafeToFlyCertification = "NO",
+                TouchScreenSupport = "YES",
+                ScreenSize = "6.0",
+                MultiPatientSupport = "NO",
+                CyberSecurity = "NO"
+            };
+            // Act
+            var okResult = _controller.GetValueByCategory(product);
+            // Assert
+            Assert.IsType<OkObjectResult>(okResult.Result);
+        }
         [Fact]
         public void GetAllWhenCalledReturnsOkResult()
         {

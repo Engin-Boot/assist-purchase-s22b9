@@ -1,6 +1,8 @@
 ﻿using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using AssistAPurchase.AssistAPurchase.DataBase;
+using AssistAPurchase.Models;
 using FluentAssertions;
 using Newtonsoft.Json;
 using Xunit;
@@ -17,6 +19,31 @@ namespace AssistAPurchase.Integration.Tests
             _sut = new TestContext();
         }
         readonly MonitoringProductsGetter _productsDatabase = new MonitoringProductsGetter();
+
+        [Fact]
+        public async Task WhenUsersFilterByCategory()
+        {
+            var url = "http://localhost:5001/api/RespondToQuestions/MonitoringProduct";
+            var product = new MonitoringItems
+            {
+                ProductSpecficTraining = "NO",
+                Price = "16900",
+                Wearable = "NO",
+                SoftwareUpdateSupport = "YES",
+                Portability = "YES",
+                Compact = "YES",
+                BatterySupport = "NO",
+                ThirdPartyDeviceSupport = "YES",
+                SafeToFlyCertification = "NO",
+                TouchScreenSupport = "YES",
+                ScreenSize = "6",
+                MultiPatientSupport = "NO",
+                CyberSecurity = "NO"
+            };
+            var response = await _sut.Client.PostAsync(url,
+                new StringContent(JsonConvert.SerializeObject(product), System.Text.Encoding.UTF8, "application/json"));
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+        }
 
         [Fact]
         public async Task WhenUsersViewAllProductsThenCheckDatabaseCountWithRenderedProductsCount()

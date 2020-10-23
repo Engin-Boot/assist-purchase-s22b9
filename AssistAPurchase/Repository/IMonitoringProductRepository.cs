@@ -7,7 +7,7 @@ namespace AssistAPurchase.Repository
     public interface IMonitoringProductRepository
     {
         void Add(MonitoringItems monitoringItems);
-        IEnumerable<MonitoringItems> GetAll();
+        List<MonitoringItems> GetAll();
         MonitoringItems Find(string productNumber);
         MonitoringItems Remove(string productNumber);
         string Update(MonitoringItems monitoringItems);

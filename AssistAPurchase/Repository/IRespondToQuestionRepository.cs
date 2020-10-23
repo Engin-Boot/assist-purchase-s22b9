@@ -20,6 +20,7 @@ namespace AssistAPurchase.Repository
         IEnumerable<MonitoringItems> FindByScreenSizeCategory(string screenSize, string belowOrAbove);
         IEnumerable<MonitoringItems> FindByMultiPatientSupportCategory(string multiPatientSupportCategoryValue);
         IEnumerable<MonitoringItems> FindByCyberSecuritytCategory(string cyberSecurityCategoryValue);
+        List<MonitoringItems> FilterByCategory(MonitoringItems categoryDict);
 
     }
 }
