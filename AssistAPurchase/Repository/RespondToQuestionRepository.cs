@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using AssistAPurchase.Models;
 using AssistAPurchase.SupportingFunctions;
 namespace AssistAPurchase.Repository
@@ -337,85 +335,85 @@ namespace AssistAPurchase.Repository
         private List<MonitoringItems> _ifBatteryFilter(string value, List<MonitoringItems> product)
         {
             if (value!=null)
-                _filterByBatterySupport(value, product);
+                product = _filterByBatterySupport(value, product);
             return product;
         }
         private List<MonitoringItems> _ifProductSpecficTrainingFilter(string value, List<MonitoringItems> product)
         {
             if (value !=null)
-                _filterByProductSpecficTraining(value, product);
+                product = _filterByProductSpecficTraining(value, product);
             return product;
         }
         private List<MonitoringItems> _ifWearableFilter(string value, List<MonitoringItems> product)
         {
             if (value !=null)
-                _filterByWearable(value, product);
+                product = _filterByWearable(value, product);
             return product;
         }
         private List<MonitoringItems> _ifSoftwareUpdateSupportFilter(string value, List<MonitoringItems> product)
         {
             if (value !=null)
-                _filterBySoftwareUpdateSupport(value, product);
+                product = _filterBySoftwareUpdateSupport(value, product);
             return product;
         }
         private List<MonitoringItems> _ifPortabilityFilter(string value, List<MonitoringItems> product)
         {
             if (value !=null)
-                _filterByPortability(value, product);
+                product = _filterByPortability(value, product);
             return product;
         }
         private List<MonitoringItems> _ifThirdPartyDeviceSupportFilter(string value, List<MonitoringItems> product)
         {
             if (value !=null)
-                _filterByThirdPartyDeviceSupport(value, product);
+                product = _filterByThirdPartyDeviceSupport(value, product);
             return product;
         }
         private List<MonitoringItems> _ifSafeToFlyCertificationFilter(string value, List<MonitoringItems> product)
         {
             if (value !=null)
-                _filterBySafeToFlyCertification(value, product);
+                product = _filterBySafeToFlyCertification(value, product);
             return product;
         }
         private List<MonitoringItems> _ifMultiPatientSupportFilter(string value, List<MonitoringItems> product)
         {
             if (value !=null)
-                _filterByMultiPatientSupport(value, product);
+                product = _filterByMultiPatientSupport(value, product);
             return product;
         }
         private List<MonitoringItems> _ifCompactFilter(string value, List<MonitoringItems> product)
         {
             if (value !=null)
-                _filterByCompact(value, product);
+                product = _filterByCompact(value, product);
             return product;
         }
         private List<MonitoringItems> _ifTouchScreenFilter(string value, List<MonitoringItems> product)
         {
             if (value !=null)
-                _filterByTouchScreen(value, product);
+                product = _filterByTouchScreen(value, product);
             return product;
         }
         private List<MonitoringItems> _ifCyberSecurityFilter(string value, List<MonitoringItems> product)
         {
             if (value !=null)
-                _filterByCyberSecurity(value, product);
+                product = _filterByCyberSecurity(value, product);
             return product;
         }
         private List<MonitoringItems> _ifProductNameFilter(string value, List<MonitoringItems> product)
         {
             if (value != null)
-                _filterByProductName(value, product);
+                product = _filterByProductName(value, product);
             return product;
         }
         private List<MonitoringItems> _ifPriceFilter(string value, List<MonitoringItems> product)
         {
             if (value != null)
-                _filterByPrice(value, product);
+                product = _filterByPrice(value, product);
             return product;
         }
         private List<MonitoringItems> _ifScreenSizeFilter(string value, List<MonitoringItems> product)
         {
             if (value != null)
-                _filterByScreenSize(value, product);
+                product = _filterByScreenSize(value, product);
             return product;
         }
         public List<MonitoringItems> FilterByCategory(MonitoringItems category)

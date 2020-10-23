@@ -19,7 +19,6 @@ namespace AssistAPurchaseWebApiTest
 
         }
 
-        
         [Fact]
         public void GetFilterResultReturnOkResult()
         {
@@ -39,10 +38,36 @@ namespace AssistAPurchaseWebApiTest
                 MultiPatientSupport = "NO",
                 CyberSecurity = "NO"
             };
-            // Act
             var okResult = _controller.GetValueByCategory(product);
             // Assert
             Assert.IsType<OkObjectResult>(okResult.Result);
+        }
+        [Fact]
+        public void GetFilterResultProductReturnOkResult()
+        {
+            var productList = new List<MonitoringItems>();
+            productList.Add(new MonitoringItems { ProductSpecficTraining = "NO" });
+            productList.Add(new MonitoringItems { Wearable = "NO" });
+            productList.Add(new MonitoringItems { SoftwareUpdateSupport = "NO" });
+            productList.Add(new MonitoringItems { Portability = "NO" });
+            productList.Add(new MonitoringItems { Compact = "NO" });
+            productList.Add(new MonitoringItems { BatterySupport = "NO" });
+            productList.Add(new MonitoringItems { ThirdPartyDeviceSupport = "NO" });
+            productList.Add(new MonitoringItems { SafeToFlyCertification = "NO" });
+            productList.Add(new MonitoringItems { TouchScreenSupport = "NO" });
+            productList.Add(new MonitoringItems { MultiPatientSupport = "NO" });
+            productList.Add(new MonitoringItems { CyberSecurity = "NO" });
+            productList.Add(new MonitoringItems { Price = "10000" });
+            productList.Add(new MonitoringItems { ScreenSize = "5" });
+            productList.Add(new MonitoringItems { ProductName = "IntelliVue" });
+            
+            foreach(var product in productList)
+            {
+                var okResult = _controller.GetValueByCategory(product);
+                // Assert
+                Assert.IsType<OkObjectResult>(okResult.Result);
+            }
+            
         }
         [Fact]
         public void GetAllWhenCalledReturnsOkResult()
