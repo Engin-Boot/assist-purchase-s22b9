@@ -49,21 +49,23 @@ namespace AssistAPurchase.Integration.Tests
         public async Task WhenUsersFilterByOneCategory()
         {
             var url = "http://localhost:5001/api/RespondToQuestions/MonitoringProduct";
-            var productList = new List<MonitoringItems>();
-            productList.Add(new MonitoringItems { ProductSpecficTraining = "NO" });
-            productList.Add(new MonitoringItems { Wearable = "NO" });
-            productList.Add(new MonitoringItems { SoftwareUpdateSupport = "NO" });
-            productList.Add(new MonitoringItems { Portability = "NO" });
-            productList.Add(new MonitoringItems { Compact = "NO" });
-            productList.Add(new MonitoringItems { BatterySupport = "NO" });
-            productList.Add(new MonitoringItems { ThirdPartyDeviceSupport = "NO" });
-            productList.Add(new MonitoringItems { SafeToFlyCertification = "NO" });
-            productList.Add(new MonitoringItems { TouchScreenSupport = "NO" });
-            productList.Add(new MonitoringItems { MultiPatientSupport = "NO" });
-            productList.Add(new MonitoringItems { CyberSecurity = "NO" });
-            productList.Add(new MonitoringItems { Price = "10000" });
-            productList.Add(new MonitoringItems { ScreenSize = "5" });
-            productList.Add(new MonitoringItems { ProductName = "IntelliVue" });
+            var productList = new List<MonitoringItems>
+            {
+                new MonitoringItems { ProductSpecficTraining = "NO" },
+                new MonitoringItems { Wearable = "NO" },
+                new MonitoringItems { SoftwareUpdateSupport = "NO" },
+                new MonitoringItems { Portability = "NO" },
+                new MonitoringItems { Compact = "NO" },
+                new MonitoringItems { BatterySupport = "NO" },
+                new MonitoringItems { ThirdPartyDeviceSupport = "NO" },
+                new MonitoringItems { SafeToFlyCertification = "NO" },
+                new MonitoringItems { TouchScreenSupport = "NO" },
+                new MonitoringItems { MultiPatientSupport = "NO" },
+                new MonitoringItems { CyberSecurity = "NO" },
+                new MonitoringItems { Price = "10000" },
+                new MonitoringItems { ScreenSize = "5" },
+                new MonitoringItems { ProductName = "IntelliVue" }
+            };
             foreach (var product in productList)
             {
                 var response = await _sut.Client.PostAsync(url,

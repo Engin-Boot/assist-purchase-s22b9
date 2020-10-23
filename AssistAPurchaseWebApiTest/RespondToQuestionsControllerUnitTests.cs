@@ -45,23 +45,25 @@ namespace AssistAPurchaseWebApiTest
         [Fact]
         public void GetFilterResultProductReturnOkResult()
         {
-            var productList = new List<MonitoringItems>();
-            productList.Add(new MonitoringItems { ProductSpecficTraining = "NO" });
-            productList.Add(new MonitoringItems { Wearable = "NO" });
-            productList.Add(new MonitoringItems { SoftwareUpdateSupport = "NO" });
-            productList.Add(new MonitoringItems { Portability = "NO" });
-            productList.Add(new MonitoringItems { Compact = "NO" });
-            productList.Add(new MonitoringItems { BatterySupport = "NO" });
-            productList.Add(new MonitoringItems { ThirdPartyDeviceSupport = "NO" });
-            productList.Add(new MonitoringItems { SafeToFlyCertification = "NO" });
-            productList.Add(new MonitoringItems { TouchScreenSupport = "NO" });
-            productList.Add(new MonitoringItems { MultiPatientSupport = "NO" });
-            productList.Add(new MonitoringItems { CyberSecurity = "NO" });
-            productList.Add(new MonitoringItems { Price = "10000" });
-            productList.Add(new MonitoringItems { ScreenSize = "5" });
-            productList.Add(new MonitoringItems { ProductName = "IntelliVue" });
-            
-            foreach(var product in productList)
+            var productList = new List<MonitoringItems>
+            {
+                new MonitoringItems { ProductSpecficTraining = "YES" },
+                new MonitoringItems { Wearable = "YES" },
+                new MonitoringItems { SoftwareUpdateSupport = "YES" },
+                new MonitoringItems { Portability = "YES" },
+                new MonitoringItems { Compact = "YES" },
+                new MonitoringItems { BatterySupport = "YES" },
+                new MonitoringItems { ThirdPartyDeviceSupport = "YES" },
+                new MonitoringItems { SafeToFlyCertification = "YES" },
+                new MonitoringItems { TouchScreenSupport = "YES" },
+                new MonitoringItems { MultiPatientSupport = "YES" },
+                new MonitoringItems { CyberSecurity = "YES" },
+                new MonitoringItems { Price = "10000" },
+                new MonitoringItems { ScreenSize = "5" },
+                new MonitoringItems { ProductName = "IntelliVue" }
+            };
+
+            foreach (var product in productList)
             {
                 var okResult = _controller.GetValueByCategory(product);
                 // Assert
