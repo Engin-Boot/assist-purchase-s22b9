@@ -1,0 +1,94 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <ul>
+            <li><a href="">Products </a></li>
+            <li><a href="#news">Specialties</a></li>
+            <li><a href="#contact">About</a></li>
+            <li><a href="#contact">Contact & Support</a></li>
+            <li><button class="active" (click) = "selectInput()">Admin Login</button></li>
+            <div *ngIf = "isNameSelected">
+                <div >
+
+                    <div class="container">
+                      <label for="uname"><b>Username</b></label>
+                      <input type="text" placeholder="Enter Email" #AdminEmail name="email">
+                  
+                      <label for="psw"><b>Password</b></label>
+                      <input type="password" placeholder="Enter Password" #AdminPassword name="psw">
+                          
+                      <button  (click) = "ValidateCredentials(AdminEmail.value, AdminPassword.value)">Login</button>
+                      <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                      </label>
+                    </div>
+                  
+                    <div class="container" style="background-color:#f1f1f1">
+                      <button type="button" (click) = "CancelLogin()" class="cancelbtn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="search-container">
+                <li style="margin-left: 50px;"><input #MyInput type="text" style="padding: 15px 40px;" placeholder="Search.." name="search"></li>
+                <div *ngIf="!isFilterApplied">
+                    <li style="float:right"><button type="submit" (click) = "ShowSearchedProduct(MyInput.value)"><i class="fa fa-search"></i></button></li>
+                </div>
+                <div *ngIf="isFilterApplied">
+                    <li style="float:right"><button type="submit" (click) = "RemoveFilter()" >Remove Filter</button></li>
+                </div>
+            </div>
+        </ul>
+          
+          <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.matrixcare.com%2Fwp-content%2Fuploads%2F2016%2F09%2Fbigstock-nursing-home-9313976.jpg&f=1&nofb=1">
+           
+          <div class="card" *ngFor="let product of prodDetail">
+                <img src="{{product.image}}" alt="{{product.productName}}" wid p="200" height="200">
+                <h1>{{product.productName}}</h1>
+                <p class="price">{{product.price}}</p>
+                <p>{{product.description}}</p>
+                <div class="tooltip">View More
+                    <span class="tooltiptext">
+                        <div class="row">
+                            <div class="column1">
+                                <img src="{{product.image}}" alt="{{product.productName}}" wid p="400" height="600">
+                                <h1 style="text-align: center;">{{product.productName}} {{product.productNumber}}</h1>
+                                <p>{{product.description}}</p>
+                                <p>Price : Rs {{product.price}}</p>
+                            </div>
+                            <div class="column2">
+                                <p>Product Specfic Training : {{product.productSpecficTraining}}</p>
+                                <p>Wearable : {{product.wearable}}</p>
+                                <p>Software Update Support : {{product.softwareUpdateSupport}}</p>
+                                <p>Portability : {{product.portability}}</p>
+                                <p>Compact : {{product.compact}}</p>
+                                <p>Battery Support : {{product.batterySupport}}</p>
+                                <p> pird Party Device Support : {{product.pirdPartyDeviceSupport}}</p>
+                                <p>Safe To Fly Certification : {{product.safeToFlyCertification}}</p>
+                                <p>Touch Screen Support : {{product.touchScreenSupport}}</p>
+                                <p>Screen Size : {{product.screenSize}}</p>
+                                <p>Multi Patient Support : {{product.multiPatientSupport}}</p>
+                                <p>Cyber Security : {{product.cyberSecurity}} </p>
+                            </div>
+                          </div>
+                    </span>
+                  </div>
+            </div>
+            <form action="javascript:;">
+                <div class="form-group" *ngIf="isNameSelected">
+                  <label for="name">name :</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+              
+               <button (click)="selectInput()">
+                   <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.sndcdn.com%2Favatars-pxzJ83bZzvVSawkr-neTMHA-t500x500.jpg&f=1&nofb=1"
+                   style="width: 70px; height: 70px;">
+              </button>
+              
+              </form>
+            
+    </body>
+</html>
+<router-outlet></router-outlet>

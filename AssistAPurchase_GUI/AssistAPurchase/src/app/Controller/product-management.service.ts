@@ -19,4 +19,9 @@ export class ProductManagementService {
   public DeleteProduct(productId: string){
     return this.https.delete(this.url + productId);
   }
+
+  public ReturnProductSearchByProductNumber(productNumber : string){
+
+    return this.https.get(this.url + productNumber);
+  }
 }

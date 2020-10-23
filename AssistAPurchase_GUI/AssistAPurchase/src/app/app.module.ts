@@ -5,19 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from 'src/app/Component/admin/admin.component';
 import { ProductManagementService } from 'src/app/Controller/product-management.service';
+import { RespondToQuestionService } from 'src/app/Controller/respond-to-question.service';
+import { AdminLoginService } from 'src/app/Controller/admin-login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { from } from 'rxjs';
+import { HomeComponent } from './Component/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent
+    AdminComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [ProductManagementService],
+  providers: [ProductManagementService, RespondToQuestionService, AdminLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
