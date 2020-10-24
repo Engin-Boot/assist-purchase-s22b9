@@ -16,8 +16,61 @@ namespace AssistAPurchaseWebApiTest
         {
             IRespondToQuestionRepository service = new RespondToQuestionRepository();
             _controller = new RespondToQuestionsController(service);
+
         }
 
+        [Fact]
+        public void GetFilterResultReturnOkResult()
+        {
+            var product = new MonitoringItems
+            {
+                ProductSpecficTraining = "NO",
+                Price = "16900",
+                Wearable = "NO",
+                SoftwareUpdateSupport = "YES",
+                Portability= "YES",
+                Compact= "YES",
+                BatterySupport= "NO",
+                ThirdPartyDeviceSupport= "YES",
+                SafeToFlyCertification = "NO",
+                TouchScreenSupport = "YES",
+                ScreenSize = "6.0",
+                MultiPatientSupport = "NO",
+                CyberSecurity = "NO"
+            };
+            var okResult = _controller.GetValueByCategory(product);
+            // Assert
+            Assert.IsType<OkObjectResult>(okResult.Result);
+        }
+        [Fact]
+        public void GetFilterResultProductReturnOkResult()
+        {
+            var productList = new List<MonitoringItems>
+            {
+                new MonitoringItems { ProductSpecficTraining = "YES" },
+                new MonitoringItems { Wearable = "YES" },
+                new MonitoringItems { SoftwareUpdateSupport = "YES" },
+                new MonitoringItems { Portability = "YES" },
+                new MonitoringItems { Compact = "YES" },
+                new MonitoringItems { BatterySupport = "YES" },
+                new MonitoringItems { ThirdPartyDeviceSupport = "YES" },
+                new MonitoringItems { SafeToFlyCertification = "YES" },
+                new MonitoringItems { TouchScreenSupport = "YES" },
+                new MonitoringItems { MultiPatientSupport = "YES" },
+                new MonitoringItems { CyberSecurity = "YES" },
+                new MonitoringItems { Price = "10000" },
+                new MonitoringItems { ScreenSize = "5" },
+                new MonitoringItems { ProductName = "IntelliVue" }
+            };
+
+            foreach (var product in productList)
+            {
+                var okResult = _controller.GetValueByCategory(product);
+                // Assert
+                Assert.IsType<OkObjectResult>(okResult.Result);
+            }
+            
+        }
         [Fact]
         public void GetAllWhenCalledReturnsOkResult()
         {
