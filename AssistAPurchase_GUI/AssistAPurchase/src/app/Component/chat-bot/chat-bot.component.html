@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active" routerLink = '/Home'>Home</a>
+            <a href="#about">About</a>
+            <a routerLink= '/ChatBot'>Customer Support</a>
+            <a routerLink= '/Login'>Admin</a>
+        </div>
+        <div class="div1">
+            <div class="div2">
+                <button class="button button2" (click) = "HelloBot()" >Hello</button>
+                <p>{{hello}}</p>
+                <button class="button button2" *ngIf="isReplied" (click) = "Filter()" >Need Battery Support</button>
+                <button class="button button2" *ngIf="isReplied" (click) = "Filter()" >No Need Battery For Support</button>
+                <p *ngIf = "isProductFilterd">What is you Name?</p>
+                <p *ngIf = "isEmailEntered">{{name}} Enter Your Mail Id</p>
+                    <p *ngIf = "isEmailEntered">{{email}}</p>
+            </div>	
+            <input type=" text" class="msg" #Input>
+            <button style="margin-left: 198px;margin-top: -100px;" class="w3-button w3-xlarge w3-circle w3-teal" (click) = "SetInput(Input.value)">></button>
+        </div>
+    </body>
+</html>

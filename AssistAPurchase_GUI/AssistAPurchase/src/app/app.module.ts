@@ -10,12 +10,18 @@ import { AdminLoginService } from 'src/app/Controller/admin-login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { from } from 'rxjs';
 import { HomeComponent } from './Component/home/home.component';
+import { LoginComponent } from './Component/login/login.component';
+import { ChatBotComponent } from './Component/chat-bot/chat-bot.component';
+import { ViewProductComponent } from './Component/view-product/view-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    ChatBotComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,

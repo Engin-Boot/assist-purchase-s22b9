@@ -1,0 +1,35 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active" (click) = "SetProductNumberToNull()"routerLink= '/Home'>Home</a>
+            <a href="#about">About</a>
+            <a routerLink= '/ChatBot'>Customer Support</a>
+            <a routerLink= '/Login'>Admin</a>
+          </div>
+           
+          <div class="card" *ngFor="let product of product">
+            <img src="{{product.image}}" alt="{{product.productName}}" wid p="400" height="600">
+            <h1 style="text-align: center;">{{product.productName}} {{product.productNumber}}</h1>
+            <p>{{product.description}}</p>
+            <p>Price : Rs {{product.price}}</p>
+            <p>Product Specfic Training : {{product.productSpecficTraining}}</p>
+            <p>Wearable : {{product.wearable}}</p>
+            <p>Software Update Support : {{product.softwareUpdateSupport}}</p>
+            <p>Portability : {{product.portability}}</p>
+            <p>Compact : {{product.compact}}</p>
+            <p>Battery Support : {{product.batterySupport}}</p>
+            <p> pird Party Device Support : {{product.pirdPartyDeviceSupport}}</p>
+            <p>Safe To Fly Certification : {{product.safeToFlyCertification}}</p>
+            <p>Touch Screen Support : {{product.touchScreenSupport}}</p>
+            <p>Screen Size : {{product.screenSize}}</p>
+            <p>Multi Patient Support : {{product.multiPatientSupport}}</p>
+            <p>Cyber Security : {{product.cyberSecurity}} </p>                                                    
+        </div>
+            
+    </body>
+</html>
+<router-outlet></router-outlet>

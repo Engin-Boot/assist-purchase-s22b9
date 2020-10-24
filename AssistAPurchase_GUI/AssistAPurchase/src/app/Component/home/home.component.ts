@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { GetAllProduct } from 'src/app/DataModel/GetAllProduct';
 import { ProductManagementService } from 'src/app/Controller/product-management.service';
 import { RespondToQuestionService } from 'src/app/Controller/respond-to-question.service';
 import { AdminLoginService } from 'src/app/Controller/admin-login.service';
+import { Router } from '@angular/router';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-home',
@@ -14,9 +19,11 @@ export class HomeComponent implements OnInit {
   title = 'AssistAPurchase';
   closeResult = ''; 
   public prodDetail: GetAllProduct[] = [];
+  public static prodNumber = '';
   isFilterApplied = false;
   isNameSelected = false;
-  constructor(private productDetail: ProductManagementService, private adminLogin : AdminLoginService) { }
+  constructor(private productDetail: ProductManagementService, private adminLogin : AdminLoginService, 
+     private router: Router) { }
   
   ngOnInit(): void {
     this.GetAllProduct();
@@ -37,20 +44,7 @@ export class HomeComponent implements OnInit {
 
   ShowSearchedProduct(serachProduct : string){
 
-    this.prodDetail = [];
-    this.isFilterApplied = true;
-    let observable=this.productDetail.ReturnProductSearchByProductNumber(serachProduct);
-    
-    observable.subscribe((data:GetAllProduct)=>{
-      this.prodDetail[0] = data;
-    },
-    (error:any)=>{
-     this.GetAllProduct();
-     this.isFilterApplied = false;
-    },
-    ()=>{
-      console.log("Completed");
-    });
+    this.ViewProductSpecification(serachProduct);
   }
 
   RemoveFilter(){
@@ -65,24 +59,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  CancelLogin(){
-    this.isNameSelected = false;
+  ViewProductSpecification(productNumber: string){
+    HomeComponent.prodNumber = productNumber;
+    this.router.navigate(['/Product']);
   }
-  
-  ValidateCredentials(email: string , password: string){
-    console.log(email + password);
-    let data = {email: email, password: password};
-    let observable=this.adminLogin.ValidateAdmin(data);
-    observable.subscribe((data:Response)=>{
-      console.log(data);
-    },
-    (error:any)=>{
-     //alert(error);
-     console.log(error)
-    },
-    ()=>{
-      console.log("Completed");
-    });
-  }
-
 }
