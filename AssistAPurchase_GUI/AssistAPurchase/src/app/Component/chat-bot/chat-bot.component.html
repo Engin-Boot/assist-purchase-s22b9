@@ -12,7 +12,7 @@
         </div>
         <div class="div1">
             <div class="div2">
-                <button class="button button2" (click) = "HelloBot()" >Hello</button>
+                <button *ngIf = "ishelloCustomer" class="button button2" (click) = "HelloBot()" >Hello</button>
                 <p>{{hello}}</p>
                 <div *ngFor = "let productName of productName">
                     <button *ngIf="isReplied" (click)="SelectedProduct(productName)" class="button button2" >{{productName}}</button>
@@ -48,8 +48,6 @@
                     <button #BothTouchScreen *ngIf="isTouchScreenSupportNeeded" value="NOPreference" (click)="IsTouchScreenSupportNeeded(BothTouchScreen.value)" class="button button2" >NO Preference</button>
                 </div>
                 <div>
-                    <button #Mail *ngIf="isMailed" value="YES" (click)="SendMail(Mail.value)" class="button button2" > Send Me Mail</button>
-                    <button #NoMail *ngIf="isMailed" value="NO" (click)="SendMail(NoMail.value)" class="button button2" > Display Here</button>
                 </div>
                     <div *ngIf = "isDisplayed">
                     <div *ngFor="let detail of FilteredProduct">

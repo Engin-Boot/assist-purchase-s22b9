@@ -13,6 +13,7 @@ import { HomeComponent } from './Component/home/home.component';
 import { LoginComponent } from './Component/login/login.component';
 import { ChatBotComponent } from './Component/chat-bot/chat-bot.component';
 import { ViewProductComponent } from './Component/view-product/view-product.component';
+import { PersonnalSupportComponent } from './Component/personnal-support/personnal-support.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ViewProductComponent } from './Component/view-product/view-product.comp
     HomeComponent,
     LoginComponent,
     ChatBotComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    PersonnalSupportComponent
   ],
   imports: [
     BrowserModule,
