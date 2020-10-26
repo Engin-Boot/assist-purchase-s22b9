@@ -1,31 +1,36 @@
-
 <html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <div class="topnav">
-            <a class="active" routerLink= '/Home'>Home</a>
-            <a href="#about">About</a>
-            <a routerLink= '/ChatBot'>Customer Support</a>
-            <a routerLink= '/Login'>Admin</a>
-            <div class="search-container">
-            <input type="text" #MyInput placeholder="Search.." name="search">
-            <button type="submit" (click) = "ShowSearchedProduct(MyInput.value)"><i class="fa fa-search"></i></button>
-            </div>
-          </div>
-          
-          <img src="https://cdn.hswstatic.com/gif/becoming-doctor.jpg">
-           
-          <div class="card" *ngFor="let product of prodDetail">
-                <img src="{{product.image}}" alt="{{product.productName}}" wid p="200" height="200">
-                <h1>{{product.productName}}</h1>
-                <p class="price">{{product.price}}</p>
-                <p>{{product.description}}</p>
-                <button (click)= "ViewProductSpecification(product.productNumber)">View More</button>
 
-            </div>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="topnav">
+        <a routerLink='/Home'>Home</a>
+        <a href="#about">About</a>
+        <a routerLink='/ChatBot'>Customer Support</a>
+        <a routerLink='/Login'>Admin</a>
+        <div class="search-container">
+            <input type="text" #MyInput placeholder="Search.." name="search" ngModel>
+            <button name="search" type="submit" class="btnsubmit" (click)="ShowSearchedProduct(MyInput.value)"><i
+                    class="fa fa-search"></i> </button>
             
-    </body>
+                    <!-- <button id="btn1" type="submit">OK</button> -->
+        </div>
+    </div>
+
+    <img src="https://cdn.hswstatic.com/gif/becoming-doctor.jpg">
+    <div class="centered">Continuous patient monitoring systems</div>
+    <div class="card" *ngFor="let product of prodDetail">
+        <img src="{{product.image}}" alt="{{product.productName}}" wid p="200" height="200">
+        <h1>{{product.productName}}</h1>
+        <p class="price">{{product.price}}</p>
+        <p>{{product.description}}</p>
+        <button (click)="ViewProductSpecification(product.productNumber)">View More</button>
+
+    </div>
+
+</body>
+
 </html>
 <router-outlet></router-outlet>
