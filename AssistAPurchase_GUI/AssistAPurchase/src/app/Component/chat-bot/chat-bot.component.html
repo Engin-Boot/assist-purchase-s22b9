@@ -3,7 +3,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
-    <body>
+    <body >
         <div class="topnav">
             <a class="active" routerLink = '/Home'>Home</a>
             <a href="#about">About</a>
@@ -14,14 +14,71 @@
             <div class="div2">
                 <button class="button button2" (click) = "HelloBot()" >Hello</button>
                 <p>{{hello}}</p>
-                <button class="button button2" *ngIf="isReplied" (click) = "Filter()" >Need Battery Support</button>
-                <button class="button button2" *ngIf="isReplied" (click) = "Filter()" >No Need Battery For Support</button>
+                <div *ngFor = "let productName of productName">
+                    <button *ngIf="isReplied" (click)="SelectedProduct(productName)" class="button button2" >{{productName}}</button>
+                </div>
+                <div>
+                    <button #Wearable *ngIf="isWearable" value="YES" (click)="IsWearable(Wearable.value)" class="button button2" >Wearable Devices</button>
+                    <button #NonWearable *ngIf="isWearable" value="NO" (click)="IsWearable(NonWearable.value)" class="button button2" >Non Wearable Devices</button>
+                    <button #BothWearable *ngIf="isWearable" value="NOPreference" (click)="IsWearable(BothWearable.value)" class="button button2" >NO Preference</button>
+                </div>
+                <div>
+                    <button #MultiPatient *ngIf="isMultiPatientSupport" value="YES" (click)="IsMultiPatientSupport(MultiPatient.value)" class="button button2" >Multi Patient Setup</button>
+                    <button #SinglePatient *ngIf="isMultiPatientSupport" value="NO" (click)="IsMultiPatientSupport(SinglePatient.value)" class="button button2" >Single Patient Setup</button>
+                    <button #NoSetup *ngIf="isMultiPatientSupport" value="NOPreference" (click)="IsMultiPatientSupport(NoSetup.value)" class="button button2" >NO Preference</button>
+                </div>
+                <div>
+                    <button #SWS *ngIf="isUpdateSupportNeeded" value="YES" (click)="IsUpdateSupportNeeded(SWS.value)" class="button button2" >Software Update Support</button>
+                    <button #NotSWS *ngIf="isUpdateSupportNeeded" value="NO" (click)="IsUpdateSupportNeeded(NotSWS.value)" class="button button2" >NO Software Update Support</button>
+                    <button #Both *ngIf="isUpdateSupportNeeded" value="NOPreference" (click)="IsUpdateSupportNeeded(Both.value)" class="button button2" >NO Preference</button>
+                </div>
+                <div>
+                    <button #Portability *ngIf="isPortabilityNeeded" value="YES" (click)="IsProtabilitySupportNeeded(Portability.value)" class="button button2" >Portability</button>
+                    <button #NotPortability *ngIf="isPortabilityNeeded" value="NO" (click)="IsProtabilitySupportNeeded(NotPortability.value)" class="button button2" >NO Portability</button>
+                    <button #BothPortability *ngIf="isPortabilityNeeded" value="NOPreference" (click)="IsProtabilitySupportNeeded(BothPortability.value)" class="button button2" >NO Preference</button>
+                </div>
+                <div>
+                    <button #Battery *ngIf="isBatterySupport" value="YES" (click)="IsBatterySupportNeeded(Battery.value)" class="button button2" >Battery Support Needed</button>
+                    <button #NoBattery *ngIf="isBatterySupport" value="NO" (click)="IsBatterySupportNeeded(NoBattery.value)" class="button button2" >NO Battery Support Needed</button>
+                    <button #BothBattery *ngIf="isBatterySupport" value="NOPreference" (click)="IsBatterySupportNeeded(BothBattery.value)" class="button button2" >NO Preference</button>
+                </div>
+                <div>
+                    <button #TouchScreen *ngIf="isTouchScreenSupportNeeded" value="YES" (click)="IsTouchScreenSupportNeeded(TouchScreen.value)" class="button button2" >Touch Screen Device</button>
+                    <button #NoTouchScreen *ngIf="isTouchScreenSupportNeeded" value="NO" (click)="IsTouchScreenSupportNeeded(NoTouchScreen.value)" class="button button2" >Non Touch Screen Device</button>
+                    <button #BothTouchScreen *ngIf="isTouchScreenSupportNeeded" value="NOPreference" (click)="IsTouchScreenSupportNeeded(BothTouchScreen.value)" class="button button2" >NO Preference</button>
+                </div>
+                <div>
+                    <button #Mail *ngIf="isMailed" value="YES" (click)="SendMail(Mail.value)" class="button button2" > Send Me Mail</button>
+                    <button #NoMail *ngIf="isMailed" value="NO" (click)="SendMail(NoMail.value)" class="button button2" > Display Here</button>
+                </div>
+                    <div *ngIf = "isDisplayed">
+                    <div *ngFor="let detail of FilteredProduct">
+                        <tr>{{detail.productName}} : {{detail.productNumber}}</tr>
+                        <tr>{{detail.description}}</tr>
+                        <tr>Price : Rs {{detail.price}}</tr>
+                        <tr>Product Specfic Training : {{detail.productSpecficTraining}}</tr>
+                        <tr>Wearable : {{detail.wearable}}</tr>
+                        <tr>Software Update Support : {{detail.softwareUpdateSupport}}</tr>
+                        <tr>Portability : {{detail.portability}}</tr>
+                        <tr>Compact : {{detail.compact}}</tr>
+                        <tr>Battery Support : {{detail.batterySupport}}</tr>
+                        <tr> pird Party Device Support : {{detail.pirdPartyDeviceSupport}}</tr>
+                        <tr>Safe To Fly Certification : {{detail.safeToFlyCertification}}</tr>
+                        <tr>Touch Screen Support : {{detail.touchScreenSupport}}</tr>
+                        <tr>Screen Size : {{detail.screenSize}}</tr>
+                        <tr>Multi Patient Support : {{detail.multiPatientSupport}}</tr>
+                        <tr>Cyber Security : {{detail.cyberSecurity}} </tr>   
+                        <tr>#########################################################################</tr>
+                        <br>
+                    </div>
+                </div>
                 <p *ngIf = "isProductFilterd">What is you Name?</p>
                 <p *ngIf = "isEmailEntered">{{name}} Enter Your Mail Id</p>
-                    <p *ngIf = "isEmailEntered">{{email}}</p>
+                <button #ThankYou *ngIf="thankYouSendMail" (click)="ThankUser()" class="button button2" > Thank You For Your Input We Will Shortly Update You Via Mail. Have a Nice Day</button>
+                <button #ThankYou *ngIf="thankYou"  (click)="ThankUser()" class="button button2" > Thank You </button>
             </div>	
             <input type=" text" class="msg" #Input>
-            <button style="margin-left: 198px;margin-top: -100px;" class="w3-button w3-xlarge w3-circle w3-teal" (click) = "SetInput(Input.value)">></button>
+            <button class="button send" (click) = "SetInput(Input.value)">Send</button>
         </div>
     </body>
 </html>

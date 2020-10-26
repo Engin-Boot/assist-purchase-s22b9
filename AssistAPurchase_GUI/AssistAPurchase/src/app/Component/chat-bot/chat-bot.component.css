@@ -1,6 +1,8 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color:rgb(122, 125, 128);
+    background-repeat: no-repeat;
   }
   
   /****************************Nav Bar******************************************/
@@ -109,34 +111,35 @@ body {
       
       /* Add styles to the form container */
       .div1{
-        width: 300px;
-        height: 500px;  
+        width: 500px;
+        height: 600px;  
         padding: 50px;
-        border: 7px solid black;
+        border: 3px solid black;
         margin-left: 400px;
-        margin-top: 100px;
-        border-radius: 12px;
-        background-color: rgb(114, 115, 117);
+        margin-top: 80px;
+        background-color: rgb(128, 164, 236);
+        box-shadow: 10px 10px 5px #aaaaaa;
+        box-shadow: lightslategray;
       }
       .div2 {
-        width: 300px;
-        height: 400px;  
+        width: 400px;
+        height: 500px;  
         padding: 50px;
-        margin-left: -52px;
-        margin-top: -40px;
+        margin-left: -5px;
+        margin-top: -25px;
         border-radius: 12px;
+        background-color: honeydew;
         overflow-y: auto;
       }
        .msg {
-        width:250px; 
+        width:290px; 
         height: -10px;
         padding: 22px;
         border: 3px solid black;
-        margin-left: -52px;
+        margin-left: -5px;
         margin-top: 0px;
         border-radius: 12px;
       }
-
       .button {
         background-color: #4CAF50; /* Green */
         border: none;
@@ -152,16 +155,27 @@ body {
       }
       
       
-      .button2 {
+      .button2, .send {
         background-color: white; 
         color: black; 
-        border: 2px solid #008CBA;
+        border: 3px solid #333;
         border-radius: 12px;
       }
       
       .button2:hover {
-        background-color: #008CBA;
+        background-color: #333;
         color: white;
+      }
+      .send:hover{
+        background-color: #000;
+        color: aliceblue;
+      }
+      .send{
+        background-color: #333;
+        width: 100px;
+        padding: 18px;
+        margin-left: 0px;
+        color: aliceblue;
       }
 
 
