@@ -18,4 +18,8 @@ export class RespondToQuestionService {
 
     return this.https.post('http://localhost:5000/api/RespondToQuestions/MonitoringProduct', body);
   }
+
+  SendEmailToPersonal(body: any){
+    return this.https.post('http://localhost:5001/api/Alert', body);
+  }
 }

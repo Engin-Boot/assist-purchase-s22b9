@@ -4,6 +4,8 @@ using AssistAPurchase.Models;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 using Xunit.Abstractions;
+using System.Collections.Generic;
+using System.Net;
 
 namespace AssistAPurchaseWebApiTest
 {
@@ -104,6 +106,17 @@ namespace AssistAPurchaseWebApiTest
             var createdResponse = _controller.AnswerFromPhilipsPersonnel(invalidCustomerName, answer);
             // Assert
             Assert.IsType<NotFoundObjectResult>(createdResponse);
+        }
+        [Fact]
+        public void WhenCustomerMailIdIsInvalidThenReturnTrue()
+        {
+            var dummyMailData = new Mailer
+            {
+                CustomerEmailId = "test@test.com",
+                ProductNameList = new List<string>() { "MX450", "MX7500" }
+            };
+            var response = _controller.Post(dummyMailData);
+            Assert.True(response == HttpStatusCode.BadRequest);
         }
     }
 }

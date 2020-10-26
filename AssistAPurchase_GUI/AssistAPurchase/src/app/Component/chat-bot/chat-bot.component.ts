@@ -17,6 +17,7 @@ export class ChatBotComponent implements OnInit {
   email = '';
   noPreference = "NOPreference";
 
+  ishelloCustomer = true;
   isProductFilterd = false;
   isReplied = false;
   isEmailEntered = false;
@@ -46,6 +47,7 @@ export class ChatBotComponent implements OnInit {
   HelloBot(){
     this.isReplied = true;
     this.hello = "Hello";
+    this.ishelloCustomer = false;
   }
  
   Filter(){
@@ -97,21 +99,13 @@ export class ChatBotComponent implements OnInit {
   }
   IsTouchScreenSupportNeeded(touchScreenSupport : string){
     this.isTouchScreenSupportNeeded = false;
-    this.isMailed = true;
+    this.isDisplayed = true;
+    this.thankYou = true;
     if(touchScreenSupport != this.noPreference)
     this.FilterProduct("TouchScreenSupport",touchScreenSupport);
-  }
-  SendMail(mail: string){
-    this.isMailed = false;
     this.ApplyFilter();
-    if(mail == "YES"){
-      this.isProductFilterd = true;
-    }
-    else{
-      this.isDisplayed = true;
-      this.thankYou = true;
-    }
   }
+ 
   SetInput(input: string){
     if(this.isProductFilterd == true){
       this.name = input;

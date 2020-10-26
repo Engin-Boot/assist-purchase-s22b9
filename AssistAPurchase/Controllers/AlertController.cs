@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AssistAPurchase.Models;
 using AssistAPurchase.Repository;
+using System.Net;
 
 namespace AssistAPurchase.Controllers
 {
@@ -8,10 +9,12 @@ namespace AssistAPurchase.Controllers
     [ApiController]
     public class AlertController : ControllerBase
     {
+        private readonly SendEmail _sendEmail;
         private IAlertRepository Alerts { get;}
         public AlertController(IAlertRepository alerts)
         {
             Alerts = alerts;
+            _sendEmail = new SendEmail();
         }
         
         
@@ -50,6 +53,12 @@ namespace AssistAPurchase.Controllers
                 return NotFound("Query Not Registered.");
             string message = "Question : " + alert.Question + "\n" + "Answer : " + answer.Answer;
             return Ok(message);
+        }
+
+        [HttpPost]
+        public HttpStatusCode Post([FromBody] Mailer mailData)
+        {
+            return _sendEmail.SendEmailViaWebApi(mailData.ProductNameList, mailData.CustomerEmailId);
         }
     }
 }
