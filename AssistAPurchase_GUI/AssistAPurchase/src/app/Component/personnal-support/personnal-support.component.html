@@ -1,1 +1,32 @@
-<p>personnal-support works!</p>
+<html>
+<head></head>
+<body>
+  <app-header></app-header>
+  <div class="container" id="myform">
+
+    <form #formEmail="ngForm" id="contact" method="post">
+
+      <h3>Details</h3>
+
+      <fieldset>
+        <input placeholder="Name" #prodid name="name" type="text" tabindex="1" autofocus [(ngModel)]="cutomerInfo.CustomerName" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Email id" #prodid name="email" type="email" tabindex="2" [(ngModel)]="cutomerInfo.CustomerEmailId" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Contact number" #prodid name="mobile" type="mobile" tabindex="3" [(ngModel)]="cutomerInfo.Mobile">
+      </fieldset>
+      <fieldset>
+        <input placeholder="product interested in" #prodid name="product" type="text" tabindex="4" [(ngModel)]="cutomerInfo.ProductName">
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" class="btnsubmit" (click) = "SendEmail(formEmail.invalid)">Submit information</button>
+      </fieldset>
+
+    </form>
+  </div>
+
+</body>
+
+</html>

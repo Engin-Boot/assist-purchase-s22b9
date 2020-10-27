@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -5,12 +6,7 @@
 </head>
 
 <body>
-    <div class="topnav">
-        <a routerLink='/Home'>Home</a>
-        <a href="#about">About</a>
-        <a routerLink='/ChatBot'>Chat with us</a>
-        <a routerLink='/ChatBot'>Contact us</a>
-        <a routerLink='/Login'>Admin</a>
+    <app-header></app-header>
         <div class="search-container">
             <input type="text" #MyInput placeholder="Search.." name="search" ngModel>
             <button name="search" type="submit" class="btnsubmit" (click)="ShowSearchedProduct(MyInput.value)"><i
@@ -18,7 +14,7 @@
             
                     <!-- <button id="btn1" type="submit">OK</button> -->
         </div>
-    </div>
+    
 
     <img src="https://cdn.hswstatic.com/gif/becoming-doctor.jpg">
     <div class="centered">Continuous patient monitoring systems</div>

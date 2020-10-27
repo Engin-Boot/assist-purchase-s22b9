@@ -2,6 +2,8 @@
 using AssistAPurchase.Models;
 using AssistAPurchase.Repository;
 using System.Net;
+using System.Net.Mail;
+using System;
 
 namespace AssistAPurchase.Controllers
 {
@@ -55,10 +57,22 @@ namespace AssistAPurchase.Controllers
             return Ok(message);
         }
 
-        [HttpPost]
-        public HttpStatusCode Post([FromBody] Mailer mailData)
+        [HttpPost("email")]
+        public IActionResult Post([FromBody] Mailer mailData)
         {
-            return _sendEmail.SendEmailViaWebApi(mailData.ProductNameList, mailData.CustomerEmailId);
+            try
+            {
+                _sendEmail.SendEmailViaWebApi(mailData);
+            }
+            catch (SmtpException)
+            {
+                return BadRequest();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+            return Ok();
         }
     }
 }

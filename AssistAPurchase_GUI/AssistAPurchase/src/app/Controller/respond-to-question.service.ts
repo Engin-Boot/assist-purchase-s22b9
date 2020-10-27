@@ -20,6 +20,7 @@ export class RespondToQuestionService {
   }
 
   SendEmailToPersonal(body: any){
-    return this.https.post('http://localhost:5001/api/Alert', body);
+    
+    return this.https.post('http://localhost:5000/api/Alert/email', body);
   }
 }

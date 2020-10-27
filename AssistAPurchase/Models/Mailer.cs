@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
 
 namespace AssistAPurchase.Models
 {
     public class Mailer 
     {
-        public IEnumerable<string> ProductNameList { get; set; }
+        public string ProductName { get; set; }
         public string CustomerEmailId { get; set; }
+        public string CustomerName { get; set; }
+        public string Mobile { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AssistAPurchase.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,10 +10,9 @@ namespace AssistAPurchase.Repository
 {
     public class SendEmail
     {
-        public HttpStatusCode SendEmailViaWebApi(IEnumerable<string> productNameList, string customerMailId)
+        public void SendEmailViaWebApi(Mailer mailData)
         {
-            try
-            {
+            
                 using var smtp = new SmtpClient
                 {
                     DeliveryMethod = SmtpDeliveryMethod.Network,
@@ -26,27 +26,18 @@ namespace AssistAPurchase.Repository
                 // send the email
                 var mailBody = new StringBuilder();
                 mailBody.Append("Please find the following customer email id and selected product(s).\n");
-                mailBody.Append("Customer Email Id: " + customerMailId + "\n");
-                mailBody.Append("Selected product(s):\n");
+                mailBody.Append("Customer Name: " + mailData.CustomerName + "\n");
+                mailBody.Append("Customer Email Id: " + mailData.CustomerEmailId + "\n");
+                mailBody.Append("Mobile number:" + mailData.Mobile + "\n");
+                mailBody.Append("Product interested in:" + mailData.ProductName);
+                
 
-                foreach (var (productName, index) in productNameList.Select(
-                    (productName, index) => (productName, index)))
-                {
-                    mailBody.Append(index + ". " + productName + "\n");
 
-                }
 
-                smtp.Send("kavyashuklaca39@gmail.com", "kavyashuklaca39@gmail.com", "Alert: Customer Requirement", mailBody.ToString());
-                return HttpStatusCode.OK;
-            }
-            catch (SmtpException)
-            {
-                return HttpStatusCode.BadRequest;
-            }
-            catch (Exception)
-            {
-                return HttpStatusCode.InternalServerError;
-            }
+                smtp.Send("gaganpunjabi316@gmail.com", "gaganpunjabi316@gmail.com", "Alert: Customer Requirement", mailBody.ToString());
+                
+            
+            
         }
     }
 }
