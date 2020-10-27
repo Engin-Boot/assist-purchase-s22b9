@@ -4,12 +4,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <div class="topnav">
-            <a class="active" (click) = "SetProductNumberToNull()"routerLink= '/Home'>Home</a>
-            <a href="#about">About</a>
-            <a routerLink= '/ChatBot'>Customer Support</a>
-            <a routerLink= '/Login'>Admin</a>
-          </div>
+        <app-header></app-header>
            
           <div class="card" *ngFor="let product of product">
             <img src="{{product.image}}" alt="{{product.productName}}" wid p="400" height="600">
