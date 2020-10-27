@@ -149,7 +149,8 @@ namespace AssistAPurchase.Integration.Tests
                 TouchScreenSupport = "YES",
                 ScreenSize = "6.1",
                 MultiPatientSupport = "NO",
-                CyberSecurity = "NO"
+                CyberSecurity = "NO",
+                Image = "http://img.com"
             };
             var response = await _sut.Client.PostAsync(url + "/X5",
                 new StringContent(JsonConvert.SerializeObject(createProduct), Encoding.UTF8, "application/json"));
