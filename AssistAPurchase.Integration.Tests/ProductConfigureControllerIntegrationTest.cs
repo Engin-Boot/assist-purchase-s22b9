@@ -134,7 +134,7 @@ namespace AssistAPurchase.Integration.Tests
         {
             var createProduct = new MonitoringItems()
             {
-                ProductNumber = "X3",
+                ProductNumber = "X5",
                 ProductName = "IntelliVue",
                 Description = "The Philips IntelliVue X3 is a compact, dual-purpose, transport patient monitor featuring intuitive SmartPhone-style operation and offering a scalable set of clinical measurements.",
                 ProductSpecficTraining = "NO",
@@ -154,7 +154,7 @@ namespace AssistAPurchase.Integration.Tests
             };
             var response = await _sut.Client.PostAsync(url + "/X5",
                 new StringContent(JsonConvert.SerializeObject(createProduct), Encoding.UTF8, "application/json"));
-            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
 
         }
     }
