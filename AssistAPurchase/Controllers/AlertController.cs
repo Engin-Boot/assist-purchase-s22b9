@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AssistAPurchase.Models;
 using AssistAPurchase.Repository;
-using System.Net;
 using System.Net.Mail;
 using System;
 

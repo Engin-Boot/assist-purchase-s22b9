@@ -4,8 +4,7 @@ using AssistAPurchase.Models;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 using Xunit.Abstractions;
-using System.Collections.Generic;
-using System.Net;
+
 
 namespace AssistAPurchaseWebApiTest
 {
