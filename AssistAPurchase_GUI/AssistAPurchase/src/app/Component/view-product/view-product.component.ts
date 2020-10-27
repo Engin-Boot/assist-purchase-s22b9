@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GetAllProduct } from 'src/app/DataModel/GetAllProduct';
 import { HomeComponent } from 'src/app/Component/home/home.component';
 import { ProductManagementService } from 'src/app/Controller/product-management.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-product',
@@ -12,7 +13,7 @@ export class ViewProductComponent implements OnInit {
 
   public product : GetAllProduct[] = [];
   productNumber : string;
-  constructor(private productDetail: ProductManagementService) {  }
+  constructor(private productDetail: ProductManagementService, private router: Router) {  }
 
   ngOnInit(): void {
     this.GetProoductFromProductNumber();
@@ -25,7 +26,14 @@ export class ViewProductComponent implements OnInit {
     
     observable.subscribe((data:GetAllProduct)=>{
       this.product[0] = data;
-    });
+    },
+    (error:any)=>{
+      alert("Product Not Found");
+      this.router.navigate(['']);
+     },
+     ()=>{
+       console.log("Completed");
+     });
     
   }
 
