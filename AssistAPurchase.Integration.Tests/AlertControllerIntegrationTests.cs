@@ -80,6 +80,20 @@ namespace AssistAPurchase.Integration.Tests
             var response = await _sut.Client.PostAsync(url + "/ConfirmationAlert",null);
           response.StatusCode.Should().Be(HttpStatusCode.UnsupportedMediaType);
         }
+        [Fact]
+        public async Task SendEmailRaisesBadRequest()
+        {
+            var emailDetail = new Mailer
+            {
+                CustomerName = "akash",
+                CustomerEmailId = "akash@mail.com",
+                Mobile = "78787878787",
+                ProductName = "X3"
+            };
+            var response = await _sut.Client.PostAsync(url + "/email",
+                new StringContent(JsonConvert.SerializeObject(emailDetail), Encoding.UTF8, "application/json"));
 
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        }
     }
 }
