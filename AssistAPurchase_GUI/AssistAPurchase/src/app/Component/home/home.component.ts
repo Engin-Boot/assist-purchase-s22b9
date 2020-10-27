@@ -61,6 +61,6 @@ export class HomeComponent implements OnInit {
 
   ViewProductSpecification(productNumber: string){
     HomeComponent.prodNumber = productNumber;
-    this.router.navigate(['/Product']);
+    this.router.navigate(['/product']);
   }
 }
