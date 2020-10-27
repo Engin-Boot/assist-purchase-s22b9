@@ -36,7 +36,8 @@ namespace AssistAPurchaseWebApiTest
                 TouchScreenSupport = "YES",
                 ScreenSize = "6.0",
                 MultiPatientSupport = "NO",
-                CyberSecurity = "NO"
+                CyberSecurity = "NO",
+                Image="http://img.com"
             };
             var okResult = _controller.GetValueByCategory(product);
             // Assert
