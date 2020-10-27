@@ -113,10 +113,12 @@ namespace AssistAPurchaseWebApiTest
             var dummyMailData = new Mailer
             {
                 CustomerEmailId = "test@test.com",
-                ProductNameList = new List<string>() { "MX450", "MX7500" }
+                ProductName = "MX450",
+                CustomerName = "test"
             };
             var response = _controller.Post(dummyMailData);
-            Assert.True(response == HttpStatusCode.BadRequest);
+            Assert.IsType<BadRequestResult>(response);
+            
         }
     }
 }
