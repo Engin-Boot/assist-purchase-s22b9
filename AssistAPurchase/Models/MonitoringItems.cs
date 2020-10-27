@@ -18,7 +18,7 @@
             public string ScreenSize { get; set; }
             public string MultiPatientSupport { get; set; }
             public string CyberSecurity { get; set; }
-            // ReShaper disable once
-            public string Image { get; set; }
+        // ReShaper disable once
+        public string Image;
     }
 }
