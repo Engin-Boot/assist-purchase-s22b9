@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductManagementService } from 'src/app/Controller/product-management.service';
 import { GetAllProduct } from 'src/app/DataModel/GetAllProduct';
 import { Product } from 'src/app/Component/admin/product'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -17,7 +18,9 @@ export class AdminComponent implements OnInit {
   updateProductDisplay='none';
   deleteProductDisplay='none';
   getProductDispay='block'
-  constructor(private productDetail: ProductManagementService) { }
+  constructor(private productDetail: ProductManagementService, private router: Router) {
+    
+   }
 
   ngOnInit(): void {
     let observable=this.productDetail.GetProductInfo();
@@ -98,7 +101,10 @@ export class AdminComponent implements OnInit {
     });
     window.location.reload();
   }
-
+  RedirectHome()
+  {
+    this.router.navigate(['']);
+  }
 
   productModel = new Product("","","","NO","","NO","NO","NO","NO","NO","NO","NO","NO","","NO","NO","");
    
