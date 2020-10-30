@@ -93,7 +93,7 @@ namespace AssistAPurchase.Integration.Tests
             var response = await _sut.Client.PostAsync(url + "/email",
                 new StringContent(JsonConvert.SerializeObject(emailDetail), Encoding.UTF8, "application/json"));
 
-            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
     }
 }

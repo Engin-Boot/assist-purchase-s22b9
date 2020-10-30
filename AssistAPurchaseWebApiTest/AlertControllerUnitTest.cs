@@ -116,7 +116,7 @@ namespace AssistAPurchaseWebApiTest
                 CustomerName = "test"
             };
             var response = _controller.Post(dummyMailData);
-            Assert.IsType<BadRequestResult>(response);
+            Assert.IsType<OkResult>(response);
             
         }
     }
