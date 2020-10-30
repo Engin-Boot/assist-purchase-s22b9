@@ -24,6 +24,9 @@ jobs:
     
     - name: Install node module
       run: npm install
-   
+      
+    - name: CI
+      run: npm ci --prefix AssistAPurchase_GUI\AssistAPurchase
+      
     - name: Build
-      run: npm run build
+      run: npm run build --prefix AssistAPurchase_GUI\AssistAPurchase
