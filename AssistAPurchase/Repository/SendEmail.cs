@@ -17,7 +17,7 @@ namespace AssistAPurchase.Repository
                     EnableSsl = true,
                     Host = "smtp.gmail.com",
                     Port = 587,
-                    Credentials = new NetworkCredential("Sender Username", "Sender Password")
+                    Credentials = new NetworkCredential("philipspersonnal@gmail.com", "S22b9@bootcamp")
                 };
 
                 // send the email
@@ -31,7 +31,7 @@ namespace AssistAPurchase.Repository
 
 
 
-                smtp.Send("gaganpunjabi316@gmail.com", "gaganpunjabi316@gmail.com", "Alert: Customer Requirement", mailBody.ToString());
+                smtp.Send("philipspersonnal@gmail.com", "philipspersonnal@gmail.com", "Alert: Customer Requirement", mailBody.ToString());
                 
             
             

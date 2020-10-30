@@ -61,6 +61,16 @@
                     (click)="IsBatterySupportNeeded(BothBattery.value)" class="button button2">NO Preference</button>
             </div>
             <div>
+                <button #PreferedScreen *ngIf="isPreferedScreenSize" value = "YES"(click)="PreferedScreenSize(PreferedScreen.value)"
+                    class="button button2">Prefered Screen Size</button>
+                <button #NoScreenSize *ngIf="isPreferedScreenSize" value="NOPreference"
+                    (click)="PreferedScreenSize(NoScreenSize.value)" class="button button2">NO Preference</button>
+                <div *ngIf="screenSize">
+                    Enter Minimum Screen Size in inches : <input type=" text" class="msg" #ScreenSize >
+                    <button  (click)="EnterScreenSize(ScreenSize.value)" class="button button2">Send</button>
+                </div>
+            </div>
+            <div>
                 <button #TouchScreen *ngIf="isTouchScreenSupportNeeded" value="YES"
                     (click)="IsTouchScreenSupportNeeded(TouchScreen.value)" class="button button2">Touch Screen
                     Device</button>
@@ -100,8 +110,8 @@
                 Input We Will Shortly Update You Via Mail. Have a Nice Day</button>
             <button #ThankYou *ngIf="thankYou" (click)="ThankUser()" class="button button2"> Thank You </button>
         </div>
-        <input type=" text" class="msg" #Input>
-        <button class="button send" (click)="SetInput(Input.value)">Send</button>
+        <!--<input type=" text" class="msg" #Input>
+        <button class="button send" (click)="SetInput(Input.value)">Send</button>-->
     </div>
 </body>
 

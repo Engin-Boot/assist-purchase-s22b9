@@ -24,6 +24,8 @@ export class ChatBotComponent implements OnInit {
   isUpdateSupportNeeded = false;
   isPortabilityNeeded = false;
   isBatterySupport = false;
+  isPreferedScreenSize = false;
+  screenSize = false;
   isMultiPatientSupport = false;
   isTouchScreenSupportNeeded = false;
   isWearable = false;
@@ -93,9 +95,22 @@ export class ChatBotComponent implements OnInit {
   }
   IsBatterySupportNeeded(batterySupport : string){
     this.isBatterySupport = false;
-    this.isTouchScreenSupportNeeded = true;
+    this.isPreferedScreenSize = true;
     if(batterySupport != this.noPreference)
     this.FilterProduct("BatterySupport",batterySupport);
+  }
+  PreferedScreenSize(isScreenSizePrefered : string){
+    this.isPreferedScreenSize = false;
+    if(isScreenSizePrefered == this.noPreference)
+    this.isTouchScreenSupportNeeded = true;
+    else{
+      this.screenSize = true;
+    }
+  }
+  EnterScreenSize(screen: string){
+    this.screenSize = false;
+    this.isTouchScreenSupportNeeded = true;
+    this.FilterProduct("ScreenSize", screen);
   }
   IsTouchScreenSupportNeeded(touchScreenSupport : string){
     this.isTouchScreenSupportNeeded = false;
