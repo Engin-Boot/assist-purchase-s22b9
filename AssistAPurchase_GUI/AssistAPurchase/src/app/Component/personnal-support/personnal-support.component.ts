@@ -29,6 +29,15 @@ export class PersonnalSupportComponent implements OnInit {
     }
     return (false)
   }
+  ValidateMobile(mobile : string) : boolean 
+  {
+    
+    if(mobile.length ==0 ||mobile.length==10 )
+    {
+      return true;
+    }
+    return (false)
+  }
 
   SendEmail(invalid: boolean): void {
     
@@ -46,7 +55,10 @@ export class PersonnalSupportComponent implements OnInit {
       alert("Invalid Mail Id");
       return;
     }
-  
+    if(!this.ValidateMobile(this.cutomerInfo.CustomerEmailId)){
+      alert("Please enter 10 digits Mobile number");
+      return;
+    }
     let observable = this.emailController.SendEmailToPersonal(data)
     observable.subscribe((data: Response) => {
     
