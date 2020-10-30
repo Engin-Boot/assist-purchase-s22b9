@@ -24,9 +24,6 @@ jobs:
     
     - name: Install node module
       run: npm install
-    
-    - name: Install node module
-      run: npm ci
    
     - name: Build
       run: npm run build
